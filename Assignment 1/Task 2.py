@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 import os
 
 
+
 def get_current_absolute_path():
     return os.path.abspath(os.path.dirname(__file__))
-
 
 def create_discretized_1D_space(start, end, number_of_points, distance_between_points=None):
     if distance_between_points is not None: 
@@ -17,11 +17,9 @@ def create_discretized_1D_space(start, end, number_of_points, distance_between_p
 
     return linspace
 
-
 def Hartree_potential(radial_distance):
     r = np.array(radial_distance)
     return (1.0/r) - (1.0 + 1.0/r)*np.exp(-2.0*r)
-
 
 def create_matrix_D2_finite_difference(number_of_points_in_discretized_1D_grid, h):
     N = number_of_points_in_discretized_1D_grid
@@ -35,7 +33,6 @@ def create_matrix_D2_finite_difference(number_of_points_in_discretized_1D_grid, 
     D2[abs(i-j)==1] =  1 / h**2
 
     return D2
-
 
 def ground_state_electron_density_for_hydrogen(radial_distance):
     # atomic units, Bohr radius: a0 = 1
@@ -51,7 +48,7 @@ def ground_state_electron_density_for_hydrogen(radial_distance):
 
 ## MAIN ##
 
-N = 1000
+N = 100
 linspace_start, linspace_end = 0, 10
 h = (linspace_end - linspace_start)/(N-1)
 r = create_discretized_1D_space(linspace_start, linspace_end, N, h)
@@ -74,14 +71,6 @@ U = U_0 + r/np.max(r)
 V_sH = U/r 
 
 
-# PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
-current_absolute_path = get_current_absolute_path()
-output_string = f'\output\A1_Task2_N={N}.csv'
-with open(current_absolute_path+output_string,'w') as CSV_file:
-    CSV_file.write(f"Radial distance r (atomic units), theoretical Hartree potential (atomic units), calculated Hartree potential (atomic units) with {N} points\n")
-    for line in range(N):
-            CSV_file.write(str(r[line]) + ", " + str(V_Hartree[line]) + ", " + str(V_sH[line]) + "\n")
-
 
 # PLOT #
 plt.plot(r, V_Hartree,  color='black', marker='', linestyle='-', label='Theoretical Hartree potential')
@@ -92,5 +81,15 @@ plt.ylabel('Energy of potential (atomic units)')
 plt.grid()
 plt.legend()
 plt.show()
+
+
+
+# PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
+current_absolute_path = get_current_absolute_path()
+output_string = f'\output\A1_Task2_Hartree_potential_N={N}.csv'
+with open(current_absolute_path+output_string,'w') as CSV_file:
+    CSV_file.write(f"Radial distance r (atomic units), theoretical Hartree potential (atomic units), calculated Hartree potential (atomic units) with {N} points\n")
+    for line in range(N):
+            CSV_file.write(str(r[line]) + ", " + str(V_Hartree[line]) + ", " + str(V_sH[line]) + "\n")
 
 # EOF # 
