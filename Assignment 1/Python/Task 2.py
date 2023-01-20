@@ -19,27 +19,26 @@ def Hartree_potential(radial_distance):
     return (1.0/r) - (1.0 + 1.0/r)*np.exp(-2.0*r)
 
 
-def create_matrix_A_task_2(number_of_points_in_discretized_1D_grid):
+def create_matrix_D2_task_2(number_of_points_in_discretized_1D_grid):
     N = number_of_points_in_discretized_1D_grid
 
-    A = np.zeros((N,N))
-    i,j = np.indices(A.shape)
+    D2 = np.zeros((N,N))
+    i,j = np.indices(D2.shape)
 
     # Operator matrix for numerical second derivative
     # formula: d2y/dx2 = (y(k-1) - 2y(k) + y(k+1)) / dx2
-    A[i==j]    = 1
-    A[i-j==1]  = -2
-    A[i-j==2]  = 1
+    D2[i==j-1] = 1 / h**2
+    D2[i==j]   = -2 / h**2
+    D2[i==j+1] = 1 / h**2
 
-    ## IS THIS CORRECT? 
-    return A
+    return D2
 
 
 def ground_state_electron_density_for_hydrogen(radial_distance):
     # atomic units, Bohr radius: a0 = 1
-    r = np.array(radial_distance)
+    r  = np.array(radial_distance)
     a0 = 1
-    n = np.exp(-2*r/a0) / (np.pi * a0**3)
+    n  = np.exp(-2*r/a0) / (np.pi * a0**3)
     # source: https://en.wikipedia.org/wiki/Hydrogen_atom
     return n
 
@@ -49,24 +48,23 @@ def ground_state_electron_density_for_hydrogen(radial_distance):
 
 ## MAIN ##
 
-linspace_start, linspace_end = 1e-3, 12
-N = 150
+linspace_start, linspace_end = 0, 10
+N = 1000
 h = (linspace_end - linspace_start)/(N-1)
 r = create_discretized_1D_space(linspace_start, linspace_end, N, h)
 
 V_Hartree = Hartree_potential(r)
-A = create_matrix_A_task_2(N)
+D2 = create_matrix_D2_task_2(N)
 electron_density = ground_state_electron_density_for_hydrogen(r)
 #u = np.sqrt(4*np.pi*electron_density)*r
 #u_squared = 4*np.pi*electron_density*r**2
-u_squared_divided_by_r = 4*np.pi*electron_density*r
-b = -h**2 * u_squared_divided_by_r
+u_squared_divided_by_r = 4 * np.pi * electron_density * r
 
-U_0 = np.linalg.solve(A, b) #solve matrix equation: A*U_0 = b
-# where A is the matrix A defined in code (finite difference of second derivative)
+U_0 = np.linalg.solve(D2, -u_squared_divided_by_r) #solve matrix equation: A*U_0 = b
+# where A is the matrix D2 defined in code (finite difference of second derivative)
 # U_0 is the potential U_0 with boundary conditions U_0(0) = U_0(r_max) = 0,
 #     and U(r) = U_0(r) + r/r_max is the sought potential (I think?)
-# b is -h**2 * u**2/r where h is the step in the discretization of grid and
+# b is - u**2/r where h is the step in the discretization of grid and
 # u is np.sqrt(4*np.pi*n(r))*r, and n(r) is the electron density for hydrogen (one electron)
 
 U = U_0 + r/np.max(r) #definition of U_0
@@ -77,9 +75,9 @@ U = U_0 + r/np.max(r) #definition of U_0
 #print(U[0], U[-1])
 
 V_sH = U/r # equation between the equations (32) and (33)
-shift = V_Hartree[0]-V_sH[0]
-V_sH += shift #shift up (to avoid negative numbers)
-V_sH /= V_sH[0] #potential should be 1 at r=0
+#shift = V_Hartree[0]-V_sH[0]
+#V_sH += shift #shift up (to avoid negative numbers)
+#V_sH /= V_sH[0] #potential should be 1 at r=0
 
 
 # PRINT TO CSV #
