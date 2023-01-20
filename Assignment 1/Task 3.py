@@ -30,42 +30,79 @@ def create_matrix_D2_finite_difference(number_of_points_in_discretized_1D_grid, 
 
     return D2
 
-def normalized_ground_state_wavefunction_hydrogen():
+def create_diagonal_matrix_from_array(array):
+    #element matrix[i][i] is set to array[i]
+    reversed_array = np.flip(array)
+    return np.diag(reversed_array)
+
+
+def normalized_ground_state_wavefunction_hydrogen(radial_distance):
     # in atomic units, Bohr radius a0 = 1
     a0 = 1
 
-    f = 
+    r = np.array(radial_distance)
+    f = (1 / np.sqrt(np.pi)) * (1 / a0**(3/2)) * np.exp(-r / a0)
     return f
+
+def ground_state_energy_hydrogen():
+    # in atomic units
+    return -(1/2)
+
+
 
 ## MAIN ##
 
-N = 10
+N = 100
 linspace_end, linspace_start = 0, 10
 h = (linspace_end - linspace_start) / (N-1)
-r = create_discretized_1D_space(linspace_start, linspace_end, N, h)
+
+r    = create_discretized_1D_space(linspace_start, linspace_end, N, h)
+D2   = create_matrix_D2_finite_difference(N, h)
+R    = create_diagonal_matrix_from_array(r)
+r_inverse = np.array([1/x for x in r[0:-1]])
+r_inverse = np.insert(r_inverse, 0, 10e10, axis=0) #to avoid division by zero
+R_inverse = create_diagonal_matrix_from_array(r_inverse)
+#V_H  = create_diagonal_matrix_from_array()
+#V_x  = create_diagonal_matrix_from_array()
+#V_c  = create_diagonal_matrix_from_array()
 
 
+# Solve for hydrogen as a test #
+psi_hydrogen_theoretical = normalized_ground_state_wavefunction_hydrogen(r)
+hydrogen_matrix_H = (-0.5*D2 - R_inverse) #Schrödinger equation: H*psi = E*psi, so eigen 
 
-eigenvalues, eigenvectors = np.linalg.eig()
+
+hydrogen_eigenvalues, hydrogen_eigenvectors = np.linalg.eigh(hydrogen_matrix_H)
+print(hydrogen_eigenvalues)
+E_hydrogen = hydrogen_eigenvalues[1] 
+u_hydrogen = hydrogen_eigenvectors[:,1] #eig orderes eigenvalues, so eigenvector corresponding to smallest eigenvalue is the ground state, also  
+print(u_hydrogen)
+psi_hydrogen = [u / (np.sqrt(4 * np.pi) * r_i) for (u, r_i) in zip(u_hydrogen, r)] #definition of u, equation (34)
+
+
+print("Hydrogen")
+print(f"Ground state energy: {E_hydrogen} (theoretically: {ground_state_energy_hydrogen()} (a.u.) )")
+
 
 
 
 # PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
 current_absolute_path = get_current_absolute_path()
-output_string = f'\output\A1_Task2_N={N}.csv'
+output_string = f'\output\A1_Task3_hydrogen_N={N}.csv'
 with open(current_absolute_path+output_string,'w') as CSV_file:
-    CSV_file.write(f"Radial distance r (atomic units), theoretical Hartree potential (atomic units), calculated Hartree potential (atomic units) with {N} points\n")
-    for line in range(N):
-            CSV_file.write(str(r[line]) + ", " + str(V_Hartree[line]) + ", " + str(V_sH[line]) + "\n")
+    CSV_file.write(f"Radial distance r (atomic units), theoretical hydrogen ground state wavefunction (atomic units), calculated hydrogen ground state wavefunction (atomic units) with {N} points\n")
+    #for line in range(N):
+    #        CSV_file.write(str(r[line]) + ", " + str(V_Hartree[line]) + ", " + str(V_sH[line]) + "\n")
+        
 
 
 
 # PLOT #
-plt.plot(r, V_Hartree,  color='black', marker='', linestyle='-', label='Theoretical Hartree potential')
-plt.plot(r, V_sH,       color='red', marker='.', linestyle='', label='Calculated Hartree potential')
+plt.plot(r, psi_hydrogen_theoretical,  color='black', marker='', linestyle='-', label='Theoretical hydrogen wavefunction')
+plt.plot(r, psi_hydrogen,       color='red', marker='.', linestyle='', label='Calculated hydrogen wavefunction')
 
 plt.xlabel('Radial distance r (atomic units)')
-plt.ylabel('Energy of potential (atomic units)')
+plt.ylabel('Wavefunction')
 plt.grid()
 plt.legend()
 plt.show()
