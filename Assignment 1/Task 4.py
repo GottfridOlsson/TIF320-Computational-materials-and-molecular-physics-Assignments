@@ -80,6 +80,46 @@ def divide_arrays_by_each_other(a, b):
     return c
 
 
+def epsilon_hom_x(n):
+    # n is the electron density
+    return -(3/4) * (3*n /np.pi)**(1/3)
+
+
+def r_s_from_n(n):
+    # n is the electron density, n = 3 / (4*pi*r_s^3)
+    r_s = (3 / (4 * np.pi * n) )**(1/3)
+    return r_s
+
+
+def epsilon_hom_c(r_s):
+    # constants from problem description
+    A = 0.0311
+    B = -0.048
+    C = 0.0020
+    D = -0.0116
+    gamma = -0.1423
+    beta_1 = 1.0529
+    beta_2 = 0.3334
+
+    if r_s >= 1:
+        return gamma / (1 + beta_1*np.sqrt(r_s) + beta_2*r_s)
+    if r_s < 1:
+        return A*np.log(r_s) + B + C*r_s*np.log(r_s) + D*r_s
+
+def epsilon_hom_xc(n, r_s):
+    return epsilon_hom_x(n) + epsilon_hom_c(r_s)
+
+
+def V_xc(r, n): 
+    #TODO:
+    return -1
+
+
+def V_H(r, n):
+    # TODO
+    #np.trapz()
+    return -1
+
 
 
 ## MAIN ##
