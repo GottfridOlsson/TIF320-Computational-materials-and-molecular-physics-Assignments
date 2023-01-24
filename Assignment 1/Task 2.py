@@ -6,10 +6,10 @@ import hydrogen as hydrogen
 
 if __name__ == "__main__":
 
-    N = 100
-    linspace_start, linspace_end = 0, 10
-    h = (linspace_end - linspace_start)/(N-1)
-    r = create_discretized_1D_space(linspace_start, linspace_end, N, h)
+    N = 1000
+    start, end = 0, 10
+    r = np.linspace(start, end, N+1)[1:]
+    h = r[1] - r[0]
 
     V_Hartree = hydrogen.hartree_potential(r)
     D2 = create_matrix_D2_finite_difference(N, h)
@@ -41,8 +41,8 @@ if __name__ == "__main__":
 
 
     # PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
-    output_path = f'Assignment 1/output/A1_Task2_Hartree_potential_N={N}.csv'
-    with open(output_path,'w') as CSV_file:
-        CSV_file.write(f"Radial distance r (atomic units), theoretical Hartree potential (atomic units), calculated Hartree potential (atomic units) with {N} points\n")
-        for line in range(N):
-                CSV_file.write(str(r[line]) + ", " + str(V_Hartree[line]) + ", " + str(V_sH[line]) + "\n")
+    print_arrays_to_CSV(f'Assignment 1/output/A1_Task2_Hartree_potential_N={N}.csv', 
+                        "Radial distance r (atomic units)", r, 
+                        "theoretical Hartree potential (atomic units)", V_Hartree, 
+                        f"calculated Hartree potential (atomic units) with {N} points", V_sH, 
+                        print_message=True)
