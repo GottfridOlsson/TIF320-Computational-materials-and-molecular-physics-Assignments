@@ -3,39 +3,6 @@ import matplotlib.pyplot as plt
 from util import *
 import hydrogen as hydrogen
 
-def total_probability_of_radial_wavefunction(wavefunction, radial_coordinates, h):
-    wavefunction = np.array(wavefunction)
-    wavefunction_squared = wavefunction*wavefunction
-    return np.trapz(4*np.pi*radial_coordinates*radial_coordinates*wavefunction_squared, radial_coordinates, h)
-    # from radial to spherical wavefunction psi(r): --> 4 * pi * r^2 * psi(r)  (integral over space)
-
-def normalize_radial_wavefunction(wavefunction, radial_1D_grid, h):
-    integral = total_probability_of_radial_wavefunction(wavefunction, radial_1D_grid, h)
-    return wavefunction / np.sqrt(integral)
-
-def create_diagonal_matrix_from_array(array):
-    return np.diag(array)
-
-def reciprocal_of_array_handle_division_by_zero(array):
-    c = []
-    for i in range(len(array)):
-        if array[i] == 0:
-            c.append(3e99) #'infinity'
-        else:
-            c.append(1/array[i])
-    return np.array(c)
-
-
-def divide_arrays_by_each_other(a, b):
-    c = []
-    for i in range(len(a)):
-        if b[i] == 0:
-            c.append(1e99)
-        else:
-            c.append(a[i]/b[i])
-    return np.array(c)
-
-
 def epsilon_hom_x(n):
     # n is the electron density
     return -(3/4) * (3*n /np.pi)**(1/3)
@@ -62,21 +29,32 @@ def epsilon_hom_c(r_s):
     if r_s < 1:
         return A*np.log(r_s) + B + C*r_s*np.log(r_s) + D*r_s
 
+
 def epsilon_hom_xc(n, r_s):
     return epsilon_hom_x(n) + epsilon_hom_c(r_s)
 
+# Potential
+def V_xc(n):
+    r_s = r_s_from_n(n)
+    eps_xc = epsilon_hom_xc(n, r_s)
+    return eps_xc + n * np.gradient(eps_xc, n)
 
-def V_xc(r, n): 
-    #TODO:
-    return -1
+# Compute potential from electron density by solving radial poission equation
+def V_H(r, n, self_correlation=False):
+    
+    # Solve poission equation (this is task 2)
+    D2 = create_matrix_D2_finite_difference(N, h)
+    u_squared_divided_by_r = 4 * np.pi * n * r
+    U_0 = np.linalg.solve(D2, -u_squared_divided_by_r) 
 
+    # Compute potential
+    U = U_0 + r/np.max(r)
+    V_sH = U/r 
 
-def V_H(r, n):
-    # TODO
-    #np.trapz()
-    return -1
+    if self_correlation: return 2 * V_sH
+    else:                return V_sH
 
-
+def solve_kohn_sham()
 
 if __name__ == "__main__":
 

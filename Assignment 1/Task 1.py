@@ -100,40 +100,40 @@ def compute_energy(C, h, Q):
     return E
 
 
+if __name__ == "__main__":
+    alpha  = np.array([0.297104, 1.236745, 5.749982, 38.216677])
 
-alpha  = np.array([0.297104, 1.236745, 5.749982, 38.216677])
-
-h = create_h_matrix(alpha)
-S = create_S_matrix(alpha)
-Q = create_Q_tensor(alpha)
+    h = create_h_matrix(alpha)
+    S = create_S_matrix(alpha)
+    Q = create_Q_tensor(alpha)
 
 
-# Pick initial value:
-C = np.array([1, 1, 1, 1])
-C = normalize_coefficients(C, S)
-E = compute_energy(C, h, Q)
-old_E = E
-
-# Iterate to find self-consistent solution
-for i in range(0, 1000):
-    F = create_F_matrix(C, h, Q)
-    Eprime, C = solve_generalized_eigenvalue_problem(F, S)
+    # Pick initial value:
+    C = np.array([1, 1, 1, 1])
     C = normalize_coefficients(C, S)
-    
-    old_E = E
     E = compute_energy(C, h, Q)
+    old_E = E
 
-    # Break if energy step is less than 10^-5 eV
-    if (27.211 * abs(E - old_E) < 1e-5): break
+    # Iterate to find self-consistent solution
+    for i in range(0, 1000):
+        F = create_F_matrix(C, h, Q)
+        Eprime, C = solve_generalized_eigenvalue_problem(F, S)
+        C = normalize_coefficients(C, S)
+        
+        old_E = E
+        E = compute_energy(C, h, Q)
+
+        # Break if energy step is less than 10^-5 eV
+        if (27.211 * abs(E - old_E) < 1e-5): break
 
 
-print(f"Ground state energy: {E:.7f} (should be -2.8551716)")
-print(f"C-parameters: {C}")
+    print(f"Ground state energy: {E:.7f} (should be -2.8551716)")
+    print(f"C-parameters: {C}")
 
 
-r_lin = np.linspace(0, 5, 1000)
-phi = np.abs(wavefunction_anzats(r_lin, C, alpha))
-plt.plot(r_lin, phi)
-plt.xlabel("Radial distance from nucleus (a.u.)")
-plt.ylabel("Wavefunction")
-plt.show()
+    r_lin = np.linspace(0, 5, 1000)
+    phi = np.abs(wavefunction_anzats(r_lin, C, alpha))
+    plt.plot(r_lin, phi)
+    plt.xlabel("Radial distance from nucleus (a.u.)")
+    plt.ylabel("Wavefunction")
+    plt.show()
