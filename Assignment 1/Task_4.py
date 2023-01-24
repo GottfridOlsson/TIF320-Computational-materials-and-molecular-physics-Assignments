@@ -27,8 +27,8 @@ if __name__ == "__main__":
     n_s_initial = np.ones_like(r) / (linspace_end - linspace_start)
     u = np.sqrt(4 * np.pi * n_s_initial) * r
 
-    for i in range(0, 100):
-
+    for i in range(0, 20):
+        
         # Compute Hartee potential for current density
         U = solve_poisson(r, u)
         V_sH = U / r
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         eps, u = solve_kohn_sham(r, potential)
 
         E0 = compute_energy(r, u, eps, V_H=V_H)
-        print(E0)
+        print(f"Iteration {i+1}, E_0 = {E0:.6f} (a.u.)")
 
     # Convert u to wavefunction
     psi = u / (np.sqrt(4 * np.pi) * r)
@@ -63,9 +63,7 @@ if __name__ == "__main__":
                         "Radial distance r (a.u.)", r, 
                         "Calculated helium wavefunction", psi,  
                         print_message=True)
-    output_path_wavefunction = f'Assignment 1/output/A1_Task4_helium_wavefunction_N={N}.csv'  
 
-    output_path_energy = f'Assignment 1/output/A1_Task4_helium_energy_N={N}.txt'  
-    with open(output_path_energy, 'w') as file:
+    with open(f'Assignment 1/output/A1_Task4_helium_energy_N={N}.txt', 'w') as file:
         file.write(f"Calculated ground state energy of helium: {E0:.8f} (a.u.)\n")
         file.write(f"Number of points in discretized radial coordinate: {N}")
