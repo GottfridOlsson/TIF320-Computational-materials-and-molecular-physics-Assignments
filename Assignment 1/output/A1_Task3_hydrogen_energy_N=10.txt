@@ -1,0 +1,3 @@
+Calculated ground state energy of hydrogen: -0.41421244 (atomic units)
+Theoretical ground state energy of hydrogen: -0.5 (atomic units)
+Number of points in discretized radial coordinate: 10
