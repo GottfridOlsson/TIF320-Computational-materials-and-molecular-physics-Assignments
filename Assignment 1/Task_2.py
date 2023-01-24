@@ -3,31 +3,42 @@ import matplotlib.pyplot as plt
 from util import *
 import hydrogen as hydrogen
 
+# Solve Poisson's equation d2U/dr2 = -u2/r,
+# using boundary conditions U(0) = 0, U(r_max) = 1
+# r must be regular linspace starting at 0
+def solve_poisson(r, u):
+
+    # Get linspace properties
+    h = r[1]-r[0]
+    N = len(r)
+
+    # Solve Poisson's equation with vanishing boundary condition
+    D2 = create_matrix_D2_finite_difference(N, h)
+    U_0 = np.linalg.solve(D2, -u**2 / r)
+
+    # Fix boundary conditions
+    U = U_0 + r/np.max(r)
+
+    return U
 
 if __name__ == "__main__":
 
+    # Define linspace, excluding r=0 to avoid singularity
     N = 1000
     start, end = 0, 10
     r = np.linspace(start, end, N+1)[1:]
     h = r[1] - r[0]
 
-    V_Hartree = hydrogen.hartree_potential(r)
-    D2 = create_matrix_D2_finite_difference(N, h)
+    # Get theoretical ground state electron density for hydrogen
     electron_density = hydrogen.ground_state_electron_density(r)
-    u_squared_divided_by_r = 4 * np.pi * electron_density * r
 
-    #solve matrix equation: A*U_0 = b
-    U_0 = np.linalg.solve(D2, -u_squared_divided_by_r) 
-    # where A is the matrix D2 defined in code (finite difference of second derivative)
-    # U_0 is the potential U_0 with boundary conditions U_0(0) = U_0(r_max) = 0,
-    #     and U(r) = U_0(r) + r/r_max
-    # b is - u**2/r where h is the step in the discretization of grid and
-    # u is np.sqrt(4*np.pi*n(r))*r, and n(r) is the electron density for hydrogen (one electron)
-
-    # Get the sought potential from definition of U_0 and relation between V_sH and U
-    U = U_0 + r/np.max(r)
+    # Solve Poisson's equation to obtain the potential
+    u = np.sqrt(4 * np.pi * electron_density) * r
+    U = solve_poisson(r, u)
     V_sH = U/r 
 
+    # Get theoretical result for comparison
+    V_Hartree = hydrogen.hartree_potential(r)
 
     # PLOT #
     plt.plot(r, V_Hartree,  color='black', marker='', linestyle='-', label='Theoretical Hartree potential')

@@ -4,26 +4,30 @@ from util import *
 import hydrogen as hydrogen
 
 # Solves radial Kohn-Sham equations for a given potential,
-# (- 0.5 * d2/dr2 - n_electrons/r + potential) u = eps u
+# (- 0.5 * d2/dr2 + potential) u = eps u
 # returns eps and u for the lowest energy solution.
-def solve_kohn_sham(r, potential, n_electrons=2):
+# u will be normalized to have unity integral of u^2
+def solve_kohn_sham(r, potential):
     
     h = r[1]-r[0]
     N = len(r)
     
     D2 = create_matrix_D2_finite_difference(N, h)
-    potential_matrix = np.diag(n_electrons / r + potential)
+    potential_matrix = np.diag(potential)
 
     # Solve Kohn-Sham matrix equation
-    eps_vec, u_mat = np.linalg.eigh(-0.5 * D2 - potential_matrix)
+    eps_vec, u_mat = np.linalg.eigh(-0.5 * D2 + potential_matrix)
 
     # eigh will sort eigenvalues in ascending order
     eps = eps_vec[0] 
     u = u_mat[:,0]
 
     if u[0] < 0: u = -u
+    norm2 = np.trapz(u**2, r)
+    u *= 1 / np.sqrt(norm2)
 
     return eps, u
+
 
 if __name__ == "__main__":
 
@@ -34,28 +38,21 @@ if __name__ == "__main__":
     h = r[1]-r[0]
 
     # Solve for hydrogen as a test #
-    potential = np.zeros_like(r)
-    E_hydrogen, u_hydrogen = solve_kohn_sham(r, potential, n_electrons=1)
+    potential = - 1 / r
+    E_hydrogen, u_hydrogen = solve_kohn_sham(r, potential)
 
     # Compute wavefunction from u
     psi_hydrogen = u_hydrogen / (np.sqrt(4*np.pi) * r)
     psi_hydrogen = normalize_radial_wavefunction(psi_hydrogen, r, h)
 
-    # Wavefunction of hydrogen
-    #psi_hydrogen = divide_arrays_by_each_other(u_hydrogen, np.sqrt(4*np.pi)*r) #definition of u (=u_hydrogen), equation (34)
-    #psi_hydrogen_not_singular = psi_hydrogen[1:-1] #get rid of bad first point
-    #psi_hydrogen_not_singular = normalize_radial_wavefunction(psi_hydrogen_not_singular, r_not_singular, h)
-    
-
+    # Compare with theoretical
     psi_hydrogen_theoretical = hydrogen.ground_state_wavefunction(r)
 
     # print to verify reasonability
     print("\nHydrogen")
     print(f"Ground state energy: {E_hydrogen:.6f} (theoretically: {hydrogen.ground_state_energy():.3f} (a.u.) )")
     print(f"Wavefunction's total probability (theoretical): {total_probability_of_radial_wavefunction(psi_hydrogen_theoretical, r, h):.6f} (normalized if 1)")
-    print(f"Wavefunction's total probability (with singularity): {total_probability_of_radial_wavefunction(psi_hydrogen, r, h):.6f} (normalized if 1)")
-    #print(f"Wavefunction's total probability (not singularity): {total_probability_of_radial_wavefunction(psi_hydrogen_not_singular, r_not_singular, h):.6f} (normalized if 1)")
-
+    print(f"Wavefunction's total probability (calculated): {total_probability_of_radial_wavefunction(psi_hydrogen, r, h):.6f} (normalized if 1)")
 
 
     # PLOT #
@@ -66,7 +63,6 @@ if __name__ == "__main__":
     plt.grid()
     plt.legend()
     plt.show()
-
 
 
     # PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
