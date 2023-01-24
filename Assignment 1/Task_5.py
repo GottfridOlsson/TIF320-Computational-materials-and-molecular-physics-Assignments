@@ -63,7 +63,7 @@ if __name__ == "__main__":
         eps, u = solve_kohn_sham(r, potential)
 
         E0 = compute_energy(r, u, eps, V_H=V_H, V_xc=V_xc, eps_xc=eps_xc)
-        print(E0)
+        print(f"Iteration {i+1}, E_0 = {E0:.6f} (a.u.)")
 
     # Convert u to wavefunction
     psi = u / (np.sqrt(4 * np.pi) * r)
@@ -83,13 +83,11 @@ if __name__ == "__main__":
 
 
     # PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
-    print_arrays_to_CSV(f'Assignment 1/output/A1_Task4_helium_wavefunction_N={N}.csv', 
+    print_arrays_to_CSV(f'Assignment 1/output/A1_Task5_helium_wavefunction_N={N}.csv', 
                         "Radial distance r (a.u.)", r, 
                         "Calculated helium wavefunction", psi,  
                         print_message=True)
-    output_path_wavefunction = f'Assignment 1/output/A1_Task4_helium_wavefunction_N={N}.csv'  
 
-    output_path_energy = f'Assignment 1/output/A1_Task4_helium_energy_N={N}.txt'  
-    with open(output_path_energy, 'w') as file:
+    with open(f'Assignment 1/output/A1_Task4_helium_energy_N={N}.txt', 'w') as file:
         file.write(f"Calculated ground state energy of helium: {E0:.8f} (a.u.)\n")
         file.write(f"Number of points in discretized radial coordinate: {N}")

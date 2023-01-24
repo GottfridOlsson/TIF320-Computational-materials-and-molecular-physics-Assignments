@@ -85,7 +85,7 @@ def divide_arrays_by_each_other(a, b):
 def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
     """Prints array(s) with corresponding header(s) to a file with comma separated values (CSV)
 
-        INPUTS:
+        Input:
             path_to_csv: the path to where the CSV file should be printed
 
             *args: array(s) and corresponding header(s) in this format:
@@ -93,12 +93,12 @@ def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
 
             print_message: displays a message "Sucessfully printed CSV file (...)" (default False)
 
-        OUTPUT:
+        Output:
             A CSV file with utf-8 formatting at path_to_csv, with the array(s) as column(s) and corresponding header(s)
 
             Lines larger down than the length of array(s) are printed with an empty space
         
-        WARNINGS:
+        Warnings:
             ValueError: if the length of args is not even
 
             ValueError: if the number of array(s) is not equal to the number of header(s)
