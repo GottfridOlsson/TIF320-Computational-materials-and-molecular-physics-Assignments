@@ -135,13 +135,13 @@ if __name__ == "__main__":
     phi = np.abs(wavefunction_anzats(r_lin, C, alpha))
    
     # PRINT DATA TO CSV FOR PLOT IN PLOT-DATA #
-    print_arrays_to_CSV(f'Assignment 1/output/A1_Task1_hydrogen_wavefunction_4gaussians_as_basis_N={N}.csv', 
+    print_arrays_to_CSV(f'Assignment 1/output/A1_Task1_helium_wavefunction_4gaussians_as_basis_N={N}.csv', 
                         "Radial distance r (atomic units)", r_lin, 
-                        f"calculated hydrogen wavefunction from basis of four gaussians (atomic units) with {N} points", phi, 
+                        f"Calculated helium wavefunction from basis of four gaussians with {N} points (probability amplitude)", phi,
                         print_message=True)
 
-    with open('Assignment 1/output/A1_Task1_hydrogen_wavefunction_alpha_and_C-parameters.txt','w') as file:
-        file.write(f"Calculated C-parameters from ground state wavefunction of hydrogen with four gassians as a basis, each on the form: C * exp( - alpha * r^2 )\n")
+    with open('Assignment 1/output/A1_Task1_helium_wavefunction_alpha_and_C-parameters.txt','w') as file:
+        file.write(f"Calculated C-parameters from ground state wavefunction of helium with four gassians as a basis, each on the form: C * exp( - alpha * r^2 )\n")
         file.write(f"alpha[0]: {alpha[0]}\n")
         file.write(f"alpha[1]: {alpha[1]}\n")
         file.write(f"alpha[2]: {alpha[2]}\n")
