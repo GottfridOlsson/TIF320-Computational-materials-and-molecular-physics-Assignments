@@ -49,14 +49,14 @@ def create_matrix_D2_finite_difference(number_of_points_in_discretized_1D_grid, 
 
     return D2
 
-def total_probability_of_radial_wavefunction(wavefunction, radial_coordinates, h):
+def total_probability_of_radial_wavefunction(wavefunction, radial_coordinates):
     wavefunction = np.array(wavefunction)
     wavefunction_squared = wavefunction*wavefunction
-    return np.trapz(4*np.pi*radial_coordinates*radial_coordinates*wavefunction_squared, radial_coordinates, h)
+    return np.trapz(4*np.pi*radial_coordinates*radial_coordinates*wavefunction_squared, radial_coordinates)
     # from radial to spherical wavefunction psi(r): --> 4 * pi * r^2 * psi(r)  (integral over space)
 
-def normalize_radial_wavefunction(wavefunction, radial_1D_grid, h):
-    integral = total_probability_of_radial_wavefunction(wavefunction, radial_1D_grid, h)
+def normalize_radial_wavefunction(wavefunction, radial_1D_grid):
+    integral = total_probability_of_radial_wavefunction(wavefunction, radial_1D_grid)
     return wavefunction / np.sqrt(integral)
 
 def create_diagonal_matrix_from_array(array):

@@ -1,2 +1,2 @@
-Calculated ground state energy of helium: -2.86122993 (a.u.)
+Calculated ground state energy of helium: -2.86122988 (a.u.)
 Number of points in discretized radial coordinate: 1000

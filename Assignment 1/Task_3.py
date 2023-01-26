@@ -24,7 +24,7 @@ def solve_kohn_sham(r, potential):
 
     if u[0] < 0: u = -u
     norm2 = np.trapz(u**2, r)
-    u *= 1 / np.sqrt(norm2)
+    u /= np.sqrt(norm2)
 
     return eps, u
 
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     # Compute wavefunction from u
     psi_hydrogen = u_hydrogen / (np.sqrt(4*np.pi) * r)
-    psi_hydrogen = normalize_radial_wavefunction(psi_hydrogen, r, h)
+    psi_hydrogen = normalize_radial_wavefunction(psi_hydrogen, r)
 
     # Compare with theoretical
     psi_hydrogen_theoretical = hydrogen.ground_state_wavefunction(r)
@@ -51,8 +51,8 @@ if __name__ == "__main__":
     # print to verify reasonability
     print("\nHydrogen")
     print(f"Ground state energy: {E_hydrogen:.6f} (theoretically: {hydrogen.ground_state_energy():.3f} (a.u.) )")
-    print(f"Wavefunction's total probability (theoretical): {total_probability_of_radial_wavefunction(psi_hydrogen_theoretical, r, h):.6f} (normalized if 1)")
-    print(f"Wavefunction's total probability (calculated): {total_probability_of_radial_wavefunction(psi_hydrogen, r, h):.6f} (normalized if 1)")
+    print(f"Wavefunction's total probability (theoretical): {total_probability_of_radial_wavefunction(psi_hydrogen_theoretical, r):.6f} (normalized if 1)")
+    print(f"Wavefunction's total probability (calculated): {total_probability_of_radial_wavefunction(psi_hydrogen, r):.6f} (normalized if 1)")
 
 
     # PLOT #
