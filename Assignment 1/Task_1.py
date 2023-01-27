@@ -150,7 +150,8 @@ if __name__ == "__main__":
         file.write(f"C[1]: {C[1]}\n")
         file.write(f"C[2]: {C[2]}\n")
         file.write(f"C[3]: {C[3]}\n")
-        file.write(f"Number of points in discretized radial coordinate: {N}")
+        file.write(f"Number of points in discretized radial coordinate: {N}\n")
+        file.write(f"Ground state energy of helium: {E:.7f} (a.u.)")
 
     plt.plot(r_lin, phi)
     plt.xlabel("Radial distance from nucleus (a.u.)")

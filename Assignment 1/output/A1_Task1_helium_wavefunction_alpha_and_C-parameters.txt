@@ -8,3 +8,4 @@ C[1]: -0.3931520709722408
 C[2]: -0.4111977634839239
 C[3]: -0.26200681062453335
 Number of points in discretized radial coordinate: 1000
+Ground state energy of helium: -2.8551604 (a.u.)
