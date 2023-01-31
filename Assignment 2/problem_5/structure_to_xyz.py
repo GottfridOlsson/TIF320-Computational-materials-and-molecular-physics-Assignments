@@ -35,7 +35,7 @@ for natoms in [6, 7, 8]:
         write(save_path + '_second_lowest_energystate.xyz', second_lowest_energy_state)
         write(save_path + '_second_lowest_energystate.png', second_lowest_energy_state)
     if natoms == 8:
-        second_lowest_energy_state = db.get('id=66').toatoms()
+        second_lowest_energy_state = db.get('id=202').toatoms() #id=66 was more or less the same as groundstate
         write(save_path + '_second_lowest_energystate.xyz', second_lowest_energy_state)
         write(save_path + '_second_lowest_energystate.png', second_lowest_energy_state)
     
