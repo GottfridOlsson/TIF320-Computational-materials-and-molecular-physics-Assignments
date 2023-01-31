@@ -1,1 +1,1 @@
-set sphere_scale, 0.75, (all)
+set sphere_scale, 0.85, (all)
