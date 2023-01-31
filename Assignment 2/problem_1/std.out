@@ -1,0 +1,312 @@
+Running genetic algorithm for natoms=7.
+Running genetic algorithm for natoms=8.
+Running genetic algorithm for natoms=6.
+Running with population_size = 20
+Relaxing starting candidate 2
+Relaxing starting candidate 3
+Relaxing starting candidate 4
+Relaxing starting candidate 5
+Relaxing starting candidate 6
+Relaxing starting candidate 7
+Relaxing starting candidate 8
+Relaxing starting candidate 9
+Relaxing starting candidate 10
+Relaxing starting candidate 11
+Relaxing starting candidate 12
+Relaxing starting candidate 13
+Relaxing starting candidate 14
+Relaxing starting candidate 15
+Relaxing starting candidate 16
+Relaxing starting candidate 17
+Relaxing starting candidate 18
+Relaxing starting candidate 19
+Relaxing starting candidate 20
+Relaxing starting candidate 21
+Now starting configuration number 0
+Now starting configuration number 1
+Now starting configuration number 2
+Now starting configuration number 3
+Now starting configuration number 4
+Now starting configuration number 5
+Now starting configuration number 6
+Now starting configuration number 7
+Now starting configuration number 8
+Now starting configuration number 9
+Now starting configuration number 10
+Now starting configuration number 11
+Now starting configuration number 12
+Now starting configuration number 13
+Now starting configuration number 14
+Now starting configuration number 15
+Now starting configuration number 16
+Now starting configuration number 17
+Now starting configuration number 18
+Now starting configuration number 19
+Now starting configuration number 20
+Now starting configuration number 21
+Now starting configuration number 22
+Now starting configuration number 23
+Now starting configuration number 24
+Now starting configuration number 25
+Now starting configuration number 26
+Now starting configuration number 27
+Now starting configuration number 28
+Now starting configuration number 29
+Now starting configuration number 30
+Now starting configuration number 31
+Now starting configuration number 32
+Now starting configuration number 33
+Now starting configuration number 34
+Now starting configuration number 35
+Now starting configuration number 36
+Now starting configuration number 37
+Now starting configuration number 38
+Now starting configuration number 39
+Now starting configuration number 40
+Now starting configuration number 41
+Now starting configuration number 42
+Now starting configuration number 43
+Now starting configuration number 44
+Now starting configuration number 45
+Now starting configuration number 46
+Now starting configuration number 47
+Now starting configuration number 48
+Now starting configuration number 49
+Now starting configuration number 50
+Now starting configuration number 51
+Now starting configuration number 52
+Now starting configuration number 53
+Now starting configuration number 54
+Now starting configuration number 55
+Now starting configuration number 56
+Now starting configuration number 57
+Now starting configuration number 58
+Now starting configuration number 59
+Now starting configuration number 60
+Now starting configuration number 61
+Now starting configuration number 62
+Now starting configuration number 63
+Now starting configuration number 64
+Now starting configuration number 65
+Now starting configuration number 66
+Now starting configuration number 67
+Now starting configuration number 68
+Now starting configuration number 69
+Now starting configuration number 70
+Now starting configuration number 71
+Now starting configuration number 72
+Now starting configuration number 73
+Now starting configuration number 74
+Now starting configuration number 75
+Now starting configuration number 76
+Now starting configuration number 77
+Now starting configuration number 78
+Now starting configuration number 79
+--- 10811.472050 seconds ---
+Simulation done for natoms=6!
+Running with population_size = 20
+Relaxing starting candidate 2
+Relaxing starting candidate 3
+Relaxing starting candidate 4
+Relaxing starting candidate 5
+Relaxing starting candidate 6
+Relaxing starting candidate 7
+Relaxing starting candidate 8
+Relaxing starting candidate 9
+Relaxing starting candidate 10
+Relaxing starting candidate 11
+Relaxing starting candidate 12
+Relaxing starting candidate 13
+Relaxing starting candidate 14
+Relaxing starting candidate 15
+Relaxing starting candidate 16
+Relaxing starting candidate 17
+Relaxing starting candidate 18
+Relaxing starting candidate 19
+Relaxing starting candidate 20
+Relaxing starting candidate 21
+Now starting configuration number 0
+Now starting configuration number 1
+Now starting configuration number 2
+Now starting configuration number 3
+Now starting configuration number 4
+Now starting configuration number 5
+Now starting configuration number 6
+Now starting configuration number 7
+Now starting configuration number 8
+Now starting configuration number 9
+Now starting configuration number 10
+Now starting configuration number 11
+Now starting configuration number 12
+Now starting configuration number 13
+Now starting configuration number 14
+Now starting configuration number 15
+Now starting configuration number 16
+Now starting configuration number 17
+Now starting configuration number 18
+Now starting configuration number 19
+Now starting configuration number 20
+Now starting configuration number 21
+Now starting configuration number 22
+Now starting configuration number 23
+Now starting configuration number 24
+Now starting configuration number 25
+Now starting configuration number 26
+Now starting configuration number 27
+Now starting configuration number 28
+Now starting configuration number 29
+Now starting configuration number 30
+Now starting configuration number 31
+Now starting configuration number 32
+Now starting configuration number 33
+Now starting configuration number 34
+Now starting configuration number 35
+Now starting configuration number 36
+Now starting configuration number 37
+Now starting configuration number 38
+Now starting configuration number 39
+Now starting configuration number 40
+Now starting configuration number 41
+Now starting configuration number 42
+Now starting configuration number 43
+Now starting configuration number 44
+Now starting configuration number 45
+Now starting configuration number 46
+Now starting configuration number 47
+Now starting configuration number 48
+Now starting configuration number 49
+Now starting configuration number 50
+Now starting configuration number 51
+Now starting configuration number 52
+Now starting configuration number 53
+Now starting configuration number 54
+Now starting configuration number 55
+Now starting configuration number 56
+Now starting configuration number 57
+Now starting configuration number 58
+Now starting configuration number 59
+Now starting configuration number 60
+Now starting configuration number 61
+Now starting configuration number 62
+Now starting configuration number 63
+Now starting configuration number 64
+Now starting configuration number 65
+Now starting configuration number 66
+Now starting configuration number 67
+Now starting configuration number 68
+Now starting configuration number 69
+Now starting configuration number 70
+Now starting configuration number 71
+Now starting configuration number 72
+Now starting configuration number 73
+Now starting configuration number 74
+Now starting configuration number 75
+Now starting configuration number 76
+Now starting configuration number 77
+Now starting configuration number 78
+Now starting configuration number 79
+--- 11011.305649 seconds ---
+Simulation done for natoms=8!
+Running with population_size = 20
+Relaxing starting candidate 2
+Relaxing starting candidate 3
+Relaxing starting candidate 4
+Relaxing starting candidate 5
+Relaxing starting candidate 6
+Relaxing starting candidate 7
+Relaxing starting candidate 8
+Relaxing starting candidate 9
+Relaxing starting candidate 10
+Relaxing starting candidate 11
+Relaxing starting candidate 12
+Relaxing starting candidate 13
+Relaxing starting candidate 14
+Relaxing starting candidate 15
+Relaxing starting candidate 16
+Relaxing starting candidate 17
+Relaxing starting candidate 18
+Relaxing starting candidate 19
+Relaxing starting candidate 20
+Relaxing starting candidate 21
+Now starting configuration number 0
+Now starting configuration number 1
+Now starting configuration number 2
+Now starting configuration number 3
+Now starting configuration number 4
+Now starting configuration number 5
+Now starting configuration number 6
+Now starting configuration number 7
+Now starting configuration number 8
+Now starting configuration number 9
+Now starting configuration number 10
+Now starting configuration number 11
+Now starting configuration number 12
+Now starting configuration number 13
+Now starting configuration number 14
+Now starting configuration number 15
+Now starting configuration number 16
+Now starting configuration number 17
+Now starting configuration number 18
+Now starting configuration number 19
+Now starting configuration number 20
+Now starting configuration number 21
+Now starting configuration number 22
+Now starting configuration number 23
+Now starting configuration number 24
+Now starting configuration number 25
+Now starting configuration number 26
+Now starting configuration number 27
+Now starting configuration number 28
+Now starting configuration number 29
+Now starting configuration number 30
+Now starting configuration number 31
+Now starting configuration number 32
+Now starting configuration number 33
+Now starting configuration number 34
+Now starting configuration number 35
+Now starting configuration number 36
+Now starting configuration number 37
+Now starting configuration number 38
+Now starting configuration number 39
+Now starting configuration number 40
+Now starting configuration number 41
+Now starting configuration number 42
+Now starting configuration number 43
+Now starting configuration number 44
+Now starting configuration number 45
+Now starting configuration number 46
+Now starting configuration number 47
+Now starting configuration number 48
+Now starting configuration number 49
+Now starting configuration number 50
+Now starting configuration number 51
+Now starting configuration number 52
+Now starting configuration number 53
+Now starting configuration number 54
+Now starting configuration number 55
+Now starting configuration number 56
+Now starting configuration number 57
+Now starting configuration number 58
+Now starting configuration number 59
+Now starting configuration number 60
+Now starting configuration number 61
+Now starting configuration number 62
+Now starting configuration number 63
+Now starting configuration number 64
+Now starting configuration number 65
+Now starting configuration number 66
+Now starting configuration number 67
+Now starting configuration number 68
+Now starting configuration number 69
+Now starting configuration number 70
+Now starting configuration number 71
+Now starting configuration number 72
+Now starting configuration number 73
+Now starting configuration number 74
+Now starting configuration number 75
+Now starting configuration number 76
+Now starting configuration number 77
+Now starting configuration number 78
+Now starting configuration number 79
+--- 11921.804528 seconds ---
+Simulation done for natoms=7!
