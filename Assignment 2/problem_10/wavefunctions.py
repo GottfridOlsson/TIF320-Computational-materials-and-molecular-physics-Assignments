@@ -27,34 +27,34 @@ from gpaw import GPAW
 problem10_path = './Assignment 2/problem_10'
 problem5_path = './Assignment 2/problem_5'
 xyz_path_start = f'{problem5_path}/structures/natoms_'
-xyz_path_end = 'groundstate_gpaw.xyz'
+xyz_path_end = '_groundstate_gpaw.xyz'
 
 # atoms = read(xyz_path)
 
 
-for natoms in [6,7,8]:
+for natoms in [6]:
 
-    xyz_path = problem5_path + xyz_path_start + natoms + xyz_path_end
+    # Read stable configuration files
+    xyz_path = xyz_path_start + str(natoms) + xyz_path_end
     atoms = read(xyz_path)
-    calc = GPAW(nbands=10, h=0.2, txt=None)
+
+    # Set GPAW and calculate
+    calc = GPAW(nbands=natoms, h=0.2, txt=None, setups={'Na': '1'})
     atoms.calc = calc
-
-    # Start a calculation:
     energy = atoms.get_potential_energy()
-    # Save wave functions:
-    calc.write(problem10_path + '/wavefunctions/' + natoms + '_.gpw', mode='all')
 
+    # Save wave functions
+    #saved_wavefunction_path = problem10_path + '/wavefunctions/' + str(natoms) + '_.gpw'
+    #calc.write(saved_wavefunction_path, mode='all')
+    #print(f"wrote wavefunctions for natoms={natoms} to path: {saved_wavefunction_path}")
 
-    # Load binary file and get calculator
-    atoms, calc = restart(problem10_path + '/wavefunctions/' + natoms + '_.gpw')
+    # Load binary file and get calculator (this might be unnecessary, but kept while testing stuff)
+    #atoms, calc = restart(saved_wavefunction_path)
 
     # Write wavefunctions to cube files
     nbands = calc.get_number_of_bands()
-
     for band in range(nbands):
         wf = calc.get_pseudo_wave_function(band=band)
         fname = f'Na{natoms}_band_{band}.cube'
         print('writing wf', band, 'to file: ' + problem10_path, fname)
         write(problem10_path + '/cubefiles/'+ fname, atoms, data=wf * Bohr**1.5)
-        ## why scale with 1.5???
-        # test with/with out
