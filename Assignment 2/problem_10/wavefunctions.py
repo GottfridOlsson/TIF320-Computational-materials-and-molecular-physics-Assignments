@@ -1,25 +1,7 @@
-# do a new GPAW calculation with the most stable clusters (6, 7, and 8 atoms)
-# save the wavefunctions in cube files
-# visualized the wavefunctions (plot only the occupied bands. (Which ones are occupied? Count the electrons or look in the log file from gpaw!))
-# Please include this script in your report.
-
-### FLOW-CHART ###
-
-# 1. get xyz for stable clusters
-# 2. put them into a database
-# 3. load it
-# 4. set parameters for GPAW
-# 5. calculate the electron density
-# 6. calculate wavefunction from the electron density
-# 7. save the wavefunction as cube file
-# 8. try open the cube file in PyMOL to see if it works
-
 from ase.io import write, read
 from ase.units import Bohr
-#from gpaw import restart
 from gpaw import GPAW
 
-# Declare paths
 problem10_path = './Assignment 2/problem_10'
 problem5_path = './Assignment 2/problem_5'
 xyz_path_start = f'{problem5_path}/structures/natoms_'
