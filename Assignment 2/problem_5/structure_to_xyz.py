@@ -4,9 +4,9 @@ from ase.io import write
 for natoms in [6, 7, 8]:
 
     # Declare paths
-    assignment_path = './TIF320-Computational-materials-and-molecular-physics-Assignments/Assignment 2'
-    db_path   = assignment_path + f'/problem_1/natoms_{natoms}/gadb.db'
-    save_path = assignment_path + f'/problem_5/structures/natoms_{natoms}'
+    assignment_path = './Assignment 2/'
+    db_path   = assignment_path + f'problem_1/natoms_{natoms}/gadb.db'
+    save_path = assignment_path + f'problem_5/structures/natoms_{natoms}'
 
     # Connect to database
     db = connect(db_path)
