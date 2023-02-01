@@ -17,44 +17,44 @@
 
 # test: https://wiki.fysik.dtu.dk/gpaw/tutorialsexercises/wavefunctions/plotting/plot_wave_functions.html#creating-wave-function-cube-files
 
-problem10_path = './Assignment 2/problem_10/'
-
-from ase.io import write
+from ase.io import write, read
 from ase.units import Bohr
 from gpaw import restart
-
 from ase import Atoms
 from gpaw import GPAW
 
-if True:
-    d = 1.1   # bondlength of hydrogen molecule
-    a = 5.0   # sidelength of unit cell
-    c = a / 2
-    atoms = Atoms('CO',
-                positions=[(c - d / 2, c, c),
-                            (c + d / 2, c, c)],
-                cell=(a, a, a))
+# Declare paths
+problem10_path = './Assignment 2/problem_10'
+problem5_path = './Assignment 2/problem_5'
+xyz_path_start = f'{problem5_path}/structures/natoms_'
+xyz_path_end = 'groundstate_gpaw.xyz'
 
-    calc = GPAW(nbands=5, h=0.2, txt=None) #h = 0.2
+# atoms = read(xyz_path)
+
+
+for natoms in [6,7,8]:
+
+    xyz_path = problem5_path + xyz_path_start + natoms + xyz_path_end
+    atoms = read(xyz_path)
+    calc = GPAW(nbands=10, h=0.2, txt=None)
     atoms.calc = calc
 
     # Start a calculation:
     energy = atoms.get_potential_energy()
-
     # Save wave functions:
-    calc.write(problem10_path + 'CO.gpw', mode='all')
+    calc.write(problem10_path + '/wavefunctions/' + natoms + '_.gpw', mode='all')
 
 
+    # Load binary file and get calculator
+    atoms, calc = restart(problem10_path + '/wavefunctions/' + natoms + '_.gpw')
 
-basename = 'CO'
+    # Write wavefunctions to cube files
+    nbands = calc.get_number_of_bands()
 
-# load binary file and get calculator
-atoms, calc = restart(problem10_path + 'CO.gpw')
-
-# loop over all wfs and write their cube files
-nbands = calc.get_number_of_bands()
-for band in range(nbands):
-    wf = calc.get_pseudo_wave_function(band=band)
-    fname = f'{basename}_{band}.cube'
-    print('writing wf', band, 'to file: ' + problem10_path, fname)
-    write(problem10_path + fname, atoms, data=wf * Bohr**1.5)
+    for band in range(nbands):
+        wf = calc.get_pseudo_wave_function(band=band)
+        fname = f'Na{natoms}_band_{band}.cube'
+        print('writing wf', band, 'to file: ' + problem10_path, fname)
+        write(problem10_path + '/cubefiles/'+ fname, atoms, data=wf * Bohr**1.5)
+        ## why scale with 1.5???
+        # test with/with out
