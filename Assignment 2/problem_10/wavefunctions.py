@@ -15,11 +15,11 @@ for natoms in [6, 7, 8]:
     atoms = read(xyz_path)
 
     # Set calculator as GPAW
-    calc = GPAW(nbands=5, h=0.2, setups={'Na': '1'}, mode='lcao', basis='dzp', txt=None) # nbands = 0 ("nbands=0 will give zero empty bands, and nbands=-n will give n empty bands.") #https://wiki.fysik.dtu.dk/gpaw/documentation/basic.html
+    calc = GPAW(nbands=5, h=0.2, setups={'Na': '1'}, mode='lcao', basis='dzp', txt=None) # tried nbands=0, but did not work for all natoms ("nbands=0 will give zero empty bands.") #https://wiki.fysik.dtu.dk/gpaw/documentation/basic.html
     atoms.calc = calc
-    energy = atoms.get_potential_energy() #it complains for natoms=6 if this is not here (do not know why)
+    energy = atoms.get_potential_energy() #it complains if this is not here (do not know why)
 
-    # Write wavefunctions to cube files
+    # Get and write wavefunctions to cube files
     nbands = calc.get_number_of_bands()
     for band in range(nbands):
         wavefunction = calc.get_pseudo_wave_function(band=band)
