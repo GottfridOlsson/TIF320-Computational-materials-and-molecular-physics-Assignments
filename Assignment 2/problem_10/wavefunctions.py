@@ -11,7 +11,7 @@ for natoms in [6, 7, 8]:
     atoms = read(xyz_path)
 
     # Set calculator as GPAW
-    calc = GPAW(nbands=5, h=0.2, setups={'Na': '1'}, mode='lcao', basis='dzp', txt=None)
+    calc = GPAW(nbands=5, h=0.2, setups={'Na':'1'}, mode='lcao', basis='dzp', txt=None)
     atoms.calc = calc
     energy = atoms.get_potential_energy()
 
