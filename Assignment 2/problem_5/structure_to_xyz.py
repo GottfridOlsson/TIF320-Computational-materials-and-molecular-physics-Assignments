@@ -39,3 +39,12 @@ for natoms in [6, 7, 8]:
         write(save_path + '_second_lowest_energystate.xyz', second_lowest_energy_state)
         write(save_path + '_second_lowest_energystate.png', second_lowest_energy_state)
     
+    # Get lowest, second lowest energies and the difference (Task 7)
+    groundstate_energy   = atoms_groundstate_gpaw.get_potential_energy()
+    second_lowest_energy = second_lowest_energy_state.get_potential_energy()
+    energy_difference    = second_lowest_energy - groundstate_energy
+    print(f"{natoms}  &  {groundstate_energy:.5f}  &  {second_lowest_energy:.5f}  &  {energy_difference:.5f}\n")
+    
+
+
+    
