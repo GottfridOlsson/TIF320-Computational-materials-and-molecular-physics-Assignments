@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   sodipodi:docname="Na+H2O.svg"
+   id="svg97"
+   font-size="140px"
+   font-family="'Nimbus Sans L', Helvetica, 'Liberation Sans', sans-serif"
+   viewBox="0 0 2470.9192 2489.2383"
+   version="1.1"
+   width="2470.9192"
+   height="2489.2383"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview99"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="0.24722548"
+     inkscape:cx="819.09032"
+     inkscape:cy="1324.7016"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g59" />
+  <defs
+     id="defs39">
+    <radialGradient
+       id="rgo"
+       fx="0.5"
+       fy="0.25">
+      <stop
+         offset="0%"
+         stop-color="#FFFFFF"
+         id="stop2" />
+      <stop
+         offset="100%"
+         stop-color="#ca0202"
+         id="stop4" />
+    </radialGradient>
+    <radialGradient
+       id="rgna"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         offset="0%"
+         stop-color="#FFFFFF"
+         id="stop7" />
+      <stop
+         offset="100%"
+         stop-color="#9a9a9a"
+         id="stop9" />
+    </radialGradient>
+    <radialGradient
+       id="rgh"
+       fx="0.5"
+       fy="0.25">
+      <stop
+         offset="0%"
+         stop-color="#FFFFFF"
+         id="stop12" />
+      <stop
+         offset="100%"
+         stop-color="#bfbfbf"
+         id="stop14" />
+    </radialGradient>
+    <g
+       id="hydrogen">
+      <title
+         id="title17">hydrogen</title>
+      <circle
+         r="125"
+         fill="url(#rgh)"
+         stroke="#9a9a9a"
+         stroke-width="2"
+         id="circle19"
+         cx="0"
+         cy="0" />
+    </g>
+    <g
+       id="oxygen">
+      <title
+         id="title22">oxygen</title>
+      <circle
+         r="225"
+         fill="url(#rgo)"
+         id="circle24"
+         cx="0"
+         cy="0" />
+    </g>
+    <g
+       id="sodium">
+      <title
+         id="title27">sodium</title>
+      <circle
+         r="322.70001"
+         fill="url(#rgna)"
+         stroke="#686868"
+         stroke-width="5"
+         id="circle29"
+         cx="0"
+         cy="0" />
+    </g>
+    <g
+       id="h2o">
+      <use
+         x="160"
+         y="190"
+         xlink:href="#hydrogen"
+         id="use32" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#oxygen"
+         id="use34" />
+      <use
+         x="-160"
+         y="190"
+         xlink:href="#hydrogen"
+         id="use36" />
+    </g>
+  </defs>
+  <g
+     transform="translate(1254.2578,1247.8906)"
+     id="g59">
+    <use
+       xlink:href="#sodium"
+       id="use41"
+       inkscape:highlight-color="#66fc58"
+       style="opacity:1;image-rendering:auto" />
+    <use
+       x="0"
+       y="800"
+       xlink:href="#h2o"
+       id="use47" />
+    <use
+       x="0"
+       y="800"
+       xlink:href="#h2o"
+       transform="rotate(178)"
+       id="use49" />
+    <use
+       x="0"
+       y="800"
+       xlink:href="#h2o"
+       transform="rotate(-58)"
+       id="use51" />
+    <use
+       x="0"
+       y="800"
+       xlink:href="#h2o"
+       transform="rotate(-128)"
+       id="use53" />
+    <use
+       x="0"
+       y="800"
+       xlink:href="#h2o"
+       transform="rotate(63)"
+       id="use55" />
+    <use
+       x="0"
+       y="800"
+       xlink:href="#h2o"
+       transform="rotate(120)"
+       id="use57" />
+    <g
+       id="g716"
+       transform="translate(21.928737,10.814812)">
+      <text
+         x="-48.03178"
+         y="82.860176"
+         font-size="280px"
+         text-anchor="middle"
+         id="text45"
+         style="font-size:192px"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif'"
+           id="tspan706"
+           dx="0 0"
+           dy="0 0">Na</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:140px;line-height:1.25;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif'"
+         x="17.172966"
+         y="-25.298393"
+         id="text710"><tspan
+           sodipodi:role="line"
+           id="tspan708"
+           x="17.172966"
+           y="-25.298393"
+           style="font-size:140px">+</tspan></text>
+    </g>
+  </g>
+  <text
+     x="894.25781"
+     y="2467.8906"
+     id="text61"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:140px;font-family:'CMU Serif';stroke-width:1"
+       id="tspan590">δ+</tspan></text>
+  <text
+     x="1194.2578"
+     y="1797.8906"
+     id="text63"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:140px;font-family:'CMU Serif';stroke-width:1"
+       id="tspan592">δ−</tspan></text>
+  <text
+     x="1444.2578"
+     y="2477.8906"
+     id="text65"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="1344.2578"
+     y="97.890625"
+     id="text67"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="1134.2578"
+     y="817.89062"
+     id="text69"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ−</text>
+  <text
+     x="884.25781"
+     y="127.89062"
+     id="text71"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="2004.2578"
+     y="2147.8906"
+     id="text73"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="1624.2578"
+     y="1517.8906"
+     id="text75"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ−</text>
+  <text
+     x="2304.2578"
+     y="1787.8906"
+     id="text77"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="2274.2578"
+     y="777.89062"
+     id="text79"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="1534.2578"
+     y="977.89062"
+     id="text81"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ−</text>
+  <text
+     x="2014.2578"
+     y="387.89062"
+     id="text83"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="-5.7421875"
+     y="1587.8906"
+     id="text85"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="754.25781"
+     y="1497.8906"
+     id="text87"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ−</text>
+  <text
+     x="194.25781"
+     y="1997.8906"
+     id="text89"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="304.25781"
+     y="487.89062"
+     id="text91"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+  <text
+     x="774.25781"
+     y="1067.8906"
+     id="text93"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ−</text>
+  <text
+     x="44.257812"
+     y="857.89062"
+     id="text95"
+     style="font-size:140px;font-family:'CMU Serif';stroke-width:1">δ+</text>
+</svg>
