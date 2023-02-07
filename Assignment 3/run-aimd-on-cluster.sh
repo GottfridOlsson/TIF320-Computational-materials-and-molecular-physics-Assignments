@@ -3,7 +3,7 @@
 #SBATCH -J AIMD                            # Name of the job
 #SBATCH -N 1                               # Use 1 node
 #SBATCH -n 32                              # Use all cores on that node
-#SBATCH -t 00:01:00                        # Maximum time
+#SBATCH -t 10:00:00                        # Maximum time
 #SBATCH -o "./Assignment 3/logs/std.out"   # stdout goes to this file
 #SBATCH -e "./Assignment 3/logs/err.out"   # stderr goes to this file
 
@@ -19,3 +19,6 @@ mpiexec gpaw python 'Assignment 3/run-aimd.py'
 # 1 core:   3:39
 # 8 cores:  0:39
 # 32 cores: 0:18
+
+# For 20 simulation steps
+# 32 cores: 1:22
