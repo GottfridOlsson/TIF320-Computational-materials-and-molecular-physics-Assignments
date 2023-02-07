@@ -1,6 +1,8 @@
 import numpy as np
-from ase import NPT
+from ase.io import read
+from ase.io.trajectory import Trajectory
 from ase.units import fs, kB
+from ase.md.npt import NPT
 from gpaw import GPAW
 
 atoms = read('someStartConfiguration.xyz')
