@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt #
 
 
 # Read trajectories for cluster with Na
-trajectories = Trajectory('Assignment 3/logs/nose_hoover_trajectory.traj')
-first_trajectory, last_trajectory = 500, 4000
+trajectories = Trajectory('Assignment 3/Na-aimd/NaCluster24.traj') # 'Assignment 3/logs/nose_hoover_trajectory.traj'
+first_trajectory, last_trajectory = int(len(trajectories)*(1/7)),len(trajectories) # our simulation: int(len(trajectories)*(0.5/2)),len(trajectories) 
 
 # Create bins for histogram to save RDF
 cell_length = trajectories[0].cell[0][0]
@@ -44,10 +44,10 @@ histogram_scaled = histogram_scaled / (4*np.pi*radial_coordinates**2*binwidth)
 histogram_scaled = histogram_scaled / trajectory_number
 
 # Save histogram to CSV
-util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram.csv", 
+util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram_their_simulation.csv", 
                             "Radial coordinate (angstrom)", radial_coordinates, 
-                            "Histogram of radial distances for (counts)", histogram,
+                            "Histogram of radial distances (counts)", histogram,
                             "Scaled histogram (counts)", histogram_scaled)
 
 plt.plot(radial_coordinates, histogram_scaled, 'o') #
-plt.savefig("RDF_histogram.pdf") #
+plt.savefig("RDF_histogram_their_simulation.pdf") #
