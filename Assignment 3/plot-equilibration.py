@@ -3,7 +3,7 @@ from util import *
 import matplotlib.pyplot as plt
 
 # Read data from log file
-data = np.genfromtxt('Assignment 3/logs/mdOutput.log', skip_header=1)
+data = np.genfromtxt('Assignment 3/Na-aimd/NaCluster24.log', skip_header=1)
 time = data[:,0]
 Etot = data[:,1]
 Epot = data[:,2]
@@ -22,9 +22,9 @@ plt.legend()
 plt.ylim(200, 500)
 plt.xlabel("Time (ps)")
 plt.ylabel("Temperature (K)")
-plt.savefig('Assignment 3/logs/our-simulation-temperature-vs-time.pdf')
+plt.savefig('Assignment 3/Na-aimd/NaCluster24-simulation-temperature-vs-time.pdf')
 
-print_arrays_to_CSV('Assignment 3/logs/our-simulation-temperature-energy-vs-time.csv',
+print_arrays_to_CSV('Assignment 3/Na-aimd/their-simulation-temperature-energy-vs-time.csv',
     'Time (ps)', time,
     'Instantaneous temperature (K)', T_instant,
     'Running average temperature (K)', T_avg,
