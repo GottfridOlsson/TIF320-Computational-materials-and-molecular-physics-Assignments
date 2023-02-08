@@ -7,10 +7,10 @@ import util
 trajectories = Trajectory('Assignment 3/logs/nose_hoover_trajectory.traj')
 
 # Create bins for histogram to save RDF
-r_max, binwidth = 6, 0.01
+r_min, r_max, binwidth = 1, 6, 0.1
 number_of_bins = int(r_max/binwidth)
 histogram = [0]*number_of_bins
-radial_coordinates = np.array([binwidth*(i+1) for i in range(number_of_bins)])
+radial_coordinates = np.array([r_min+binwidth*(i+1) for i in range(number_of_bins)])
 
 trajectory_number = 0
 for atoms in trajectories:
@@ -30,18 +30,16 @@ for atoms in trajectories:
         if distance > r_max:
             continue
 
-        bin_index = int(np.floor((distance-binwidth)/binwidth))
+        bin_index = int(np.floor((distance-(r_min+binwidth))/binwidth))
         histogram[bin_index] += 1
     
     trajectory_number += 1
 
-# Scale histogram
+# Scale histogram by spherical shells
 histogram_fourPiRSquared = histogram / (4*np.pi*radial_coordinates**2)
-histogram_fourPiRSquared_scaled = histogram_fourPiRSquared / sum(histogram)
 
 # Save histogram to CSV
 util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram.csv", 
                             "Radial coordinate (angstrom)", radial_coordinates, 
                             "Histogram of distances (counts)", histogram,
-                            "Histogram divided by 4*pi*r^2 (counts)", histogram_fourPiRSquared, 
-                            "Histogram divided by 4*pi*r^2 and divided by number of counts (counts)", histogram_fourPiRSquared_scaled)
+                            "Histogram divided by 4*pi*r^2 (counts)", histogram_fourPiRSquared)
