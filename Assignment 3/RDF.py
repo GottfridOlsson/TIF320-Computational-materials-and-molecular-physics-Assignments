@@ -1,7 +1,7 @@
 import numpy as np
 from ase.io.trajectory import Trajectory
 import util
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #
 
 
 # Read trajectories for cluster with Na
@@ -48,5 +48,5 @@ util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram.csv",
                             "Histogram of radial distances (counts)", histogram,
                             "Scaled histogram (counts)", histogram_scaled)
 
-plt.plot(radial_coordinates, histogram_scaled, 'o')
-plt.savefig("RDF_histogram.pdf")
+plt.plot(radial_coordinates, histogram_scaled, 'o') #
+plt.savefig("RDF_histogram.pdf") #

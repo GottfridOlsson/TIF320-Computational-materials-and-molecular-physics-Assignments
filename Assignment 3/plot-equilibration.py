@@ -12,11 +12,11 @@ T    = data[:,4]
 
 T_instant = T
 T_avg     = np.cumsum(T) / np.cumsum(np.ones_like(T))
-T_target  = 345 * np.ones_like(time)
+T_target  = 350 * np.ones_like(time)
 
 plt.plot(time, T_instant,   label="Instantaneous temperature")
 plt.plot(time, T_avg,       label="Running average")
-plt.plot(time, T_target,    "k--", label="T = 350K")
+plt.plot(time, T_target,    "k--", label=f"T = {T_target[0]}K")
 plt.grid()
 plt.legend()
 plt.ylim(200, 500)
