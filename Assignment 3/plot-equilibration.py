@@ -24,9 +24,12 @@ plt.xlabel("Time (ps)")
 plt.ylabel("Temperature (K)")
 plt.savefig('Assignment 3/logs/our-simulation-temperature-vs-time.pdf')
 
-print_arrays_to_CSV('Assignment 3/logs/our-simulation-temperature-vs-time.csv',
+print_arrays_to_CSV('Assignment 3/logs/our-simulation-temperature-energy-vs-time.csv',
     'Time (ps)', time,
     'Instantaneous temperature (K)', T_instant,
     'Running average temperature (K)', T_avg,
-    'Target temperature (K)', T_target
+    'Target temperature (K)', T_target, 
+    'Total energy (eV)', Etot, 
+    'Potential energy (eV)', Epot, 
+    'Kinetic energy (eV)', Ekin
 )

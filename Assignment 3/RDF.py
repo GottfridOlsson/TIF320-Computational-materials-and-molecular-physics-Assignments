@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt #
 
 # Read trajectories for cluster with Na
 trajectories = Trajectory('Assignment 3/logs/nose_hoover_trajectory.traj')
+first_trajectory, last_trajectory = 100, 4000
 
 # Create bins for histogram to save RDF
 cell_length = trajectories[0].cell[0][0]
@@ -15,7 +16,7 @@ binwidth = (r_max-r_min) / number_of_bins
 radial_coordinates = np.array([r_min+binwidth*(i+0.5) for i in range(number_of_bins)])
 
 trajectory_number = 0
-for atoms in trajectories:
+for atoms in trajectories[first_trajectory:last_trajectory]:
     trajectory_number += 1
     if trajectory_number % 500 == 0:
         print(f"Calculating histogram for trajectory number {trajectory_number}")
