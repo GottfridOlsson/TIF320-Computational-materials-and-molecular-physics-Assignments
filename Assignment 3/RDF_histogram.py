@@ -1,14 +1,12 @@
 import numpy as np
 from ase.io.trajectory import Trajectory
 import util
-import matplotlib.pyplot as plt #
-
 
 # Read trajectories for cluster with Na
 trajectories = Trajectory('Assignment 3/Na-aimd/NaCluster24.traj') # 'Assignment 3/logs/nose_hoover_trajectory.traj'
 first_trajectory, last_trajectory = int(len(trajectories)*(1/7)),len(trajectories) # our simulation: int(len(trajectories)*(0.5/2)),len(trajectories) 
 
-# Create bins for histogram to save RDF
+# Create histogram to save the RDF to
 cell_length = trajectories[0].cell[0][0]
 r_min, r_max, number_of_bins = 1.5, cell_length/2, 57
 histogram = np.array([0]*number_of_bins)
@@ -38,8 +36,8 @@ for atoms in trajectories[first_trajectory:last_trajectory]:
         histogram[bin_index] += 1
 
 
-# Scale histogram by average density and by volume of spherical shells and by number of time steps
-histogram_scaled = histogram / ( 24 / cell_length**3) # average density is 24 particles (oxygen) in unit cell
+# Scale histogram by average density, by volume of spherical shells, and by number of time steps used
+histogram_scaled = histogram / ( 24 / cell_length**3) # average density is 24 particles (oxygen) per unit cell
 histogram_scaled = histogram_scaled / (4*np.pi*radial_coordinates**2*binwidth)
 histogram_scaled = histogram_scaled / trajectory_number
 
@@ -48,6 +46,3 @@ util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram_their_simulation.
                             "Radial coordinate (angstrom)", radial_coordinates, 
                             "Histogram of radial distances (counts)", histogram,
                             "Scaled histogram (counts)", histogram_scaled)
-
-plt.plot(radial_coordinates, histogram_scaled, 'o') #
-plt.savefig("RDF_histogram_their_simulation.pdf") #
