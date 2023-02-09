@@ -3,8 +3,8 @@ from ase.io.trajectory import Trajectory
 import util
 
 # Read trajectories for cluster with Na
-trajectories = Trajectory('Assignment 3/Na-aimd/cluster24.traj') # 'Assignment 3/logs/nose_hoover_trajectory.traj'
-first_trajectory, last_trajectory = int(len(trajectories)*(1/2)),len(trajectories) # our simulation: (0.5/2), their with Na: (1/7), their without Na: (1/6)
+trajectories = Trajectory('Assignment 3/logs/nose_hoover_trajectory.traj') # 'Assignment 3/logs/nose_hoover_trajectory.traj'
+first_trajectory, last_trajectory = int(len(trajectories)*(1/2)), int(len(trajectories)*(2/2)) # our simulation: (0.5/2), their with Na: (1/7), their without Na: (1/6)
 
 # Create histogram to save the RDF to
 cell_length = trajectories[0].cell[0][0]
@@ -42,7 +42,7 @@ histogram_scaled = histogram_scaled / (4*np.pi*radial_coordinates**2*binwidth)
 histogram_scaled = histogram_scaled / trajectory_number
 
 # Save histogram to CSV
-util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram_their_simulation_without_Na.csv", 
+util.print_arrays_to_CSV("Assignment 3/TIF320_A3_RDF_histogram_our_simulation_1ps_to_2ps.csv", 
                             "Radial coordinate (angstrom)", radial_coordinates, 
                             "Histogram of radial distances (counts)", histogram,
-                            "Scaled histogram (counts)", histogram_scaled)
+                            "Scaled histogram for 1 ps to 2 ps (counts)", histogram_scaled)
