@@ -3,18 +3,18 @@ from ase.io.trajectory import Trajectory
 import util
 
 # Read trajectories for cluster with Na
-trajectories = Trajectory('Assignment 3/logs/nose_hoover_trajectory.traj') # 'Assignment 3/logs/nose_hoover_trajectory.traj'
-first_trajectory, last_trajectory = int(len(trajectories)*(1/2)), int(len(trajectories)*(2/2)) # our simulation: (0.5/2), their with Na: (1/7), their without Na: (1/6)
+trajectory = Trajectory('Assignment 3/logs/nose_hoover_trajectory.traj') # 'Assignment 3/logs/nose_hoover_trajectory.traj'
+first_time_step, last_time_step = int(len(trajectory)*(1/2)), int(len(trajectory)*(2/2)) # our simulation: (0.5/2), their with Na: (1/7), their without Na: (1/6)
 
 # Create histogram to save the RDF to
-cell_length = trajectories[0].cell[0][0]
+cell_length = trajectory[0].cell[0][0]
 r_min, r_max, number_of_bins = 1.5, cell_length/2, 57
 histogram = np.array([0]*number_of_bins)
 binwidth = (r_max-r_min) / number_of_bins
 radial_coordinates = np.array([r_min+binwidth*(i+0.5) for i in range(number_of_bins)])
 
 trajectory_number = 0
-for atoms in trajectories[first_trajectory:last_trajectory]:
+for atoms in trajectory[first_time_step:last_time_step]:
     trajectory_number += 1
     if trajectory_number % 500 == 0:
         print(f"Calculating histogram for trajectory number {trajectory_number}")
