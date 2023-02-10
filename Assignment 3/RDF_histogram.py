@@ -23,7 +23,6 @@ for atoms in trajectories[first_trajectory:last_trajectory]:
     chemical_symbols = np.array(atoms.get_chemical_symbols())
     Na_atom_index    = np.where(chemical_symbols=='Na')[0]
     O_atoms_indexes  = np.where(chemical_symbols=='O')[0]
-
         
     # Get distance (angstrom) between atoms using the minimum image convention (mic)
     distances = atoms.get_distances(Na_atom_index, O_atoms_indexes, mic=True) 
@@ -37,8 +36,8 @@ for atoms in trajectories[first_trajectory:last_trajectory]:
         histogram[bin_index] += 1
 
 # Scale histogram by average density, by volume of spherical shells, and by number of time steps used
-histogram_scaled = histogram / ( 24 / cell_length**3) # average density is 24 particles (oxygen) per unit cell
-histogram_scaled = histogram_scaled / (4*np.pi*radial_coordinates**2*binwidth)
+histogram_scaled = histogram / (4*np.pi*radial_coordinates**2*binwidth)
+histogram_scaled = histogram_scaled / ( 24 / cell_length**3) # average density is 24 particles (oxygen) per unit cell
 histogram_scaled = histogram_scaled / trajectory_number
 
 # Save histogram to CSV
