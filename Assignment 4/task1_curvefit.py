@@ -6,7 +6,7 @@ import util
 element = "Au"
     
 # Load potential energy as function of lattice parameter a from CSV 
-#CSV = np.loadtxt(f"Assignment 4/output/TIF320_T1_{element}_energy_vs_lattice_parameter.csv", delimiter=',', skiprows=1)
+#CSV = np.loadtxt(f"Assignment 4/output/TIF320_A4_T1_{element}_energy_vs_lattice_parameter.csv", delimiter=',', skiprows=1)
 CSV = np.loadtxt("Assignment 4/output/Au_FCC_energies.csv", delimiter=',', skiprows=1)
 a = CSV[:,0]
 E_pot = CSV[:,1]
@@ -29,7 +29,7 @@ plt.plot(a_min, np.min(fitted_E_pot), 'o')
 plt.savefig(f"Assignment 4/{element}_fit.pdf")
 
 # Print fitted curve to CSV
-util.print_arrays_to_CSV("Assignment 4/output/TIF320_T1_Au_energy_vs_lattice_parameter_fit.csv", 
+util.print_arrays_to_CSV("Assignment 4/output/TIF320_A4_T1_Au_energy_vs_lattice_parameter_fit.csv", 
                         f"Lattice parameter for {element}", a, 
                         f"Potential energy (eV) for {element}", E_pot, 
                         f"Lattice parameter linspace for {element}", a_linspace, 

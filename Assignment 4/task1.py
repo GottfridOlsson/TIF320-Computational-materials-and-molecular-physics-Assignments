@@ -43,7 +43,7 @@ for element in elements:
             calc.write(f'{file_name}.gpw')
             energies.append(energy)
       
-      util.print_arrays_to_CSV(f"Assignment 4/output/TIF320_T1_{element}_energy_vs_lattice_parameter.csv", 
+      util.print_arrays_to_CSV(f"Assignment 4/output/TIF320_A4_T1_{element}_energy_vs_lattice_parameter.csv", 
                                 "Lattice parameter a (Å)", a_guesses, 
                                 "Potential energy for {element} (eV)", energies, 
                                 print_message=True)
