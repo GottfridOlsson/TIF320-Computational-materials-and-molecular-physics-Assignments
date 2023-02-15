@@ -13,7 +13,7 @@ def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
         Output:
             A CSV file with utf-8 formatting at path_to_csv, with the array(s) as column(s) and corresponding header(s)
 
-            Lines larger down than the length of array(s) are printed with an empty space
+            Lines larger down than the length of array(s) are printed as ',' without an empty space [Plot-Data once complained when there was an empty space]
         
         Warnings:
             ValueError: if the length of args is not even
@@ -47,7 +47,7 @@ def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
 
             # print comma separator between values (CSV) or newline at end of line
             if header_number != len(headers) - 1:
-                CSV_file.write(", ")
+                CSV_file.write(",")
             else:
                 CSV_file.write("\n")
 
@@ -63,7 +63,7 @@ def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
                 
                 # print comma separator between values (CSV) or newline at end of line
                 if array_number != len(arrays) - 1:
-                    CSV_file.write(", ")
+                    CSV_file.write(",")
                 else:
                     CSV_file.write("\n")
     
