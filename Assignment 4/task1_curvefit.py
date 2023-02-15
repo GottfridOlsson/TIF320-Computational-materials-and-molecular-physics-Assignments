@@ -6,7 +6,7 @@ for element in ["Au", "Pt", "Rh"]:
     print(f"Fitting curve for element {element}")
 
     # Load potential energy as function of lattice parameter a from CSV 
-    CSV = np.loadtxt(f"Assignment 4/output/TIF320_A4_T1_{element}_energy_vs_lattice_parameter_step0.01.csv", delimiter=',', skiprows=1)
+    CSV = np.loadtxt(f"Assignment 4/output_T1/TIF320_A4_T1_{element}_energy_vs_lattice_parameter_step0.01.csv", delimiter=',', skiprows=1)
     a_all = CSV[:,0]
     E_pot_all = CSV[:,1]
 
@@ -30,12 +30,12 @@ for element in ["Au", "Pt", "Rh"]:
     plt.plot(a, E_pot, 'x')
     plt.plot(a_linspace, fitted_E_pot, '.')
     plt.plot(a_min, np.min(fitted_E_pot), 'o')
-    plt.savefig(f"Assignment 4/output/{element}_fit.pdf")
+    plt.savefig(f"Assignment 4/output_T1/{element}_fit.pdf")
     plt.clf()
     
 
     # Print fitted curve to CSV
-    util.print_arrays_to_CSV(f"Assignment 4/output/TIF320_A4_T1_{element}_energy_vs_lattice_parameter_step0.01_fit.csv", 
+    util.print_arrays_to_CSV(f"Assignment 4/output_T1/TIF320_A4_T1_{element}_energy_vs_lattice_parameter_step0.01_fit.csv", 
                             f"Lattice parameter (Å) for {element}", a_all, 
                             f"Potential energy (eV) for {element}", E_pot_all, 
                             f"Lattice parameter linspace (Å) for {element}", a_linspace, 

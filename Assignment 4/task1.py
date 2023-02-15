@@ -27,7 +27,7 @@ for i, element in enumerate(elements):
       for a in a_trials:
             #print(f"Lattice parameter a={a}")
 
-            file_name = f"Assignment 4/output/{element}_calculation_a={a:.2f}"
+            file_name = f"Assignment 4/output_T1/{element}_calculation_a={a:.2f}"
 
             # Create bulk FCC with periodic boundary conditions (pbc)
             b = a/2
@@ -51,7 +51,7 @@ for i, element in enumerate(elements):
             calc.write(f'{file_name}.gpw')
             energies.append(energy)
       
-      util.print_arrays_to_CSV(f"Assignment 4/output/TIF320_A4_T1_{element}_energy_vs_lattice_parameter_step0.01.csv", 
+      util.print_arrays_to_CSV(f"Assignment 4/output_T1/TIF320_A4_T1_{element}_energy_vs_lattice_parameter_step0.01.csv", 
                                 f"Lattice parameter for {element} (Å)", a_trials, 
                                 f"Potential energy for {element} (eV)", energies, 
                                 print_message=True)
