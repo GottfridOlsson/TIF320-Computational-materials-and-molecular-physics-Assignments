@@ -21,7 +21,7 @@ for element in ["Au", "Pt", "Rh"]:
 
     # Solution of minumum for 2nd order polynomial gives most stable lattice parameter
     a_min = -fit[1]/(2*fit[0])
-    print(f"Lattice constant at minimum fitted energy for {element}: {a_min:.4f} (Å)")
+    print(f"Lattice constant at minimum fitted energy for {element}: {a_min:.3f} (Å)")
 
     # Plot to see that is looks reasonable
     model = np.poly1d(np.polyfit(a, E_pot, 2))

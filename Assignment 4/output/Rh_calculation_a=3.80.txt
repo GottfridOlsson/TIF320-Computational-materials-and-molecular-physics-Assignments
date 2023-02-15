@@ -5,10 +5,10 @@
  |__ |  _|___|_____|  22.8.0
  |___|_|             
 
-User:   gotols@vera03-2
-Date:   Tue Feb 14 16:27:41 2023
+User:   gotols@vera33-2
+Date:   Wed Feb 15 09:48:54 2023
 Arch:   x86_64
-Pid:    74144
+Pid:    3133821
 CWD:    /cephyr/users/gotols/Vera/TIF320-Computational-materials-and-molecular-physics-Assignments
 Python: 3.10.4
 gpaw:   /apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw
@@ -123,7 +123,7 @@ Note: your k-points are not as symmetric as your crystal!
 
 Wave functions: Plane wave expansion
   Cutoff energy: 450.000 eV
-  Number of coefficients (min, max): 289, 307
+  Number of coefficients (min, max): 286, 307
   Pulay-stress correction: 0.000000 eV/Ang^3 (de/decut=0.000000)
   Using FFTW library
   ScaLapack parameters: grid=1x1, blocksize=None
@@ -159,8 +159,8 @@ Hamiltonian:
 XC parameters: PBE with 2 nearest neighbor stencil
 
 Memory estimate:
-  Process memory now: 258.16 MiB
-  Calculator: 19.53 MiB
+  Process memory now: 267.71 MiB
+  Calculator: 19.50 MiB
     Density: 1.07 MiB
       Arrays: 0.54 MiB
       Localized functions: 0.31 MiB
@@ -170,11 +170,11 @@ Memory estimate:
       XC: 0.00 MiB
       Poisson: 0.00 MiB
       vbar: 0.01 MiB
-    Wavefunctions: 18.10 MiB
+    Wavefunctions: 18.07 MiB
       Arrays psit_nG: 10.23 MiB
       Eigensolver: 0.10 MiB
       Projections: 0.60 MiB
-      Projectors: 6.21 MiB
+      Projectors: 6.18 MiB
       PW-descriptor: 0.96 MiB
 
 Total number of cores used: 1
@@ -207,128 +207,128 @@ Positions:
 
 Unit cell:
            periodic     x           y           z      points  spacing
-  1. axis:    yes    0.000000    1.901600    1.901600    14     0.1568
-  2. axis:    yes    1.901600    0.000000    1.901600    14     0.1568
-  3. axis:    yes    1.901600    1.901600    0.000000    14     0.1568
+  1. axis:    yes    0.000000    1.898500    1.898500    14     0.1566
+  2. axis:    yes    1.898500    0.000000    1.898500    14     0.1566
+  3. axis:    yes    1.898500    1.898500    0.000000    14     0.1566
 
-  Lengths:   2.689269   2.689269   2.689269
+  Lengths:   2.684884   2.684884   2.684884
   Angles:   60.000000  60.000000  60.000000
 
-Effective grid spacing dv^(1/3) = 0.1711
+Effective grid spacing dv^(1/3) = 0.1709
 
      iter     time        total  log10-change:
                          energy  eigst   dens
-iter:   1 16:27:45    -7.886802
-iter:   2 16:27:46    -7.771916  -1.82  -1.36
-iter:   3 16:27:48    -7.413300  -1.19  -1.39
-iter:   4 16:27:49    -7.325762  -2.79  -1.77
-iter:   5 16:27:50    -7.301569  -2.30  -2.11
-iter:   6 16:27:51    -7.298825  -3.70  -2.69
-iter:   7 16:27:52    -7.298497c -4.47  -2.92
-iter:   8 16:27:53    -7.298280c -4.30  -3.09
-iter:   9 16:27:54    -7.298203c -5.03  -3.25
-iter:  10 16:27:55    -7.298200c -6.41  -3.89
-iter:  11 16:27:56    -7.298212c -6.04  -3.87
-iter:  12 16:27:57    -7.298204c -6.40  -4.14c
-iter:  13 16:27:58    -7.298204c -7.83c -5.21c
+iter:   1 09:48:59    -7.883541
+iter:   2 09:49:00    -7.769007  -1.81  -1.36
+iter:   3 09:49:02    -7.409774  -1.19  -1.39
+iter:   4 09:49:03    -7.322008  -2.78  -1.78
+iter:   5 09:49:05    -7.298089  -2.30  -2.11
+iter:   6 09:49:06    -7.295340  -3.69  -2.69
+iter:   7 09:49:07    -7.295014c -4.47  -2.92
+iter:   8 09:49:09    -7.294801c -4.29  -3.09
+iter:   9 09:49:10    -7.294718c -5.03  -3.25
+iter:  10 09:49:11    -7.294715c -6.42  -3.89
+iter:  11 09:49:12    -7.294727c -6.02  -3.87
+iter:  12 09:49:14    -7.294719c -6.41  -4.14c
+iter:  13 09:49:15    -7.294719c -7.84c -5.22c
 
 Converged after 13 iterations.
 
-Dipole moment: (0.000000, 0.000000, 0.000000) |e|*Ang
+Dipole moment: (-0.000000, -0.000000, -0.000000) |e|*Ang
 
 Energy contributions relative to reference atoms: (reference = -130134.647000)
 
-Kinetic:         -2.455998
-Potential:       +0.097303
+Kinetic:         -1.996190
+Potential:       -0.283298
 External:        +0.000000
-XC:              -4.865181
-Entropy (-ST):   -0.044698
-Local:           -0.051978
+XC:              -4.940480
+Entropy (-ST):   -0.044292
+Local:           -0.052605
 --------------------------
-Free energy:     -7.320553
-Extrapolated:    -7.298204
+Free energy:     -7.316865
+Extrapolated:    -7.294719
 
 Showing only first 2 kpts
  Kpt  Band  Eigenvalues  Occupancy
-  0     5      8.87501    2.00000
-  0     6      8.88134    2.00000
-  0     7     10.69074    1.99997
-  0     8     10.86901    1.99985
+  0     5      8.94251    2.00000
+  0     6      8.94891    2.00000
+  0     7     10.77219    1.99998
+  0     8     10.95214    1.99986
 
-  1     5      8.78971    2.00000
-  1     6      8.78971    2.00000
-  1     7     10.81944    1.99991
-  1     8     10.81944    1.99991
+  1     5      8.85656    2.00000
+  1     6      8.85656    2.00000
+  1     7     10.90218    1.99991
+  1     8     10.90218    1.99991
 
 
-Fermi level: 11.81846
+Fermi level: 11.90866
 
 No gap
 Writing to Assignment 4/output/Rh_calculation_a=3.80.gpw (mode='')
 
 Timing:                              incl.     excl.
 -----------------------------------------------------------
-Hamiltonian:                         0.051     0.000   0.0% |
- Atomic:                             0.043     0.000   0.0% |
-  XC Correction:                     0.043     0.043   0.3% |
+Hamiltonian:                         0.058     0.000   0.0% |
+ Atomic:                             0.050     0.000   0.0% |
+  XC Correction:                     0.050     0.050   0.2% |
  Calculate atomic Hamiltonians:      0.000     0.000   0.0% |
  Communicate:                        0.000     0.000   0.0% |
  Initialize Hamiltonian:             0.000     0.000   0.0% |
  Poisson:                            0.000     0.000   0.0% |
  XC 3D grid:                         0.007     0.007   0.0% |
-LCAO initialization:                 2.727     0.057   0.3% |
- LCAO eigensolver:                   0.376     0.004   0.0% |
-  Calculate projections:             0.002     0.002   0.0% |
-  DenseAtomicCorrection:             0.009     0.009   0.1% |
-  Distribute overlap matrix:         0.002     0.002   0.0% |
-  Orbital Layouts:                   0.027     0.027   0.2% |
-  Potential matrix:                  0.300     0.300   1.8% ||
-  Sum over cells:                    0.031     0.031   0.2% |
- LCAO to grid:                       1.745     1.745  10.3% |---|
- Set positions (LCAO WFS):           0.549     0.087   0.5% |
+LCAO initialization:                 2.919     0.056   0.3% |
+ LCAO eigensolver:                   0.402     0.005   0.0% |
+  Calculate projections:             0.003     0.003   0.0% |
+  DenseAtomicCorrection:             0.011     0.011   0.1% |
+  Distribute overlap matrix:         0.003     0.003   0.0% |
+  Orbital Layouts:                   0.032     0.032   0.2% |
+  Potential matrix:                  0.311     0.311   1.5% ||
+  Sum over cells:                    0.038     0.038   0.2% |
+ LCAO to grid:                       1.882     1.882   9.1% |---|
+ Set positions (LCAO WFS):           0.579     0.088   0.4% |
   Basic WFS set positions:           0.001     0.001   0.0% |
   Basis functions set positions:     0.000     0.000   0.0% |
-  P tci:                             0.132     0.132   0.8% |
-  ST tci:                            0.320     0.320   1.9% ||
-  mktci:                             0.009     0.009   0.1% |
-PWDescriptor:                        0.012     0.012   0.1% |
-SCF-cycle:                          13.697     0.885   5.2% |-|
- Davidson:                          11.637     2.850  16.9% |------|
-  Apply H:                           1.151     1.019   6.0% |-|
-   HMM T:                            0.132     0.132   0.8% |
-  Subspace diag:                     2.037     0.113   0.7% |
-   calc_h_matrix:                    1.434     0.271   1.6% ||
-    Apply H:                         1.163     1.024   6.1% |-|
-     HMM T:                          0.139     0.139   0.8% |
-   diagonalize:                      0.322     0.322   1.9% ||
-   rotate_psi:                       0.168     0.168   1.0% |
-  calc. matrices:                    3.912     1.621   9.6% |---|
-   Apply H:                          2.291     2.029  12.0% |----|
-    HMM T:                           0.262     0.262   1.6% ||
-  diagonalize:                       1.439     1.439   8.5% |--|
-  rotate_psi:                        0.248     0.248   1.5% ||
- Density:                            0.538     0.000   0.0% |
-  Atomic density matrices:           0.032     0.032   0.2% |
-  Mix:                               0.014     0.014   0.1% |
+  P tci:                             0.165     0.165   0.8% |
+  ST tci:                            0.316     0.316   1.5% ||
+  mktci:                             0.009     0.009   0.0% |
+PWDescriptor:                        0.013     0.013   0.1% |
+SCF-cycle:                          17.279     0.912   4.4% |-|
+ Davidson:                          15.028     3.560  17.2% |------|
+  Apply H:                           1.446     1.279   6.2% |-|
+   HMM T:                            0.168     0.168   0.8% |
+  Subspace diag:                     2.717     0.144   0.7% |
+   calc_h_matrix:                    1.827     0.375   1.8% ||
+    Apply H:                         1.453     1.277   6.2% |-|
+     HMM T:                          0.176     0.176   0.9% |
+   diagonalize:                      0.413     0.413   2.0% ||
+   rotate_psi:                       0.331     0.331   1.6% ||
+  calc. matrices:                    4.933     2.061  10.0% |---|
+   Apply H:                          2.872     2.538  12.3% |----|
+    HMM T:                           0.333     0.333   1.6% ||
+  diagonalize:                       2.003     2.003   9.7% |---|
+  rotate_psi:                        0.369     0.369   1.8% ||
+ Density:                            0.533     0.000   0.0% |
+  Atomic density matrices:           0.031     0.031   0.1% |
+  Mix:                               0.017     0.017   0.1% |
   Multipole moments:                 0.001     0.001   0.0% |
-  Pseudo density:                    0.491     0.413   2.4% ||
-   Symmetrize density:               0.078     0.078   0.5% |
- Hamiltonian:                        0.581     0.002   0.0% |
-  Atomic:                            0.492     0.005   0.0% |
-   XC Correction:                    0.488     0.488   2.9% ||
-  Calculate atomic Hamiltonians:     0.004     0.004   0.0% |
+  Pseudo density:                    0.484     0.408   2.0% ||
+   Symmetrize density:               0.077     0.077   0.4% |
+ Hamiltonian:                        0.726     0.003   0.0% |
+  Atomic:                            0.628     0.022   0.1% |
+   XC Correction:                    0.607     0.607   2.9% ||
+  Calculate atomic Hamiltonians:     0.005     0.005   0.0% |
   Communicate:                       0.000     0.000   0.0% |
   Poisson:                           0.001     0.001   0.0% |
-  XC 3D grid:                        0.081     0.081   0.5% |
- Orthonormalize:                     0.057     0.008   0.0% |
-  calc_s_matrix:                     0.016     0.016   0.1% |
-  inverse-cholesky:                  0.009     0.009   0.1% |
-  projections:                       0.019     0.019   0.1% |
-  rotate_psi_s:                      0.006     0.006   0.0% |
-Set symmetry:                        0.084     0.084   0.5% |
-Other:                               0.289     0.289   1.7% ||
+  XC 3D grid:                        0.090     0.090   0.4% |
+ Orthonormalize:                     0.080     0.010   0.0% |
+  calc_s_matrix:                     0.019     0.019   0.1% |
+  inverse-cholesky:                  0.011     0.011   0.1% |
+  projections:                       0.024     0.024   0.1% |
+  rotate_psi_s:                      0.015     0.015   0.1% |
+Set symmetry:                        0.108     0.108   0.5% |
+Other:                               0.303     0.303   1.5% ||
 -----------------------------------------------------------
-Total:                                        16.860 100.0%
+Total:                                        20.679 100.0%
 
-Memory usage: 258.34 MiB
-Date: Tue Feb 14 16:27:58 2023
+Memory usage: 267.71 MiB
+Date: Wed Feb 15 09:49:15 2023

@@ -11,6 +11,7 @@ import numpy as np
 # Elements and FCC lattice parameters to explore
 elements = ['Au', 'Pt', 'Rh']
 a_theoretical = [4.0782, 3.9236, 3.8032] # angstrom
+a_minimum_from_rough_guesses = [4.162, 3.966, 3.837] # angstrom
 a_step = 0.01
 
 # Number of k-points and cutoff energy for plane waves (from problem description)
@@ -20,7 +21,8 @@ cutoff_energy = 450
 for i, element in enumerate(elements):
       #print(f"Calculating for element {element}")
       energies = []
-      a_trials = np.arange(a_theoretical[i]-4*a_step, a_theoretical[i]+5*a_step, step=a_step)
+      a_trials = np.arange(a_minimum_from_rough_guesses[i]-5*a_step, a_minimum_from_rough_guesses[i]+6*a_step, step=a_step)
+      #print(f"{element} a_trials={a_trials}")
 
       for a in a_trials:
             #print(f"Lattice parameter a={a}")
