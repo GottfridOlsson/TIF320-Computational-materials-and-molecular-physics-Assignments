@@ -1,6 +1,9 @@
-#cohesive energy = bulk energy - gaseous energy
-# perhaps check out:
-# https://wiki.fysik.dtu.dk/ase/ase/calculators/eam.html
-# The DFT energies of a gold atom, platinum atom and rhodium atom are −0.158 eV, −0.704 eV and −1.218 eV, respectively.
+import numpy as np
 
-DFT_energies_Au_Pt_Rh_atom = [-0.158, -0.704, -1.218] #eV
+DFT_energies_Au_Pt_Rh_atom = np.array([-0.158, -0.704, -1.218]) #eV/atom
+T1_energies_Au_Pt_Rh_atom  = np.array([-3.146, -6.434, -7.307]) #eV/atom
+cohesive_energy = DFT_energies_Au_Pt_Rh_atom - T1_energies_Au_Pt_Rh_atom
+
+print(f"Coesive energy for Au, Pt, Rh (eV/atom): {cohesive_energy}")
+
+
