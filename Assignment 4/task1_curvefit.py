@@ -40,4 +40,6 @@ for element in ["Au", "Pt", "Rh"]:
                             f"Potential energy (eV) for {element}", E_pot_all, 
                             f"Lattice parameter linspace (Å) for {element}", a_linspace, 
                             f"Fitted energy (eV) curve for {element}", fitted_E_pot, 
+                            f"Lattice parameter (Å) for min E_pot for  {element}", [a_min],
+                            f"Minimum E_pot (eV) for {element}", [np.min(fitted_E_pot)],
                             print_message=True)
