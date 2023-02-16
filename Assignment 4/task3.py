@@ -81,8 +81,8 @@ def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
 
 
 
-elements = ['Pt', 'Rh'] #'Au', 
-a_from_T1 = [3.970, 3.840] # 4.177, , angstrom
+elements = ['Au', 'Pt', 'Rh'] 
+a_from_T1 = [4.177, 3.970, 3.840] # angstrom
 output_path_start = 'Assignment 4/output_T3/'
 potential_energy_of_surface = []
 
@@ -92,8 +92,8 @@ for i, element in enumerate(elements):
     # Construct (111)-surface for Au, Pt, Rh
     # 3-layered 3X3 surface cell, 6 angstrom of vacuum in +-z-direction
     surface = fcc111(element, (3, 3, 3), a=a_from_T1[i], vacuum=6.0)
-    write(f"{output_path_start}{element}_111-surface_initialized.png", surface)
-    
+    write(f"{output_path_start}{element}_111-surface_initialized_angled-view.png", surface, rotation='10z,-80x, 5y')
+    continue
 
     # Calculator
     k = (4, 4, 1) #k-sampling according to problem description
