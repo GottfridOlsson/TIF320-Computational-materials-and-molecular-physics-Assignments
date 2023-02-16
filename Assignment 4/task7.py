@@ -1,5 +1,6 @@
 import atomic_simulation_units as asu
 import numpy as np
+import matplotlib.pyplot as plt
 
 # PROPERTIES OF MOLECULES
 
@@ -22,20 +23,23 @@ I_CO = r_CO**2 * (m_O * m_C) / (m_O + m_C)
 sigma_O2 = 2
 sigma_CO = 1
 
-# Vibrational energy
+# Vibrational energy (fill in from task 5)
 eps_O2 = 0.2555 * asu.eV
 eps_CO = 0.2670 * asu.eV
 
-# Energies of molecules of surface
+# Energies of molecules of surface (fill in from task 4 and 6)
 E_gas_O2 = 0 * asu.eV
 E_gas_CO = 0 * asu.eV
-E_adsorbed_O2 = - 1 * asu.eV
+E_adsorbed_O  = - 1 * asu.eV
 E_adsorbed_CO = - 1 * asu.eV
+
+# Activation energy of reaction (from PM)
+E_a = - 0.3 * (E_adsorbed_O + E_adsorbed_CO) + 0.22 * asu.eV
 
 # PROPERTIES OF SIMULATION
 
 # Temperature range
-T = 25 + 273#np.linspace(100, 2000) * asu.K
+T = np.linspace(100, 2000, 1000) * asu.K
 beta = 1 / (asu.kB * T)
 
 # Partial pressures
@@ -60,7 +64,7 @@ S_O2_rot = asu.kB * (
 
 S_O2_vib = asu.kB * (
     np.log(1 / (1 - np.exp(- beta * eps_O2))) +
-    (beta * eps_O2) / (1 + np.exp(beta * eps_O2))
+    (beta * eps_O2) / (np.exp(beta * eps_O2) - 1)
 )
 
 S_O2 = S_O2_trans + S_O2_rot + S_O2_vib
@@ -86,6 +90,36 @@ S_CO_vib = asu.kB * (
 
 S_CO = S_CO_trans + S_CO_rot + S_CO_vib
 
-print(f"Entropy of O2: {S_O2 / (asu.J / (asu.K * asu.mol)):.2f} J/(K mol)")
-print(f"Entropy of CO: {S_CO / (asu.J / (asu.K * asu.mol)):.2f} J/(K mol)")
-print(I_O2 / (asu.kg * asu.m**2))
+
+# Compute rate constants
+K_O2 = np.exp(- S_O2 / asu.kB) * np.exp(beta * (E_gas_O2 - 2 * E_adsorbed_O))
+K_CO = np.exp(- S_CO / asu.kB) * np.exp(beta * (E_gas_CO - E_adsorbed_CO))
+
+# Compute fractional coverage
+theta_O =  (p_O2 * K_O2 - np.sqrt(p_O2 * K_O2) * (1 + p_CO * K_CO)) / \
+           (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
+
+theta_CO = (p_CO * K_CO * (np.sqrt(p_O2 * K_O2) - (1 + p_CO * K_CO))) / \
+           (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
+
+# Compute reaction rate
+nu = 1e12 * asu.s**-1
+r = theta_O * theta_CO * nu * np.exp(- beta * E_a)
+
+fig = plt.figure()
+
+ax = fig.add_subplot(2,1,1)
+ax.semilogy(T, theta_O, label="O")
+ax.semilogy(T, theta_CO, label="CO")
+ax.set_ylabel("Fractional coverage")
+ax.legend()
+ax.grid()
+
+ax = fig.add_subplot(2,1,2)
+ax.plot(T, r / asu.s**-1)
+ax.set_xlabel("Temperature (K)")
+ax.set_ylabel("Reaction rate (s^-1)")
+ax.grid()
+
+
+plt.show()
