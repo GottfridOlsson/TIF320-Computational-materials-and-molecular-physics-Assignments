@@ -20,11 +20,11 @@ for i, element in enumerate(elements):
     # Construct (111)-surface for Au, Pt, Rh
     # 3-layered 3X3 surface cell, 6 angstrom of vacuum in +-z-direction
     surface = fcc111(element, (3, 3, 3), a=a_from_T1[i], vacuum=6.0)
-    write(f"{output_path_start}{element}_111-surface_test.png", surface)
+    write(f"{output_path_start}{element}_111-surface_initialized.png", surface)
 
     # Calculator
     k = (4, 4, 1) #k-sampling according to problem description
-    cutoff_energy = 200 #450 # eV
+    cutoff_energy = 450 # eV
     calc = GPAW(mode=PW(cutoff_energy),
                 kpts=k,
                 txt=f"{output_path_start}{element}_111-surface_calc.txt")
@@ -32,9 +32,9 @@ for i, element in enumerate(elements):
     # Relax surface (code and settings from Assignment 2, 'relaxation.py')
     surface.set_calculator(calc)
     dyn = GPMin(surface, 
-                #trajectory='write_path_here.traj', 
-                logfile=f"Assignment 4/output_T3/GPMin_{element}_111-surface.log")
-    dyn.run(fmax=0.1, steps=2) #0.001, 100
+                trajectory=f"{output_path_start}GPMin_{element}_111-surface.traj", 
+                logfile=f"{output_path_start}GPMin_{element}_111-surface.log")
+    dyn.run(fmax=0.001, steps=100) #0.001, 100
     write(f"{output_path_start}{element}_111-surface_relaxed.png", surface)
     calc.write(f"{output_path_start}{element}_111-surface_relaxed.gpaw")
     
