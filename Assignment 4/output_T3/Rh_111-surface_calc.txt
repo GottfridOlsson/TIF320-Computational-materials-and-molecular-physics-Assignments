@@ -1,0 +1,374 @@
+
+  ___ ___ ___ _ _ _  
+ |   |   |_  | | | | 
+ | | | | | . | | | | 
+ |__ |  _|___|_____|  22.8.0
+ |___|_|             
+
+User:   gotols@vera10-2
+Date:   Thu Feb 16 13:01:06 2023
+Arch:   x86_64
+Pid:    441368
+CWD:    /cephyr/users/gotols/Vera/TIF320-Computational-materials-and-molecular-physics-Assignments
+Python: 3.10.4
+gpaw:   /apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw
+_gpaw:  /apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/
+        _gpaw.cpython-310-x86_64-linux-gnu.so
+ase:    /apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase (version 3.22.1)
+numpy:  /apps/Arch/software/SciPy-bundle/2022.05-foss-2022a/lib/python3.10/site-packages/numpy (version 1.22.3)
+scipy:  /apps/Arch/software/SciPy-bundle/2022.05-foss-2022a/lib/python3.10/site-packages/scipy (version 1.8.1)
+libxc:  5.2.3
+units:  Angstrom and eV
+cores: 1
+OpenMP: False
+OMP_NUM_THREADS: 1
+
+Input parameters:
+  kpts: [4 4 1]
+  mode: {ecut: 450.00000000000006,
+         name: pw}
+
+System changes: positions, numbers, cell, pbc, initial_charges, initial_magmoms 
+
+Initialize ...
+
+species:
+  Rh:
+    name: Rhodium
+    id: 7bf0fc3ba60e4b351a39647852e1f1f5
+    Z: 45.0
+    valence: 15
+    core: 30
+    charge: 0.0
+    file: /apps/Common/software/GPAW-setups/0.9.20000/Rh.LDA.gz
+    compensation charges: {type: gauss,
+                           rc: 0.38,
+                           lmax: 2}
+    cutoffs: {filter: 2.48,
+              core: 2.35}
+    valence states:
+      #              energy  rcut
+      - 5s(1.00)    -4.582   1.270
+      - 4p(6.00)   -50.540   1.381
+      - 5p(0.00)    -0.969   1.381
+      - 4d(8.00)    -6.147   1.244
+      -  s          22.630   1.270
+      -  d          21.064   1.244
+  
+    # Using partial waves for Rh as LCAO basis
+
+Reference energy: -3510246.516309  # eV
+
+Spin-paired calculation
+
+Convergence criteria:
+ Maximum [total energy] change in last 3 cyles: 0.0005 eV / electron
+ Maximum integral of absolute [dens]ity change: 0.0001 electrons / valence electron
+ Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+ Maximum number of scf [iter]ations: 333
+ (Square brackets indicate name in SCF output, whereas a 'c' in
+ the SCF output indicates the quantity has converged.)
+
+Symmetries present (total): 6
+
+  ( 1  0  0)  ( 1 -1  0)  ( 0  1  0)  ( 0 -1  0)  (-1  1  0)  (-1  0  0)
+  ( 0  1  0)  ( 0 -1  0)  ( 1  0  0)  ( 1 -1  0)  (-1  0  0)  (-1  1  0)
+  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)
+Note: your k-points are not as symmetric as your crystal!
+
+16 k-points: 4 x 4 x 1 Monkhorst-Pack grid
+6 k-points in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.12500000   -0.12500000    0.00000000          2/16
+   1:     0.12500000    0.12500000    0.00000000          2/16
+   2:     0.37500000   -0.37500000    0.00000000          2/16
+   3:     0.37500000   -0.12500000    0.00000000          4/16
+   4:     0.37500000    0.12500000    0.00000000          4/16
+   5:     0.37500000    0.37500000    0.00000000          2/16
+
+Wave functions: Plane wave expansion
+  Cutoff energy: 450.000 eV
+  Number of coefficients (min, max): 20454, 20528
+  Pulay-stress correction: 0.000000 eV/Ang^3 (de/decut=0.000000)
+  Using FFTW library
+  ScaLapack parameters: grid=1x1, blocksize=None
+  Wavefunction extrapolation:
+    Improved wavefunction reuse through dual PAW basis 
+
+Occupation numbers: Fermi-Dirac:
+  width: 0.1000  # eV
+ 
+
+Eigensolver
+   Davidson(niter=2) 
+
+Densities:
+  Coarse grid: 40*40*81 grid
+  Fine grid: 80*80*162 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.05
+  old densities: 5
+  Damping of long wavelength oscillations: 50 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 80*80*162 grid
+  Using the LDA Exchange-Correlation functional
+  External potential:
+    NoExternalPotential
+ 
+
+Memory estimate:
+  Process memory now: 1727.37 MiB
+  Calculator: 658.83 MiB
+    Density: 57.24 MiB
+      Arrays: 25.71 MiB
+      Localized functions: 21.65 MiB
+      Mixer: 9.89 MiB
+    Hamiltonian: 17.25 MiB
+      Arrays: 16.81 MiB
+      XC: 0.00 MiB
+      Poisson: 0.00 MiB
+      vbar: 0.44 MiB
+    Wavefunctions: 584.34 MiB
+      Arrays psit_nG: 464.21 MiB
+      Eigensolver: 88.25 MiB
+      Projections: 10.99 MiB
+      Projectors: 14.06 MiB
+      PW-descriptor: 6.82 MiB
+
+Total number of cores used: 1
+
+Number of atoms: 27
+Number of atomic orbitals: 324
+Number of bands in calculation: 247
+Number of valence electrons: 405
+Bands to converge: occupied
+
+... initialized
+
+Initializing position-dependent things.
+
+Density initialized from atomic densities
+Creating initial wave functions:
+  247 bands from LCAO basis set
+
+                                           
+                                           
+                                           
+                                           
+                Rh     Rh     Rh           
+                                           
+            Rh   RRh    RRh    Rh          
+       Rh     Rh    Rh                     
+             Rh    Rh     Rh               
+        Rh     Rh   RRh    Rh    Rh        
+                                           
+                Rh    Rh     Rh            
+           Rh    Rh     Rh                 
+                                           
+                                           
+                                           
+                                           
+
+Positions:
+   0 Rh     1.357645    0.783837    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Rh     4.072935    0.783837    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Rh     6.788225    0.783837    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Rh     2.715290    3.135347    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Rh     5.430580    3.135347    6.000000    ( 0.0000,  0.0000,  0.0000)
+   5 Rh     8.145870    3.135347    6.000000    ( 0.0000,  0.0000,  0.0000)
+   6 Rh     4.072935    5.486857    6.000000    ( 0.0000,  0.0000,  0.0000)
+   7 Rh     6.788225    5.486857    6.000000    ( 0.0000,  0.0000,  0.0000)
+   8 Rh     9.503515    5.486857    6.000000    ( 0.0000,  0.0000,  0.0000)
+   9 Rh    -0.000000    1.567673    8.217025    ( 0.0000,  0.0000,  0.0000)
+  10 Rh     2.715290    1.567673    8.217025    ( 0.0000,  0.0000,  0.0000)
+  11 Rh     5.430580    1.567673    8.217025    ( 0.0000,  0.0000,  0.0000)
+  12 Rh     1.357645    3.919184    8.217025    ( 0.0000,  0.0000,  0.0000)
+  13 Rh     4.072935    3.919184    8.217025    ( 0.0000,  0.0000,  0.0000)
+  14 Rh     6.788225    3.919184    8.217025    ( 0.0000,  0.0000,  0.0000)
+  15 Rh     2.715290    6.270694    8.217025    ( 0.0000,  0.0000,  0.0000)
+  16 Rh     5.430580    6.270694    8.217025    ( 0.0000,  0.0000,  0.0000)
+  17 Rh     8.145870    6.270694    8.217025    ( 0.0000,  0.0000,  0.0000)
+  18 Rh     0.000000    0.000000   10.434050    ( 0.0000,  0.0000,  0.0000)
+  19 Rh     2.715290    0.000000   10.434050    ( 0.0000,  0.0000,  0.0000)
+  20 Rh     5.430580    0.000000   10.434050    ( 0.0000,  0.0000,  0.0000)
+  21 Rh     1.357645    2.351510   10.434050    ( 0.0000,  0.0000,  0.0000)
+  22 Rh     4.072935    2.351510   10.434050    ( 0.0000,  0.0000,  0.0000)
+  23 Rh     6.788225    2.351510   10.434050    ( 0.0000,  0.0000,  0.0000)
+  24 Rh     2.715290    4.703020   10.434050    ( 0.0000,  0.0000,  0.0000)
+  25 Rh     5.430580    4.703020   10.434050    ( 0.0000,  0.0000,  0.0000)
+  26 Rh     8.145870    4.703020   10.434050    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    8.145870    0.000000    0.000000    40     0.1764
+  2. axis:    yes    4.072935    7.054530    0.000000    40     0.1764
+  3. axis:    no     0.000000    0.000000   16.434050    81     0.2029
+
+  Lengths:   8.145870   8.145870  16.434050
+  Angles:   90.000000  90.000000  60.000000
+
+Effective grid spacing dv^(1/3) = 0.1939
+
+     iter     time        total  log10-change:
+                         energy  eigst   dens
+iter:   1 13:02:53  -231.915407
+iter:   2 13:03:22  -228.958897  -1.28  -1.35
+iter:   3 13:03:52  -218.594033  -0.50  -1.37
+iter:   4 13:04:23  -217.030794  -2.01  -1.82
+iter:   5 13:04:54  -216.283689  -2.08  -1.98
+iter:   6 13:05:24  -216.475009  -2.29  -2.11
+iter:   7 13:05:54  -216.051509  -2.36  -2.11
+iter:   8 13:06:24  -215.980890  -3.57  -2.33
+iter:   9 13:06:53  -215.921175c -2.88  -2.46
+iter:  10 13:07:23  -215.915474c -3.92  -2.94
+iter:  11 13:07:53  -215.916087c -4.31  -3.11
+iter:  12 13:08:22  -215.916748c -4.49  -3.14
+iter:  13 13:08:52  -215.918133c -4.64  -3.26
+iter:  14 13:09:22  -215.917406c -5.15  -3.37
+iter:  15 13:09:52  -215.916915c -5.31  -3.49
+iter:  16 13:10:21  -215.916854c -5.80  -3.68
+iter:  17 13:10:51  -215.916790c -6.04  -3.74
+iter:  18 13:11:21  -215.916787c -6.03  -3.82
+iter:  19 13:11:50  -215.916818c -6.60  -3.97
+iter:  20 13:12:20  -215.916772c -7.00  -3.96
+iter:  21 13:12:50  -215.916745c -7.22  -4.08c
+iter:  22 13:13:20  -215.916713c -6.84  -4.20c
+iter:  23 13:13:50  -215.916698c -6.95  -4.41c
+iter:  24 13:14:20  -215.916695c -7.23  -4.48c
+iter:  25 13:14:50  -215.916712c -7.54c -4.51c
+
+Converged after 25 iterations.
+
+Dipole moment: (-0.264517, -0.152719, -0.000486) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -3510246.516309)
+
+Kinetic:       -249.274898
+Potential:     +163.506618
+External:        +0.000000
+XC:            -124.859132
+Entropy (-ST):   -1.704462
+Local:           -4.437069
+--------------------------
+Free energy:   -216.768942
+Extrapolated:  -215.916712
+
+Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0   200      1.19086    1.19149
+  0   201      1.25184    0.88944
+  0   202      1.25653    0.86633
+  0   203      1.25657    0.86616
+
+  1   200      1.14277    1.40895
+  1   201      1.14279    1.40888
+  1   202      1.22606    1.01789
+  1   203      1.25691    0.86447
+
+
+Fermi level: 1.22964
+
+No gap
+
+Forces in eV/Ang:
+  0 Rh   -0.00004   -0.00002    1.12054
+  1 Rh    0.00000   -0.00004    1.12054
+  2 Rh    0.00004   -0.00002    1.12054
+  3 Rh   -0.00003    0.00002    1.12054
+  4 Rh    0.00003    0.00002    1.12054
+  5 Rh    0.00000   -0.00001    1.12053
+  6 Rh    0.00000    0.00005    1.12054
+  7 Rh   -0.00001    0.00001    1.12053
+  8 Rh    0.00001    0.00001    1.12053
+  9 Rh   -0.00000   -0.00003    0.00185
+ 10 Rh   -0.00006   -0.00003    0.00187
+ 11 Rh    0.00006   -0.00003    0.00187
+ 12 Rh   -0.00003    0.00002    0.00187
+ 13 Rh    0.00000    0.00007    0.00187
+ 14 Rh    0.00003    0.00002    0.00187
+ 15 Rh    0.00003    0.00001    0.00185
+ 16 Rh   -0.00003    0.00001    0.00185
+ 17 Rh    0.00000   -0.00004    0.00187
+ 18 Rh    0.00000    0.00000   -1.11796
+ 19 Rh   -0.00003   -0.00004   -1.11795
+ 20 Rh    0.00003   -0.00004   -1.11795
+ 21 Rh   -0.00004   -0.00001   -1.11795
+ 22 Rh    0.00000    0.00000   -1.11796
+ 23 Rh    0.00004   -0.00001   -1.11795
+ 24 Rh   -0.00002    0.00004   -1.11795
+ 25 Rh    0.00002    0.00004   -1.11795
+ 26 Rh    0.00000    0.00000   -1.11795
+
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+                                           
+                                           
+                                           
+                                           
+                                           
+                Rh     Rh     Rh           
+            Rh   RRh    RRh    Rh          
+       Rh     Rh    Rh                     
+             Rh    Rh     Rh               
+        Rh     Rh   RRh    Rh    Rh        
+                                           
+                Rh    Rh     Rh            
+           Rh    Rh     Rh                 
+                                           
+                                           
+                                           
+                                           
+
+Positions:
+   0 Rh     1.357642    0.783835    6.094390    ( 0.0000,  0.0000,  0.0000)
+   1 Rh     4.072935    0.783833    6.094390    ( 0.0000,  0.0000,  0.0000)
+   2 Rh     6.788229    0.783835    6.094390    ( 0.0000,  0.0000,  0.0000)
+   3 Rh     2.715287    3.135349    6.094390    ( 0.0000,  0.0000,  0.0000)
+   4 Rh     5.430583    3.135349    6.094390    ( 0.0000,  0.0000,  0.0000)
+   5 Rh     8.145870    3.135346    6.094389    ( 0.0000,  0.0000,  0.0000)
+   6 Rh     4.072935    5.486861    6.094390    ( 0.0000,  0.0000,  0.0000)
+   7 Rh     6.788224    5.486858    6.094389    ( 0.0000,  0.0000,  0.0000)
+   8 Rh     9.503516    5.486858    6.094389    ( 0.0000,  0.0000,  0.0000)
+   9 Rh    -0.000000    1.567671    8.217181    ( 0.0000,  0.0000,  0.0000)
+  10 Rh     2.715285    1.567671    8.217182    ( 0.0000,  0.0000,  0.0000)
+  11 Rh     5.430585    1.567671    8.217182    ( 0.0000,  0.0000,  0.0000)
+  12 Rh     1.357642    3.919185    8.217182    ( 0.0000,  0.0000,  0.0000)
+  13 Rh     4.072935    3.919189    8.217182    ( 0.0000,  0.0000,  0.0000)
+  14 Rh     6.788228    3.919185    8.217182    ( 0.0000,  0.0000,  0.0000)
+  15 Rh     2.715292    6.270695    8.217181    ( 0.0000,  0.0000,  0.0000)
+  16 Rh     5.430578    6.270695    8.217181    ( 0.0000,  0.0000,  0.0000)
+  17 Rh     8.145870    6.270690    8.217182    ( 0.0000,  0.0000,  0.0000)
+  18 Rh     0.000000    0.000000   10.339878    ( 0.0000,  0.0000,  0.0000)
+  19 Rh     2.715288   -0.000003   10.339878    ( 0.0000,  0.0000,  0.0000)
+  20 Rh     5.430582   -0.000003   10.339878    ( 0.0000,  0.0000,  0.0000)
+  21 Rh     1.357641    2.351510   10.339878    ( 0.0000,  0.0000,  0.0000)
+  22 Rh     4.072935    2.351510   10.339877    ( 0.0000,  0.0000,  0.0000)
+  23 Rh     6.788229    2.351510   10.339878    ( 0.0000,  0.0000,  0.0000)
+  24 Rh     2.715289    4.703024   10.339878    ( 0.0000,  0.0000,  0.0000)
+  25 Rh     5.430582    4.703024   10.339878    ( 0.0000,  0.0000,  0.0000)
+  26 Rh     8.145870    4.703020   10.339878    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    8.145870    0.000000    0.000000    40     0.1764
+  2. axis:    yes    4.072935    7.054530    0.000000    40     0.1764
+  3. axis:    no     0.000000    0.000000   16.434050    81     0.2029
+
+  Lengths:   8.145870   8.145870  16.434050
+  Angles:   90.000000  90.000000  60.000000
+
+Effective grid spacing dv^(1/3) = 0.1939
+
+     iter     time        total  log10-change:
+                         energy  eigst   dens
+iter:   1 13:15:28  -244.573967  -0.65
+iter:   2 13:15:58  -218.841781  -0.99  -1.24
+iter:   3 13:16:28  -218.185797  -2.56  -1.94
