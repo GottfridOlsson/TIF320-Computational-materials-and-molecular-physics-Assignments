@@ -1,0 +1,442 @@
+rank=00 L00: Traceback (most recent call last):
+rank=00 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=00 L02:     sys.exit(main())
+rank=00 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=00 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=00 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=00 L06:     f(args)
+rank=00 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=00 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=00 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=00 L10:     return _run_module_code(code, init_globals, run_name,
+rank=00 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=00 L12:     _run_code(code, mod_globals, init_globals,
+rank=00 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=00 L14:     exec(code, run_globals)
+rank=00 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=00 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=00 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=00 L18:     return Dynamics.run(self)
+rank=00 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=00 L20:     for converged in Dynamics.irun(self):
+rank=00 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=00 L22:     self.step()
+rank=00 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=00 L24:     raise RuntimeError("A descent model could not be built")
+rank=00 L25: RuntimeError: A descent model could not be built
+rank=01 L00: Traceback (most recent call last):
+rank=01 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=01 L02:     sys.exit(main())
+rank=01 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=01 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=01 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=01 L06:     f(args)
+rank=01 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=01 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=01 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=01 L10:     return _run_module_code(code, init_globals, run_name,
+rank=01 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=01 L12:     _run_code(code, mod_globals, init_globals,
+rank=01 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=01 L14:     exec(code, run_globals)
+rank=01 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=01 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=01 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=01 L18:     return Dynamics.run(self)
+rank=01 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=01 L20:     for converged in Dynamics.irun(self):
+rank=01 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=01 L22:     self.step()
+rank=01 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=01 L24:     raise RuntimeError("A descent model could not be built")
+rank=01 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 1): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=02 L00: Traceback (most recent call last):
+rank=02 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=02 L02:     sys.exit(main())
+rank=02 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=02 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=02 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=02 L06:     f(args)
+rank=02 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=02 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=02 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=02 L10:     return _run_module_code(code, init_globals, run_name,
+rank=02 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=02 L12:     _run_code(code, mod_globals, init_globals,
+rank=02 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=02 L14:     exec(code, run_globals)
+rank=02 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=02 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=02 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=02 L18:     return Dynamics.run(self)
+rank=02 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=02 L20:     for converged in Dynamics.irun(self):
+rank=02 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=02 L22:     self.step()
+rank=02 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=02 L24:     raise RuntimeError("A descent model could not be built")
+rank=02 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 2): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=03 L00: Traceback (most recent call last):
+rank=03 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=03 L02:     sys.exit(main())
+rank=03 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=03 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=03 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=03 L06:     f(args)
+rank=03 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=03 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=03 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=03 L10:     return _run_module_code(code, init_globals, run_name,
+rank=03 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=03 L12:     _run_code(code, mod_globals, init_globals,
+rank=03 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=03 L14:     exec(code, run_globals)
+rank=03 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=03 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=03 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=03 L18:     return Dynamics.run(self)
+rank=03 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=03 L20:     for converged in Dynamics.irun(self):
+rank=03 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=03 L22:     self.step()
+rank=03 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=03 L24:     raise RuntimeError("A descent model could not be built")
+rank=03 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 3): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=04 L00: Traceback (most recent call last):
+rank=04 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=04 L02:     sys.exit(main())
+rank=04 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=04 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=04 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=04 L06:     f(args)
+rank=04 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=04 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=04 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=04 L10:     return _run_module_code(code, init_globals, run_name,
+rank=04 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=04 L12:     _run_code(code, mod_globals, init_globals,
+rank=04 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=04 L14:     exec(code, run_globals)
+rank=04 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=04 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=04 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=04 L18:     return Dynamics.run(self)
+rank=04 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=04 L20:     for converged in Dynamics.irun(self):
+rank=04 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=04 L22:     self.step()
+rank=04 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=04 L24:     raise RuntimeError("A descent model could not be built")
+rank=04 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 4): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=05 L00: Traceback (most recent call last):
+rank=05 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=05 L02:     sys.exit(main())
+rank=05 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=05 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=05 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=05 L06:     f(args)
+rank=05 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=05 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=05 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=05 L10:     return _run_module_code(code, init_globals, run_name,
+rank=05 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=05 L12:     _run_code(code, mod_globals, init_globals,
+rank=05 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=05 L14:     exec(code, run_globals)
+rank=05 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=05 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=05 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=05 L18:     return Dynamics.run(self)
+rank=05 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=05 L20:     for converged in Dynamics.irun(self):
+rank=05 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=05 L22:     self.step()
+rank=05 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=05 L24:     raise RuntimeError("A descent model could not be built")
+rank=05 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 5): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=06 L00: Traceback (most recent call last):
+rank=06 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=06 L02:     sys.exit(main())
+rank=06 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=06 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=06 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=06 L06:     f(args)
+rank=06 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=06 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=06 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=06 L10:     return _run_module_code(code, init_globals, run_name,
+rank=06 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=06 L12:     _run_code(code, mod_globals, init_globals,
+rank=06 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=06 L14:     exec(code, run_globals)
+rank=06 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=06 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=06 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=06 L18:     return Dynamics.run(self)
+rank=06 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=06 L20:     for converged in Dynamics.irun(self):
+rank=06 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=06 L22:     self.step()
+rank=06 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=06 L24:     raise RuntimeError("A descent model could not be built")
+rank=06 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 6): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=07 L00: Traceback (most recent call last):
+rank=07 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=07 L02:     sys.exit(main())
+rank=07 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=07 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=07 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=07 L06:     f(args)
+rank=07 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=07 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=07 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=07 L10:     return _run_module_code(code, init_globals, run_name,
+rank=07 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=07 L12:     _run_code(code, mod_globals, init_globals,
+rank=07 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=07 L14:     exec(code, run_globals)
+rank=07 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=07 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=07 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=07 L18:     return Dynamics.run(self)
+rank=07 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=07 L20:     for converged in Dynamics.irun(self):
+rank=07 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=07 L22:     self.step()
+rank=07 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=07 L24:     raise RuntimeError("A descent model could not be built")
+rank=07 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 7): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=08 L00: Traceback (most recent call last):
+rank=08 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=08 L02:     sys.exit(main())
+rank=08 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=08 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=08 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=08 L06:     f(args)
+rank=08 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=08 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=08 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=08 L10:     return _run_module_code(code, init_globals, run_name,
+rank=08 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=08 L12:     _run_code(code, mod_globals, init_globals,
+rank=08 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=08 L14:     exec(code, run_globals)
+rank=08 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=08 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=08 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=08 L18:     return Dynamics.run(self)
+rank=08 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=08 L20:     for converged in Dynamics.irun(self):
+rank=08 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=08 L22:     self.step()
+rank=08 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=08 L24:     raise RuntimeError("A descent model could not be built")
+rank=08 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 8): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=09 L00: Traceback (most recent call last):
+rank=09 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=09 L02:     sys.exit(main())
+rank=09 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=09 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=09 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=09 L06:     f(args)
+rank=09 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=09 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=09 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=09 L10:     return _run_module_code(code, init_globals, run_name,
+rank=09 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=09 L12:     _run_code(code, mod_globals, init_globals,
+rank=09 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=09 L14:     exec(code, run_globals)
+rank=09 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=09 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=09 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=09 L18:     return Dynamics.run(self)
+rank=09 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=09 L20:     for converged in Dynamics.irun(self):
+rank=09 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=09 L22:     self.step()
+rank=09 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=09 L24:     raise RuntimeError("A descent model could not be built")
+rank=09 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 9): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=10 L00: Traceback (most recent call last):
+rank=10 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=10 L02:     sys.exit(main())
+rank=10 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=10 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=10 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=10 L06:     f(args)
+rank=10 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=10 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=10 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=10 L10:     return _run_module_code(code, init_globals, run_name,
+rank=10 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=10 L12:     _run_code(code, mod_globals, init_globals,
+rank=10 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=10 L14:     exec(code, run_globals)
+rank=10 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=10 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=10 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=10 L18:     return Dynamics.run(self)
+rank=10 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=10 L20:     for converged in Dynamics.irun(self):
+rank=10 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=10 L22:     self.step()
+rank=10 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=10 L24:     raise RuntimeError("A descent model could not be built")
+rank=10 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 10): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=11 L00: Traceback (most recent call last):
+rank=11 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=11 L02:     sys.exit(main())
+rank=11 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=11 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=11 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=11 L06:     f(args)
+rank=11 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=11 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=11 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=11 L10:     return _run_module_code(code, init_globals, run_name,
+rank=11 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=11 L12:     _run_code(code, mod_globals, init_globals,
+rank=11 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=11 L14:     exec(code, run_globals)
+rank=11 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=11 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=11 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=11 L18:     return Dynamics.run(self)
+rank=11 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=11 L20:     for converged in Dynamics.irun(self):
+rank=11 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=11 L22:     self.step()
+rank=11 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=11 L24:     raise RuntimeError("A descent model could not be built")
+rank=11 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 11): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=12 L00: Traceback (most recent call last):
+rank=12 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=12 L02:     sys.exit(main())
+rank=12 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=12 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=12 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=12 L06:     f(args)
+rank=12 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=12 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=12 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=12 L10:     return _run_module_code(code, init_globals, run_name,
+rank=12 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=12 L12:     _run_code(code, mod_globals, init_globals,
+rank=12 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=12 L14:     exec(code, run_globals)
+rank=12 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=12 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=12 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=12 L18:     return Dynamics.run(self)
+rank=12 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=12 L20:     for converged in Dynamics.irun(self):
+rank=12 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=12 L22:     self.step()
+rank=12 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=12 L24:     raise RuntimeError("A descent model could not be built")
+rank=12 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 12): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=13 L00: Traceback (most recent call last):
+rank=13 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=13 L02:     sys.exit(main())
+rank=13 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=13 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=13 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=13 L06:     f(args)
+rank=13 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=13 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=13 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=13 L10:     return _run_module_code(code, init_globals, run_name,
+rank=13 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=13 L12:     _run_code(code, mod_globals, init_globals,
+rank=13 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=13 L14:     exec(code, run_globals)
+rank=13 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=13 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=13 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=13 L18:     return Dynamics.run(self)
+rank=13 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=13 L20:     for converged in Dynamics.irun(self):
+rank=13 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=13 L22:     self.step()
+rank=13 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=13 L24:     raise RuntimeError("A descent model could not be built")
+rank=13 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 13): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=15 L00: Traceback (most recent call last):
+rank=15 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=15 L02:     sys.exit(main())
+rank=15 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=15 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=15 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=15 L06:     f(args)
+rank=15 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=15 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=15 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=15 L10:     return _run_module_code(code, init_globals, run_name,
+rank=15 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=15 L12:     _run_code(code, mod_globals, init_globals,
+rank=15 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=15 L14:     exec(code, run_globals)
+rank=15 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=15 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=15 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=15 L18:     return Dynamics.run(self)
+rank=15 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=15 L20:     for converged in Dynamics.irun(self):
+rank=15 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=15 L22:     self.step()
+rank=15 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=15 L24:     raise RuntimeError("A descent model could not be built")
+rank=15 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 15): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+rank=14 L00: Traceback (most recent call last):
+rank=14 L01:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+rank=14 L02:     sys.exit(main())
+rank=14 L03:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+rank=14 L04:     ase_main('gpaw', 'GPAW command-line tool', __version__,
+rank=14 L05:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+rank=14 L06:     f(args)
+rank=14 L07:   File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+rank=14 L08:     runpy.run_path(args.arguments[0], run_name='__main__')
+rank=14 L09:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+rank=14 L10:     return _run_module_code(code, init_globals, run_name,
+rank=14 L11:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+rank=14 L12:     _run_code(code, mod_globals, init_globals,
+rank=14 L13:   File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+rank=14 L14:     exec(code, run_globals)
+rank=14 L15:   File "Assignment 4/task3.py", line 110, in <module>
+rank=14 L16:     dyn.run(fmax=0.001, steps=100) #0.001, 100
+rank=14 L17:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 269, in run
+rank=14 L18:     return Dynamics.run(self)
+rank=14 L19:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 156, in run
+rank=14 L20:     for converged in Dynamics.irun(self):
+rank=14 L21:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/optimize.py", line 135, in irun
+rank=14 L22:     self.step()
+rank=14 L23:   File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/optimize/gpmin/gpmin.py", line 288, in step
+rank=14 L24:     raise RuntimeError("A descent model could not be built")
+rank=14 L25: RuntimeError: A descent model could not be built
+GPAW CLEANUP (node 14): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+GPAW CLEANUP (node 0): <class 'RuntimeError'> occurred.  Calling MPI_Abort!
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 42.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[vera21-4:2039271] 15 more processes have sent help message help-mpi-api.txt / mpi-abort
+[vera21-4:2039271] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
