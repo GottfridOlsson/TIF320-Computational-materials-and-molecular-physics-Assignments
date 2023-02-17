@@ -25,14 +25,13 @@ for molecule_name in molecule_names:
     atoms.center()
     write(f"{output_path_start}{molecule_name}_initial_molecule_structure.png", atoms, rotation='10z,-80x')
     
-    calc = GPAW(mode=PW(cutoff_energy),
+    calc = GPAW(xc='PBE',
+                mode=PW(cutoff_energy),
                 kpts={'gamma': True},
                 txt=f"{output_path_start}{molecule_name}_calc.txt")
 
     atoms.set_calculator(calc)
     potential_energy.append(atoms.get_potential_energy())
-
-    # Spin polarized: https://wiki.fysik.dtu.dk/gpaw/documentation/basic.html (GPAW will take care of that?)
 
 util.print_arrays_to_CSV(f"{output_path_start}TIF320_A4_T4_potential-energy_of_CO_O2_gas.csv", 
                         "Molecule symbol", molecule_names, 

@@ -84,22 +84,22 @@ def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
 elements = ['Au', 'Pt', 'Rh'] 
 a_from_T1 = [4.177, 3.970, 3.840] # angstrom
 output_path_start = 'Assignment 4/output_T3/'
-potential_energy_of_surface = [-106.527144813]
+potential_energy_of_surface = []
 
 for i, element in enumerate(elements):
-    if i == 0:
-        continue
 
     # Construct (111)-surface for Au, Pt, Rh
     # 3-layered 3X3 surface cell, 6 angstrom of vacuum in +-z-direction
     surface = fcc111(element, (3, 3, 3), a=a_from_T1[i], vacuum=6.0)
-    #write(f"{output_path_start}{element}_111-surface_initialized_angled-view.png", surface, rotation='10z,-80x, 5y')
+    write(f"{output_path_start}{element}_111-surface_initialized.png", surface)
+    write(f"{output_path_start}{element}_111-surface_initialized_angled-view.png", surface, rotation='10z,-80x, 5y')
     
 
     # Calculator
     k = (4, 4, 1) #k-sampling according to problem description
     cutoff_energy = 450 # eV
-    calc = GPAW(mode=PW(cutoff_energy),
+    calc = GPAW(xc='PBE',
+                mode=PW(cutoff_energy),
                 kpts=k,
                 txt=f"{output_path_start}{element}_111-surface_calc.txt")
 
@@ -109,14 +109,18 @@ for i, element in enumerate(elements):
                 trajectory=f"{output_path_start}GPMin_{element}_111-surface.traj", 
                 logfile=f"{output_path_start}GPMin_{element}_111-surface.log")
     dyn.run(fmax=0.01, steps=100) #0.001, 100
+
+    # Save data
+    write(f"{output_path_start}{element}_111-surface_relaxed.xyz", surface)
     write(f"{output_path_start}{element}_111-surface_relaxed.png", surface)
+    write(f"{output_path_start}{element}_111-surface_relaxed_angled-view.png", surface,  rotation='10z,-80x, 5y')
     calc.write(f"{output_path_start}{element}_111-surface_relaxed.gpaw")
     
-    # Get surface energy (=potential energy?)
+    # Get potential energy
     potential_energy_of_surface.append(surface.get_potential_energy())
 
 
-    print_arrays_to_CSV("Assignment 4/output_T3/TIF320_A4_T3_surface_energy_Au-Pt-Rh.csv", 
+    print_arrays_to_CSV("Assignment 4/output_T3/TIF320_A4_T3_potential_energy_surface_Au-Pt-Rh.csv", 
                         "Element symbol", elements, 
                         "Potential energy of surface (eV)", potential_energy_of_surface, 
                         print_message=True)

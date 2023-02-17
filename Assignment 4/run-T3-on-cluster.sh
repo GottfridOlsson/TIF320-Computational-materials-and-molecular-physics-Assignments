@@ -3,7 +3,7 @@
 #SBATCH -J A4_T3                           # Name of the job
 #SBATCH -N 1                               # Use 1 node
 #SBATCH -n 16                              # Use 16 cores on that node
-#SBATCH -t 00:30:00                        # Maximum time
+#SBATCH -t 01:00:00                        # Maximum time
 #SBATCH -o "Assignment 4/logs/T3_std.out"  # stdout goes to this file
 #SBATCH -e "Assignment 4/logs/T3_err.out"  # stderr goes to this file
 
