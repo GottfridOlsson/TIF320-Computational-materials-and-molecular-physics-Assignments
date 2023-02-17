@@ -1,11 +1,3 @@
-# Construct CO molecule:
-
-"""
-Calculate the energy of the O2 molecule and the CO molecule.
-Your k-point sampling should consist only of the gamma-point.
-
-Hint 2: Are the molecules spin-polarized?
-"""
 from ase.build import molecule
 from ase.io import write
 from gpaw import GPAW, PW

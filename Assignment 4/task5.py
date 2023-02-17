@@ -5,6 +5,7 @@
 from ase.thermochemistry import IdealGasThermo
 from ase.vibrations import Vibrations
 from ase.io import read
+from gpaw import GPAW, PW
 
 def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
     """Prints array(s) with corresponding header(s) to a file with comma separated values (CSV)
@@ -96,9 +97,14 @@ for i in range(len(molecule_names)):
 
     # Read relaxed molecule from Task 4 and run vibrational analysis
     molecule = read(f"Assignment 4/output_T4/{molecule_name}_relaxed_molecule_structure.xyz")
+    calc = GPAW(xc='PBE',
+                mode=PW(450),
+                kpts={'gamma': True},
+                txt=f"Assignment 4/output_T5/{molecule_name}_GPAW.txt")
+    molecule.set_calculator(calc)
     vib = Vibrations(molecule)
     vib.run()
-    
+
     # Calculate quantities
     potential_energy = molecule.get_potential_energy() # eV
     vibrational_energies = vib.get_energies() # eV

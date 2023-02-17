@@ -2,7 +2,7 @@ import numpy as np
 
 elements = ['Au', 'Pt', 'Rh']
 E_bulk = [-3.146, -6.434, -7.307] # eV/atom from Task 1
-E_slab = [-78.8532,-161.82306] # eV from Task 3
+E_slab = [-78.8532,-161.82306, -183.08078] # eV from Task 3
 cell_lenghts = [8.860755, 8.421642, 8.145870] # angstrom in .txt from GPAW
 angles = np.array([60, 60, 60])*(np.pi/180) # degree --> rad
 N = 27 #atoms per slab = 3*3*3
