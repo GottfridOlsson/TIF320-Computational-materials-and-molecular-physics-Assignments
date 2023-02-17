@@ -32,10 +32,11 @@ for molecule_name in molecule_names:
 
     atoms.set_calculator(calc)
     potential_energy.append(atoms.get_potential_energy())
+    write(f"{output_path_start}{molecule_name}_relaxed_molecule_structure.xyz", atoms)
 
-util.print_arrays_to_CSV(f"{output_path_start}TIF320_A4_T4_potential-energy_of_CO_O2_gas.csv", 
-                        "Molecule symbol", molecule_names, 
-                        "Potential energy (eV)", potential_energy, 
-                        print_message=True)
+    util.print_arrays_to_CSV(f"{output_path_start}TIF320_A4_T4_potential-energy_of_CO_O2_gas.csv", 
+                            "Molecule symbol", molecule_names, 
+                            "Potential energy (eV)", potential_energy, 
+                            print_message=True)
 
 
