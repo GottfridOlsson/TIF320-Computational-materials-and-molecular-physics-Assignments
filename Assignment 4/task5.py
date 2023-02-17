@@ -5,10 +5,9 @@
 from ase.thermochemistry import IdealGasThermo
 from ase.vibrations import Vibrations
 from ase.build import molecule
-from ase.io import read
+from ase.io import read, write
+from ase.optimize import GPMin
 from gpaw import GPAW, PW
-from ase.calculators.emt import EMT
-from ase.optimize import QuasiNewton
 
 def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
     """Prints array(s) with corresponding header(s) to a file with comma separated values (CSV)
@@ -92,31 +91,29 @@ temperature = 300 # Kelvin
 pressure = 1e5 # 1 bar = 10e5 Pa
 
 entropies = []
+entropies_experimental_units= []
+
+
 for i in range(len(molecule_names)):
     
     molecule_name = molecule_names[i]
     symmetry_number = symmetry_numbers[i]
     spin = spins[i]
 
-    # Read relaxed molecule from Task 4 and run vibrational analysis
-    #molecule = read(f"Assignment 4/output_T4/{molecule_name}_relaxed_molecule_structure.xyz")
-    atoms = molecule(molecule_name)
-    atoms.calc = EMT()
-    dyn = QuasiNewton(atoms)
-    dyn.run(fmax=0.01)
-    #potentialenergy = atoms.get_potential_energy()
+    #atoms = molecule(molecule_name)
+    atoms = read(f"output_T4/{molecule_name}_relaxed_molecule_structure.xyz")
 
+    calc = GPAW(xc='PBE',
+            mode=PW(450),
+            kpts={'gamma': True},
+            txt=f"output_T5/{molecule_name}_calc.txt")
+    atoms.set_calculator(calc)
+    dyn = GPMin(atoms, 
+                trajectory=f"output_T5/{molecule_name}_relaxation.traj", 
+                logfile=f"output_T5/{molecule_name}_relaxation.log")
+    dyn.run(fmax=0.01)
     vib = Vibrations(atoms)
     vib.run()
-    #vib_energies = vib.get_energies()
-
-    #calc = GPAW(xc='PBE',
-    #            mode=PW(150),
-    #            #kpts={'gamma': True},
-    #            txt=f"Assignment 4/output_T5/{molecule_name}_GPAW.txt")
-    #molecule.set_calculator(calc)
-    #vib = Vibrations(molecule)
-    #vib.run()
 
     # Calculate quantities
     potential_energy = atoms.get_potential_energy() # eV
@@ -132,7 +129,13 @@ for i in range(len(molecule_names)):
     entropy = ideal_gas.get_entropy(temperature=temperature,pressure=pressure) # eV/K
     entropies.append(entropy)
 
-    print_arrays_to_CSV("Assignment 4/output_T5/TIF320_A4_T5_entropy_T={temperature}K_P={pressure}Pa_CO_O2.csv", 
+    # Convert to J mol^-1 K^-1
+    eV_2_J = 1.602176565e-19
+    per_mole = 6.0221415e23 # Avogadros constant
+    entropies_experimental_units.append(entropy*eV_2_J*per_mole) # J mol^-1 K^-1
+
+    print_arrays_to_CSV(f"output_T5/TIF320_A4_T5_entropy_T={temperature}K_P={pressure:.2e}Pa_CO_O2.csv", 
                         "Molecule", molecule_names, 
                         "Entropy in ideal gas approximation (eV/K)", entropies, 
+                        "Entropy in ideal gas approximation (J mol^-1 K^-1)", entropies_experimental_units,
                         print_message=True)
