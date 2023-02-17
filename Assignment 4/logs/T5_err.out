@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/bin/gpaw", line 8, in <module>
+    sys.exit(main())
+  File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/main.py", line 76, in main
+    ase_main('gpaw', 'GPAW command-line tool', __version__,
+  File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/cli/main.py", line 103, in main
+    f(args)
+  File "/apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw/cli/python.py", line 36, in run
+    runpy.run_path(args.arguments[0], run_name='__main__')
+  File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 269, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/apps/Arch/software/Python/3.10.4-GCCcore-11.3.0/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "Assignment 4/task5_test_example.py", line 15, in <module>
+    vib_energies = vib.get_energies()
+  File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/vibrations/vibrations.py", line 408, in get_energies
+    return self.get_vibrations(method=method,
+  File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/vibrations/vibrations.py", line 401, in get_vibrations
+    self.read(method, direction, **kw)
+  File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/vibrations/vibrations.py", line 330, in read
+    fminus = disp_minus.forces()
+  File "/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/vibrations/vibrations.py", line 49, in forces
+    return self._cached['forces'].copy()
+TypeError: 'NoneType' object is not subscriptable
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[61106,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
