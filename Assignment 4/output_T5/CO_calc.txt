@@ -6,9 +6,9 @@
  |___|_|             
 
 User:   gotols@vera1
-Date:   Fri Feb 17 14:43:26 2023
+Date:   Fri Feb 17 14:45:29 2023
 Arch:   x86_64
-Pid:    711408
+Pid:    721143
 CWD:    /cephyr/users/gotols/Vera/TIF320-Computational-materials-and-molecular-physics-Assignments/Assignment 4
 Python: 3.10.4
 gpaw:   /apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw
@@ -143,7 +143,7 @@ Hamiltonian:
 XC parameters: PBE with 2 nearest neighbor stencil
 
 Memory estimate:
-  Process memory now: 324.79 MiB
+  Process memory now: 478.83 MiB
   Calculator: 151.49 MiB
     Density: 109.04 MiB
       Arrays: 42.85 MiB
@@ -218,23 +218,23 @@ Effective grid spacing dv^(1/3) = 0.2000
 
      iter     time        total  log10-change:
                          energy  eigst   dens
-iter:   1 14:43:33   -14.756275
-iter:   2 14:43:36   -14.699537  -1.16  -0.92
-iter:   3 14:43:39   -14.333504  -1.48  -0.95
-iter:   4 14:43:43   -14.268437  -2.08  -1.18
-iter:   5 14:43:46   -14.218097  -1.54  -1.32
-iter:   6 14:43:50   -14.219117  -2.62  -1.71
-iter:   7 14:43:54   -14.195578  -2.44  -1.70
-iter:   8 14:43:57   -14.194326  -3.46  -2.34
-iter:   9 14:44:01   -14.194292c -4.84  -2.80
-iter:  10 14:44:05   -14.194362c -4.50  -2.84
-iter:  11 14:44:09   -14.194273c -5.01  -2.92
-iter:  12 14:44:12   -14.194270c -5.74  -3.56
-iter:  13 14:44:16   -14.194271c -6.54  -3.66
-iter:  14 14:44:20   -14.194269c -6.78  -3.70
-iter:  15 14:44:24   -14.194269c -7.43c -3.82
-iter:  16 14:44:27   -14.194269c -7.06  -3.86
-iter:  17 14:44:31   -14.194269c -7.43c -4.27c
+iter:   1 14:45:36   -14.756275
+iter:   2 14:45:39   -14.699537  -1.16  -0.92
+iter:   3 14:45:43   -14.333504  -1.48  -0.95
+iter:   4 14:45:46   -14.268437  -2.08  -1.18
+iter:   5 14:45:50   -14.218097  -1.54  -1.32
+iter:   6 14:45:54   -14.219117  -2.62  -1.71
+iter:   7 14:45:58   -14.195578  -2.44  -1.70
+iter:   8 14:46:01   -14.194326  -3.46  -2.34
+iter:   9 14:46:05   -14.194292c -4.84  -2.80
+iter:  10 14:46:08   -14.194362c -4.50  -2.84
+iter:  11 14:46:12   -14.194273c -5.01  -2.92
+iter:  12 14:46:16   -14.194270c -5.74  -3.56
+iter:  13 14:46:20   -14.194271c -6.54  -3.66
+iter:  14 14:46:23   -14.194269c -6.78  -3.70
+iter:  15 14:46:27   -14.194269c -7.43c -3.82
+iter:  16 14:46:30   -14.194269c -7.06  -3.86
+iter:  17 14:46:34   -14.194269c -7.43c -4.27c
 
 Converged after 17 iterations.
 
@@ -267,58 +267,68 @@ Fermi level: -5.53264
 Gap: 6.876 eV
 Transition (v -> c):
   (s=0, k=0, n=4, [0.00, 0.00, 0.00]) -> (s=0, k=0, n=5, [0.00, 0.00, 0.00])
+Timing:                              incl.     excl.
+-----------------------------------------------------------
+Hamiltonian:                         0.924     0.006   0.0% |
+ Atomic:                             0.085     0.001   0.0% |
+  XC Correction:                     0.084     0.084   0.0% |
+ Calculate atomic Hamiltonians:      0.047     0.047   0.0% |
+ Communicate:                        0.000     0.000   0.0% |
+ Initialize Hamiltonian:             0.000     0.000   0.0% |
+ Poisson:                            0.011     0.011   0.0% |
+ XC 3D grid:                         0.775     0.775   0.4% |
+LCAO initialization:                 0.140     0.095   0.0% |
+ LCAO eigensolver:                   0.010     0.001   0.0% |
+  Calculate projections:             0.000     0.000   0.0% |
+  DenseAtomicCorrection:             0.000     0.000   0.0% |
+  Distribute overlap matrix:         0.000     0.000   0.0% |
+  Orbital Layouts:                   0.001     0.001   0.0% |
+  Potential matrix:                  0.008     0.008   0.0% |
+ LCAO to grid:                       0.027     0.027   0.0% |
+ Set positions (LCAO WFS):           0.008     0.001   0.0% |
+  Basic WFS set positions:           0.001     0.001   0.0% |
+  Basis functions set positions:     0.000     0.000   0.0% |
+  P tci:                             0.002     0.002   0.0% |
+  ST tci:                            0.001     0.001   0.0% |
+  mktci:                             0.003     0.003   0.0% |
+PWDescriptor:                        0.704     0.704   0.3% |
+SCF-cycle:                          60.100     0.016   0.0% |
+ Davidson:                          32.318    24.470  11.1% |---|
+  Apply H:                           1.203     1.185   0.5% |
+   HMM T:                            0.018     0.018   0.0% |
+  Subspace diag:                     2.725     0.003   0.0% |
+   calc_h_matrix:                    0.764     0.024   0.0% |
+    Apply H:                         0.740     0.714   0.3% |
+     HMM T:                          0.026     0.026   0.0% |
+   diagonalize:                      0.011     0.011   0.0% |
+   rotate_psi:                       1.947     1.947   0.9% |
+  calc. matrices:                    1.164     0.124   0.1% |
+   Apply H:                          1.040     1.013   0.5% |
+    HMM T:                           0.027     0.027   0.0% |
+  diagonalize:                       0.015     0.015   0.0% |
+  rotate_psi:                        2.741     2.741   1.2% |
+ Density:                           13.736     0.000   0.0% |
+  Atomic density matrices:           0.014     0.014   0.0% |
+  Mix:                              11.103    11.103   5.0% |-|
+  Multipole moments:                 0.003     0.003   0.0% |
+  Pseudo density:                    2.617     0.758   0.3% |
+   Symmetrize density:               1.859     1.859   0.8% |
+ Hamiltonian:                       13.994     0.077   0.0% |
+  Atomic:                            1.551     0.013   0.0% |
+   XC Correction:                    1.538     1.538   0.7% |
+  Calculate atomic Hamiltonians:     0.751     0.751   0.3% |
+  Communicate:                       0.000     0.000   0.0% |
+  Poisson:                           0.101     0.101   0.0% |
+  XC 3D grid:                       11.513    11.513   5.2% |-|
+ Orthonormalize:                     0.035     0.000   0.0% |
+  calc_s_matrix:                     0.001     0.001   0.0% |
+  inverse-cholesky:                  0.000     0.000   0.0% |
+  projections:                       0.009     0.009   0.0% |
+  rotate_psi_s:                      0.024     0.024   0.0% |
+Set symmetry:                        0.003     0.003   0.0% |
+Other:                             159.444   159.444  72.0% |----------------------------|
+-----------------------------------------------------------
+Total:                                       221.316 100.0%
 
-Forces in eV/Ang:
-  0 O    -0.00000    0.00000   -1.06300
-  1 C     0.00000    0.00000    1.08216
-
-System changes: positions 
-
-Initializing position-dependent things.
-
-Density initialized from wave functions
-        .----------------------------.  
-       /|                            |  
-      / |                            |  
-     /  |                            |  
-    /   |                            |  
-   /    |                            |  
-  /     |                            |  
- *      |                            |  
- |      |                            |  
- |      |                            |  
- |      |                            |  
- |      |          O                 |  
- |      |                            |  
- |      |                            |  
- |      |                            |  
- |      .----------------------------.  
- |     /                            /   
- |    /                            /    
- |   /                            /     
- |  /                            /      
- | /                            /       
- |/                            /        
- *----------------------------*         
-
-Positions:
-   0 O      6.000000    6.000000    6.294865    ( 0.0000,  0.0000,  0.0000)
-   1 C      6.000000    6.000000    5.710188    ( 0.0000,  0.0000,  0.0000)
-
-Unit cell:
-           periodic     x           y           z      points  spacing
-  1. axis:    no    12.000000    0.000000    0.000000    60     0.2000
-  2. axis:    no     0.000000   12.000000    0.000000    60     0.2000
-  3. axis:    no     0.000000    0.000000   12.000000    60     0.2000
-
-  Lengths:  12.000000  12.000000  12.000000
-  Angles:   90.000000  90.000000  90.000000
-
-Effective grid spacing dv^(1/3) = 0.2000
-
-     iter     time        total  log10-change:
-                         energy  eigst   dens
-iter:   1 14:44:35    59.939732  +0.99
-iter:   2 14:44:39    61.317456  -1.09  -0.61
-iter:   3 14:44:42    66.203061  +0.51  -0.64
-iter:   4 14:44:45    68.127308  -0.40  -0.84
+Memory usage: 1.02 GiB
+Date: Fri Feb 17 14:49:10 2023

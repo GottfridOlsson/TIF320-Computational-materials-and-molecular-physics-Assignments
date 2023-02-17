@@ -4,9 +4,7 @@
 
 from ase.thermochemistry import IdealGasThermo
 from ase.vibrations import Vibrations
-from ase.build import molecule
-from ase.io import read, write
-from ase.optimize import GPMin
+from ase.io import read
 from gpaw import GPAW, PW
 
 def print_arrays_to_CSV(path_to_CSV_file, *args, print_message=False):
@@ -100,18 +98,13 @@ for i in range(len(molecule_names)):
     symmetry_number = symmetry_numbers[i]
     spin = spins[i]
 
-    #atoms = molecule(molecule_name)
+    # Read relaxed structure from T4 and do vibrational analysis
     atoms = read(f"output_T4/{molecule_name}_relaxed_molecule_structure.xyz")
-
     calc = GPAW(xc='PBE',
             mode=PW(450),
             kpts={'gamma': True},
             txt=f"output_T5/{molecule_name}_calc.txt")
     atoms.set_calculator(calc)
-    dyn = GPMin(atoms, 
-                trajectory=f"output_T5/{molecule_name}_relaxation.traj", 
-                logfile=f"output_T5/{molecule_name}_relaxation.log")
-    dyn.run(fmax=0.01)
     vib = Vibrations(atoms)
     vib.run()
 
