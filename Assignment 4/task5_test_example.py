@@ -1,4 +1,4 @@
-"""
+
 from ase.build import molecule
 from ase.calculators.emt import EMT
 from ase.optimize import QuasiNewton
@@ -37,3 +37,4 @@ BFGS(n2).run(fmax=0.01)
 vib = Vibrations(n2)
 vib.run()
 vib.summary()
+"""
