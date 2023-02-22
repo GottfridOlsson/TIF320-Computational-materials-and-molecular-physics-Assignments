@@ -5,10 +5,10 @@
  |__ |  _|___|_____|  22.8.0
  |___|_|             
 
-User:   gotols@vera22-2
-Date:   Wed Feb 22 16:39:55 2023
+User:   gotols@vera44-4
+Date:   Wed Feb 22 17:10:39 2023
 Arch:   x86_64
-Pid:    2076047
+Pid:    442647
 CWD:    /cephyr/users/gotols/Vera/TIF320-Computational-materials-and-molecular-physics-Assignments
 Python: 3.10.4
 gpaw:   /apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw
@@ -19,7 +19,7 @@ numpy:  /apps/Arch/software/SciPy-bundle/2022.05-foss-2022a/lib/python3.10/site-
 scipy:  /apps/Arch/software/SciPy-bundle/2022.05-foss-2022a/lib/python3.10/site-packages/scipy (version 1.8.1)
 libxc:  5.2.3
 units:  Angstrom and eV
-cores: 8
+cores: 16
 OpenMP: False
 OMP_NUM_THREADS: 1
 
@@ -171,27 +171,27 @@ Hamiltonian:
 XC parameters: PBE with 2 nearest neighbor stencil
 
 Memory estimate:
-  Process memory now: 295.73 MiB
-  Calculator: 332.68 MiB
-    Density: 21.67 MiB
-      Arrays: 8.45 MiB
-      Localized functions: 9.90 MiB
-      Mixer: 3.32 MiB
-    Hamiltonian: 5.79 MiB
-      Arrays: 5.52 MiB
+  Process memory now: 297.75 MiB
+  Calculator: 316.57 MiB
+    Density: 10.88 MiB
+      Arrays: 4.23 MiB
+      Localized functions: 4.95 MiB
+      Mixer: 1.70 MiB
+    Hamiltonian: 2.90 MiB
+      Arrays: 2.77 MiB
       XC: 0.00 MiB
       Poisson: 0.00 MiB
-      vbar: 0.27 MiB
-    Wavefunctions: 305.23 MiB
+      vbar: 0.13 MiB
+    Wavefunctions: 302.79 MiB
       Arrays psit_nG: 214.68 MiB
       Eigensolver: 78.91 MiB
-      Projections: 1.11 MiB
-      Projectors: 3.55 MiB
-      PW-descriptor: 6.99 MiB
+      Projections: 0.55 MiB
+      Projectors: 1.77 MiB
+      PW-descriptor: 6.88 MiB
 
-Total number of cores used: 8
+Total number of cores used: 16
 Parallelization over k-points: 2
-Domain decomposition: 1 x 2 x 2
+Domain decomposition: 2 x 2 x 2
 
 Number of atoms: 29
 Number of atomic orbitals: 251
@@ -275,5 +275,5 @@ Effective grid spacing dv^(1/3) = 0.1888
 
      iter     time        total  log10-change:
                          energy  eigst   dens
-iter:   1 16:40:19  -100.915704
-iter:   2 16:40:28   -99.091736  -1.62  -1.32
+iter:   1 17:10:56  -100.915704
+iter:   2 17:11:01   -99.091736  -1.62  -1.32

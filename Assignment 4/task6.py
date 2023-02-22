@@ -7,9 +7,9 @@ from ase.io import read, write
 from ase.build import add_adsorbate, molecule, fcc111
 from ase.optimize import GPMin
 from ase.constraints import FixAtoms
+from ase.parallel import paropen
 
 
-surface   = "111-surface"
 surface_names = ["Au", "Pt", "Rh"]
 adsorbate_names = ["CO", "O"]
 
@@ -39,7 +39,6 @@ for i, surface_name in enumerate(surface_names):
             fixed = list(range(len(surface) - 1))
             surface.constraints = [FixAtoms(indices=fixed)]
 
-            
             # Set calculator 
             calculator = GPAW(xc='PBE',
                               mode=PW(450),
@@ -51,8 +50,8 @@ for i, surface_name in enumerate(surface_names):
             dyn = GPMin(surface, 
                         trajectory=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.traj", 
                         logfile=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.log")
-            dyn.run(fmax=0.1, steps=100)
-            #E_pot = i
+            dyn.run(fmax=0.1, steps=25)
+            
             E_pot = surface.get_potential_energy() 
             
             # Output
@@ -60,6 +59,6 @@ for i, surface_name in enumerate(surface_names):
             write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed.png", surface)
             write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_angled-view.png", surface,  rotation='10z,-80x, 5y')
             
-            with open(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
+            with paropen(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
 

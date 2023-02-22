@@ -5,10 +5,10 @@
  |__ |  _|___|_____|  22.8.0
  |___|_|             
 
-User:   gotols@vera1
-Date:   Wed Feb 22 16:35:31 2023
+User:   gotols@vera22-2
+Date:   Wed Feb 22 16:53:14 2023
 Arch:   x86_64
-Pid:    82210
+Pid:    2076047
 CWD:    /cephyr/users/gotols/Vera/TIF320-Computational-materials-and-molecular-physics-Assignments
 Python: 3.10.4
 gpaw:   /apps/Arch/software/GPAW/22.8.0-foss-2022a/lib/python3.10/site-packages/gpaw
@@ -19,7 +19,7 @@ numpy:  /apps/Arch/software/SciPy-bundle/2022.05-foss-2022a/lib/python3.10/site-
 scipy:  /apps/Arch/software/SciPy-bundle/2022.05-foss-2022a/lib/python3.10/site-packages/scipy (version 1.8.1)
 libxc:  5.2.3
 units:  Angstrom and eV
-cores: 1
+cores: 8
 OpenMP: False
 OMP_NUM_THREADS: 1
 
@@ -29,5 +29,422 @@ Input parameters:
          name: pw}
   xc: PBE
 
-Memory usage: 241.85 MiB
-Date: Wed Feb 22 16:35:31 2023
+System changes: positions, numbers, cell, pbc, initial_charges, initial_magmoms 
+
+Initialize ...
+
+species:
+  Au:
+    name: Gold
+    id: b12133f335f6ca0d89c4b1ccaa844e9a
+    Z: 79.0
+    valence: 11
+    core: 68
+    charge: 0.0
+    file: /apps/Common/software/GPAW-setups/0.9.20000/Au.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.42,
+                           lmax: 2}
+    cutoffs: {filter: 2.33,
+              core: 2.81}
+    valence states:
+      #              energy  rcut
+      - 6s(1.00)    -5.728   1.323
+      - 6p(0.00)    -0.775   1.323
+      - 5d(10.00)    -6.891   1.323
+      -  s          21.484   1.323
+      -  p          26.436   1.323
+      -  d          20.321   1.323
+  
+    # Using partial waves for Au as LCAO basis
+
+  O:
+    name: Oxygen
+    id: 32ecd46bf208036f09c70b0ec9a88b78
+    Z: 8.0
+    valence: 6
+    core: 2
+    charge: 0.0
+    file: /apps/Common/software/GPAW-setups/0.9.20000/O.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.21,
+                           lmax: 2}
+    cutoffs: {filter: 1.17,
+              core: 0.83}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -23.961   0.688
+      - 2p(4.00)    -9.029   0.598
+      -  s           3.251   0.688
+      -  p          18.182   0.598
+      -  d           0.000   0.619
+  
+    # Using partial waves for O as LCAO basis
+
+  C:
+    name: Carbon
+    id: 4aa54d4b901d75f77cc0ea3eec22967b
+    Z: 6.0
+    valence: 4
+    core: 2
+    charge: 0.0
+    file: /apps/Common/software/GPAW-setups/0.9.20000/C.PBE.gz
+    compensation charges: {type: gauss,
+                           rc: 0.20,
+                           lmax: 2}
+    cutoffs: {filter: 1.14,
+              core: 1.14}
+    valence states:
+      #              energy  rcut
+      - 2s(2.00)   -13.751   0.635
+      - 2p(2.00)    -5.284   0.635
+      -  s          13.461   0.635
+      -  p          21.927   0.635
+      -  d           0.000   0.635
+  
+    # Using partial waves for C as LCAO basis
+
+Reference energy: -13951221.800367  # eV
+
+Spin-paired calculation
+
+Convergence criteria:
+ Maximum [total energy] change in last 3 cyles: 0.0005 eV / electron
+ Maximum integral of absolute [dens]ity change: 0.0001 electrons / valence electron
+ Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+ Maximum number of scf [iter]ations: 333
+ (Square brackets indicate name in SCF output, whereas a 'c' in
+ the SCF output indicates the quantity has converged.)
+
+Symmetries present (total): 1
+
+  ( 1  0  0)
+  ( 0  1  0)
+  ( 0  0  1)
+
+16 k-points: 4 x 4 x 1 Monkhorst-Pack grid
+8 k-points in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.12500000   -0.37500000    0.00000000          2/16
+   1:     0.12500000   -0.12500000    0.00000000          2/16
+   2:     0.12500000    0.12500000    0.00000000          2/16
+   3:     0.12500000    0.37500000    0.00000000          2/16
+   4:     0.37500000   -0.37500000    0.00000000          2/16
+   5:     0.37500000   -0.12500000    0.00000000          2/16
+   6:     0.37500000    0.12500000    0.00000000          2/16
+   7:     0.37500000    0.37500000    0.00000000          2/16
+
+Wave functions: Plane wave expansion
+  Cutoff energy: 450.000 eV
+  Number of coefficients (min, max): 24769, 24813
+  Pulay-stress correction: 0.000000 eV/Ang^3 (de/decut=0.000000)
+  Using FFTW library
+  ScaLapack parameters: grid=1x1, blocksize=None
+  Wavefunction extrapolation:
+    Improved wavefunction reuse through dual PAW basis 
+
+Occupation numbers: Fermi-Dirac:
+  width: 0.1000  # eV
+ 
+
+Eigensolver
+   Davidson(niter=2) 
+
+Densities:
+  Coarse grid: 45*45*84 grid
+  Fine grid: 90*90*168 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.05
+  old densities: 5
+  Damping of long wavelength oscillations: 50 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 90*90*168 grid
+  Using the PBE Exchange-Correlation functional
+  External potential:
+    NoExternalPotential
+ 
+
+XC parameters: PBE with 2 nearest neighbor stencil
+
+Memory estimate:
+  Process memory now: 615.12 MiB
+  Calculator: 272.99 MiB
+    Density: 86.31 MiB
+      Arrays: 33.74 MiB
+      Localized functions: 39.59 MiB
+      Mixer: 12.98 MiB
+    Hamiltonian: 23.13 MiB
+      Arrays: 22.06 MiB
+      XC: 0.00 MiB
+      Poisson: 0.00 MiB
+      vbar: 1.07 MiB
+    Wavefunctions: 163.54 MiB
+      Arrays psit_nG: 71.56 MiB
+      Eigensolver: 78.91 MiB
+      Projections: 1.48 MiB
+      Projectors: 4.73 MiB
+      PW-descriptor: 6.87 MiB
+
+Total number of cores used: 8
+Parallelization over k-points: 8
+
+Number of atoms: 29
+Number of atomic orbitals: 251
+Number of bands in calculation: 189
+Number of valence electrons: 307
+Bands to converge: occupied
+
+... initialized
+
+Initializing position-dependent things.
+
+Density initialized from atomic densities
+Creating initial wave functions:
+  189 bands from LCAO basis set
+
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+           O                                  
+                  Au     Au     Au            
+           C                                  
+            Au     AAu    AAu    Au           
+       Au     Au     AAu    Au                
+                                              
+        Au     Au     AAu    Au     Au        
+                                              
+                 Au     Au     Au             
+                                              
+           Au      Au     Au                  
+                                              
+                                              
+                                              
+                                              
+
+Positions:
+   0 Au     1.476793    0.852627    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     4.430378    0.852627    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     7.383963    0.852627    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     2.953585    3.410506    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au     5.907170    3.410506    6.000000    ( 0.0000,  0.0000,  0.0000)
+   5 Au     8.860755    3.410506    6.000000    ( 0.0000,  0.0000,  0.0000)
+   6 Au     4.430378    5.968386    6.000000    ( 0.0000,  0.0000,  0.0000)
+   7 Au     7.383963    5.968386    6.000000    ( 0.0000,  0.0000,  0.0000)
+   8 Au    10.337548    5.968386    6.000000    ( 0.0000,  0.0000,  0.0000)
+   9 Au    -0.000000    1.705253    8.411592    ( 0.0000,  0.0000,  0.0000)
+  10 Au     2.953585    1.705253    8.411592    ( 0.0000,  0.0000,  0.0000)
+  11 Au     5.907170    1.705253    8.411592    ( 0.0000,  0.0000,  0.0000)
+  12 Au     1.476793    4.263133    8.411592    ( 0.0000,  0.0000,  0.0000)
+  13 Au     4.430378    4.263133    8.411592    ( 0.0000,  0.0000,  0.0000)
+  14 Au     7.383963    4.263133    8.411592    ( 0.0000,  0.0000,  0.0000)
+  15 Au     2.953585    6.821012    8.411592    ( 0.0000,  0.0000,  0.0000)
+  16 Au     5.907170    6.821012    8.411592    ( 0.0000,  0.0000,  0.0000)
+  17 Au     8.860755    6.821012    8.411592    ( 0.0000,  0.0000,  0.0000)
+  18 Au     0.000000    0.000000   10.823184    ( 0.0000,  0.0000,  0.0000)
+  19 Au     2.953585    0.000000   10.823184    ( 0.0000,  0.0000,  0.0000)
+  20 Au     5.907170    0.000000   10.823184    ( 0.0000,  0.0000,  0.0000)
+  21 Au     1.476793    2.557880   10.823184    ( 0.0000,  0.0000,  0.0000)
+  22 Au     4.430378    2.557880   10.823184    ( 0.0000,  0.0000,  0.0000)
+  23 Au     7.383963    2.557880   10.823184    ( 0.0000,  0.0000,  0.0000)
+  24 Au     2.953585    5.115759   10.823184    ( 0.0000,  0.0000,  0.0000)
+  25 Au     5.907170    5.115759   10.823184    ( 0.0000,  0.0000,  0.0000)
+  26 Au     8.860755    5.115759   10.823184    ( 0.0000,  0.0000,  0.0000)
+  27 O      1.476793    0.000000   13.973524    ( 0.0000,  0.0000,  0.0000)
+  28 C      1.476793    0.000000   12.823184    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    8.860755    0.000000    0.000000    45     0.1705
+  2. axis:    yes    4.430378    7.673639    0.000000    45     0.1705
+  3. axis:    no     0.000000    0.000000   16.823184    84     0.2003
+
+  Lengths:   8.860755   8.860755  16.823184
+  Angles:   90.000000  90.000000  60.000000
+
+Effective grid spacing dv^(1/3) = 0.1888
+
+     iter     time        total  log10-change:
+                         energy  eigst   dens
+iter:   1 16:53:42  -100.617289
+iter:   2 16:53:53   -98.790657  -1.63  -1.33
+iter:   3 16:54:04   -95.107476  -1.97  -1.36
+iter:   4 16:54:15   -93.252247  -1.82  -1.51
+iter:   5 16:54:27   -93.154266  -2.04  -1.78
+iter:   6 16:54:38   -93.052867  -3.27  -2.09
+iter:   7 16:54:49   -93.013906c -2.63  -2.13
+iter:   8 16:55:00   -93.007461c -3.81  -2.38
+iter:   9 16:55:11   -92.945163c -3.43  -2.47
+iter:  10 16:55:23   -92.938238c -3.93  -2.88
+iter:  11 16:55:34   -92.936918c -4.81  -3.03
+iter:  12 16:55:45   -92.936176c -4.71  -3.17
+iter:  13 16:55:56   -92.936013c -5.29  -3.31
+iter:  14 16:56:07   -92.935953c -5.44  -3.40
+iter:  15 16:56:19   -92.935889c -5.54  -3.51
+iter:  16 16:56:30   -92.935886c -6.48  -3.68
+iter:  17 16:56:41   -92.935877c -5.82  -3.71
+iter:  18 16:56:52   -92.935836c -6.91  -4.18c
+iter:  19 16:57:03   -92.935823c -7.34  -4.29c
+iter:  20 16:57:15   -92.935818c -7.69c -4.26c
+
+Converged after 20 iterations.
+
+Dipole moment: (-1.073286, -0.074481, 0.111524) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -13951221.800367)
+
+Kinetic:       -293.168972
+Potential:     +232.425780
+External:        +0.000000
+XC:             -35.061473
+Entropy (-ST):   -0.307144
+Local:           +3.022418
+--------------------------
+Free energy:    -93.089390
+Extrapolated:   -92.935818
+
+Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0   151      1.03774    0.98200
+  0   152      1.07573    0.79497
+  0   153      1.17662    0.38780
+  0   154      1.25692    0.19456
+
+  1   151     -0.19158    1.99999
+  1   152      0.19434    1.99955
+  1   153      0.50995    1.98947
+  1   154      0.62551    1.96695
+
+
+Fermi level: 1.03414
+
+No gap
+
+Forces in eV/Ang:
+  0 Au   -0.00396   -0.02929   -0.07137
+  1 Au    0.03389    0.01919   -0.04049
+  2 Au   -0.03940    0.01907   -0.05116
+  3 Au    0.00059    0.02120   -0.02994
+  4 Au   -0.00246   -0.02381   -0.05029
+  5 Au   -0.00379    0.02092   -0.04614
+  6 Au    0.01104   -0.01150   -0.05439
+  7 Au   -0.01368   -0.01079   -0.07425
+  8 Au   -0.00285   -0.01874   -0.02541
+  9 Au    0.00822   -0.02549    0.03037
+ 10 Au   -0.00609   -0.03336    0.01975
+ 11 Au    0.00311    0.02980   -0.01820
+ 12 Au    0.00137    0.02870   -0.02407
+ 13 Au   -0.00258   -0.00204    0.00297
+ 14 Au    0.00352   -0.00982    0.01112
+ 15 Au    0.04388    0.00380    0.05274
+ 16 Au   -0.00159    0.00610   -0.09718
+ 17 Au   -0.03759    0.01201    0.05665
+ 18 Au   -0.20591    0.01322    0.37309
+ 19 Au    0.19757    0.02762    0.37264
+ 20 Au    0.00446   -0.00965    0.06180
+ 21 Au    0.00083    0.28088   -0.05471
+ 22 Au    0.01560    0.02797    0.04227
+ 23 Au   -0.01334    0.03952    0.04043
+ 24 Au   -0.00595   -0.01484    0.03098
+ 25 Au    0.00310   -0.32626   -0.06544
+ 26 Au    0.01141   -0.02769    0.03345
+ 27 O    -0.00048    0.00710    0.12162
+ 28 C     0.00123   -0.01374   -0.50787
+
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+           O                                  
+                  Au     Au     Au            
+           CAu      Au     Au                 
+                   Au     Au     Au           
+       Au     Au     AAu    Au                
+                                              
+        Au     Au     AAu    Au     Au        
+                                              
+                 Au     Au     Au             
+                                              
+           Au      Au     Au                  
+                                              
+                                              
+                                              
+                                              
+
+Positions:
+   0 Au     1.476793    0.852627    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     4.430378    0.852627    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     7.383963    0.852627    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     2.953585    3.410506    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au     5.907170    3.410506    6.000000    ( 0.0000,  0.0000,  0.0000)
+   5 Au     8.860755    3.410506    6.000000    ( 0.0000,  0.0000,  0.0000)
+   6 Au     4.430378    5.968386    6.000000    ( 0.0000,  0.0000,  0.0000)
+   7 Au     7.383963    5.968386    6.000000    ( 0.0000,  0.0000,  0.0000)
+   8 Au    10.337548    5.968386    6.000000    ( 0.0000,  0.0000,  0.0000)
+   9 Au    -0.000000    1.705253    8.411592    ( 0.0000,  0.0000,  0.0000)
+  10 Au     2.953585    1.705253    8.411592    ( 0.0000,  0.0000,  0.0000)
+  11 Au     5.907170    1.705253    8.411592    ( 0.0000,  0.0000,  0.0000)
+  12 Au     1.476793    4.263133    8.411592    ( 0.0000,  0.0000,  0.0000)
+  13 Au     4.430378    4.263133    8.411592    ( 0.0000,  0.0000,  0.0000)
+  14 Au     7.383963    4.263133    8.411592    ( 0.0000,  0.0000,  0.0000)
+  15 Au     2.953585    6.821012    8.411592    ( 0.0000,  0.0000,  0.0000)
+  16 Au     5.907170    6.821012    8.411592    ( 0.0000,  0.0000,  0.0000)
+  17 Au     8.860755    6.821012    8.411592    ( 0.0000,  0.0000,  0.0000)
+  18 Au     0.000000    0.000000   10.823184    ( 0.0000,  0.0000,  0.0000)
+  19 Au     2.953585    0.000000   10.823184    ( 0.0000,  0.0000,  0.0000)
+  20 Au     5.907170    0.000000   10.823184    ( 0.0000,  0.0000,  0.0000)
+  21 Au     1.476793    2.557880   10.823184    ( 0.0000,  0.0000,  0.0000)
+  22 Au     4.430378    2.557880   10.823184    ( 0.0000,  0.0000,  0.0000)
+  23 Au     7.383963    2.557880   10.823184    ( 0.0000,  0.0000,  0.0000)
+  24 Au     2.953585    5.115759   10.823184    ( 0.0000,  0.0000,  0.0000)
+  25 Au     5.907170    5.115759   10.823184    ( 0.0000,  0.0000,  0.0000)
+  26 Au     8.860755    5.115759   10.823184    ( 0.0000,  0.0000,  0.0000)
+  27 O      1.476793    0.000000   13.973524    ( 0.0000,  0.0000,  0.0000)
+  28 C      1.477758   -0.010815   12.423332    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    8.860755    0.000000    0.000000    45     0.1705
+  2. axis:    yes    4.430378    7.673639    0.000000    45     0.1705
+  3. axis:    no     0.000000    0.000000   16.823184    84     0.2003
+
+  Lengths:   8.860755   8.860755  16.823184
+  Angles:   90.000000  90.000000  60.000000
+
+Effective grid spacing dv^(1/3) = 0.1888
+
+     iter     time        total  log10-change:
+                         energy  eigst   dens
+iter:   1 16:57:33  -113.218617  -0.24
+iter:   2 16:57:44   -99.631071  -1.33  -1.50
+iter:   3 16:57:55   -92.795087  -1.60  -1.74
+iter:   4 16:58:06   -92.274813  -2.07  -1.84
+iter:   5 16:58:17   -90.588009  -2.22  -1.99
+iter:   6 16:58:28   -90.419717  -3.31  -2.19
+iter:   7 16:58:40   -90.122722  -2.45  -2.33
+iter:   8 16:58:51   -90.034383  -3.13  -2.41
+iter:   9 16:59:02   -90.018777c -3.23  -2.66
+iter:  10 16:59:13   -90.010708c -4.64  -2.87
+iter:  11 16:59:24   -90.012585c -4.26  -2.97
+iter:  12 16:59:35   -90.014486c -4.20  -3.04
+iter:  13 16:59:46   -90.013444c -5.37  -3.22
+iter:  14 16:59:57   -90.011555c -4.48  -3.30
+iter:  15 17:00:09   -90.011628c -5.56  -3.64

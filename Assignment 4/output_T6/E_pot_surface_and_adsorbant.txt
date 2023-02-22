@@ -1,1 +1,2 @@
-Surface, adsorbant, position, E_pot (eV)
+Surface metal, adsorbant, position, E_pot for adsorbed adorbant on surface (eV)
+Au, CO, ontop, -93.16195449639798, (test calculation 2023-02-22)
