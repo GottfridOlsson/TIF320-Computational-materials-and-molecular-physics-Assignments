@@ -9,13 +9,6 @@ from ase.optimize import GPMin
 from ase.constraints import FixAtoms
 
 
-# Read relaxed surfaces from Task 3 and relaxed molecules from Task 4
-""" Au_111surface = read('Assignment 4/output_T3/Au_111-surface_relaxed.xyz')
-Pt_111surface = read('Assignment 4/output_T3/Pt_111-surface_relaxed.xyz')
-Rh_111surface = read('Assignment 4/output_T3/Rh_111-surface_relaxed.xyz')
-CO_moleule    = read('Assignment 4/output_T4/CO_relaxed_molecule_structure.xyz')
-O_atom        = Atoms('O') """
-
 surface   = "111-surface"
 surface_names = ["Au", "Pt", "Rh"]
 adsorbate_names = ["CO", "O"]
@@ -36,16 +29,17 @@ for i, surface_name in enumerate(surface_names):
         if adsorbate_name == "O":  adsorbate = Atoms(adsorbate_name)
 
         for position in positions:
-            print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}")
+            
+            #print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}")
             # Build surfaces and add adsorbate
-            surface = fcc111(surface_name, a=a, size=[3,3,3])
+            surface = fcc111(surface_name, a=a, size=[3,3,3], vacuum=6.0)
             add_adsorbate(surface, adsorbate, height=z_distance_adsorbant, position=position, mol_index=-1)
 
             # Constrain all atoms except the adsorbate: (from source [1])
             fixed = list(range(len(surface) - 1))
             surface.constraints = [FixAtoms(indices=fixed)]
 
-            """         
+            
             # Set calculator 
             calculator = GPAW(xc='PBE',
                               mode=PW(450),
@@ -55,23 +49,17 @@ for i, surface_name in enumerate(surface_names):
 
             # Relax until the forces acting on each atom are all below 0.1 eV/Å
             dyn = GPMin(surface, 
-                        trajectory=f"{output_path_start}GPMin_{surface}_{adsorbate_name}_{position}.traj", 
+                        trajectory=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.traj", 
                         logfile=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.log")
             dyn.run(fmax=0.1, steps=100)
-
-            E_pot = surface.get_potential_energy() """
+            #E_pot = i
+            E_pot = surface.get_potential_energy() 
             
-            # save energy of adbsorbed CO and O
-            
-
             # Output
-            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_initialized.xyz", surface)
-            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_initialized.png", surface)
-            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_initialized_angled-view.png", surface,  rotation='10z,-80x, 5y')
-            # TODO:
-            # calculate and print the E_ads (see problem description) to .txt
+            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed.xyz", surface)
+            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed.png", surface)
+            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_angled-view.png", surface,  rotation='10z,-80x, 5y')
+            
+            with open(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
+                file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
 
-
-            #atoms.calc = EMT()
-            #opt = BFGS(atoms, logfile=None)
-            #opt.run(fmax=0.01)
