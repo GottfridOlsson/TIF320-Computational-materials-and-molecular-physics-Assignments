@@ -1,31 +1,25 @@
 Surface metal, Adsorbate, Adsorption position, Adsorption energy (eV)
-Au, CO, fcc, 0.17615496843988687
-Au, CO, hcp, 0.16799374190423855
-Au, CO, ontop, -0.12352289562378083
-Au, CO, bridge, 0.10133444267911607
+Au, CO
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{0.1762} & \num{0.168} & \num{-0.1235} & \num{0.1013}
 
-Au, O,  fcc, 4.688834708416811
-Au, O,  hcp, 4.82449040952452
-Au, O,  ontop, 5.808488194307705
-Au, O,  bridge, 4.689245146855248
+Au, O
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{0.3248} & \num{0.4605} & \num{1.444} & \num{0.3252}
 
-Pt, CO, fcc, -0.6509319827656146
-Pt, CO, hcp, -0.6482450101672033
-Pt, CO, ontop, -1.433546766227737
-Pt, CO, bridge, -0.7849340391616284
+Pt, CO
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-0.6509} & \num{-0.6482} & \num{-1.434} & \num{-0.7849}
 
-Pt, O,  fcc, 3.32331578560248
-Pt, O,  hcp, 3.7111103667035845
-Pt, O,  ontop, 4.515008494888397
-Pt, O,  bridge, 3.3234466135091534
+Pt, O
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-1.041} & \num{-0.6529} & \num{0.151} & \num{-1.041}
 
-Rh, CO, fcc, -0.7868155011659486
-Rh, CO, hcp, -0.8108143442948563
-Rh, CO, ontop, -1.5858982399100956
-Rh, CO, bridge, -0.9397736479916876
+Rh, CO
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-0.7868} & \num{-0.8108} & \num{-1.586} & \num{-0.9398}
 
-Rh, O,  fcc, 2.6125055955832774
-Rh, O,  hcp, 2.742328380000023
-Rh, O,  ontop, 3.909008372249863
-Rh, O,  bridge, 2.612659268325208
+Rh, O
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-1.751} & \num{-1.622} & \num{-0.455} & \num{-1.751}
 
