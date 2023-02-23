@@ -1,0 +1,5 @@
+Surface metal & fcc (\si{\electronvolt}) & hcp (\si{\electronvolt}) & top (\si{\electronvolt}) & bridge (\si{\electronvolt}) \\
+\midrule 
+Au & 0.0697 & 0.0315 & -0.1763 & 0.0920\\ 
+Pt & 0.7275 & 0.6103 & 0.6048 & 0.7676\\ 
+Rh & 0.9815 & 0.9497 & 0.8323 & 1.0273\\ 
