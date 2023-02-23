@@ -1,0 +1,25 @@
+Adsorption energy (eV)
+Au, CO
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{0.1762} & \num{0.1680} & \num{-0.1235} & \num{0.1013}
+
+Au, O
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{0.3248} & \num{0.4605} & \num{1.4445} & \num{0.3252}
+
+Pt, CO
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-0.6509} & \num{-0.6482} & \num{-1.4335} & \num{-0.7849}
+
+Pt, O
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-1.0407} & \num{-0.6529} & \num{0.1510} & \num{-1.0406}
+
+Rh, CO
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-0.7868} & \num{-0.8108} & \num{-1.5859} & \num{-0.9398}
+
+Rh, O
+'fcc', 'hcp', 'ontop', 'bridge'
+\num{-1.7515} & \num{-1.6217} & \num{-0.4550} & \num{-1.7513}
+

@@ -2,6 +2,7 @@ from gpaw import GPAW, PW
 from ase.io import read, write
 from ase.build import fcc111
 from ase.parallel import paropen
+from ase import Atoms
 
 
 # Functions for calculations
@@ -27,13 +28,16 @@ E_adsorbate_O2  = -8.728  #eV, from Task 4
 positions = ['fcc', 'hcp', 'ontop', 'bridge']
 output_path_start = "Assignment 4/output_T6/"
 
-with paropen(f"{output_path_start}E_activation_CO_O.txt", 'w') as file:
-    file.write(f"Surface metal, Adsorption position, Activation energy CO and O (eV)\n")
+#with paropen(f"{output_path_start}E_activation_CO_O.txt", 'w') as file:
+#    file.write(f"Surface metal, Adsorption position, Activation energy CO and O (eV)\n")
+
+with paropen(f"{output_path_start}E_adsorption_formatted.txt", 'w') as file:
+    file.write(f"Adsorption energy (eV)\n")
 
 with paropen(f"{output_path_start}E_adsorption.txt", 'w') as file:
     file.write(f"Surface metal, Adsorbate, Adsorption position, Adsorption energy (eV)\n")
 
-
+# Adsorption energy
 for i, surface_name in enumerate(surface_names):
 
     # 3-layered 3X3 surface cell, 6 angstrom of vacuum in +-z-direction
@@ -45,44 +49,69 @@ for i, surface_name in enumerate(surface_names):
     #surface.set_calculator(calc)
     surface = read(f"{output_path_start}{surface_name}_fcc111_initialized.xyz")
     E_slab = surface.get_potential_energy()
-    #print(f"{surface_name}, E_slab={E_slab}")
     #write(f"{output_path_start}{surface_name}_fcc111_initialized.xyz", surface)
 
-    for adsorbate in ['CO', 'O']:
-        with paropen(f"{output_path_start}E_adsorption.txt", 'a') as file:
-            file.write(f"{surface_name}, {adsorbate}\n")
+    for adsorbate_name in adsorbate_names:
+        with paropen(f"{output_path_start}E_adsorption_formatted.txt", 'a') as file:
+            file.write(f"{surface_name}, {adsorbate_name}\n")
             file.write(f"'fcc', 'hcp', 'ontop', 'bridge'\n")
 
         for position in positions:
-
+            print(f"{surface_name}, {position}")
             # Slab with adsorbate energy
-            if adsorbate=='CO':
+            if adsorbate_name=='CO':
                 CO = read(f"{output_path_start}{surface_name}_CO_{position}_relaxed.xyz")
                 E_slabWithAdsorbate_CO = CO.get_potential_energy()
                 E_ads_CO = adsorption_energy_CO(E_slabWithAdsorbate_CO, E_slab, E_adsorbate_CO)
                 E_ads = E_ads_CO
             
-            if adsorbate=='O':
+            if adsorbate_name=='O':
                 O  = read(f"{output_path_start}{surface_name}_O_{position}_relaxed.xyz")
                 E_slabWithAdsorbate_O  = O.get_potential_energy()
                 E_ads_O  = adsorption_energy_O(E_slabWithAdsorbate_O, E_slab, E_adsorbate_O2)
                 E_ads = E_ads_O
 
-            # Adsorption energy
-            
-            
-
-            # Activation energy
-            #E_act = activation_energy(E_ads_O, E_ads_CO)
-
-            #with paropen(f"{output_path_start}E_activation_CO_O.txt", 'a') as file:
-            #    file.write(f"{surface_name}, {position}, {E_act}\n")
-
             with paropen(f"{output_path_start}E_adsorption.txt", 'a') as file:
-                file.write("\\num{" +f"{E_ads:.4}" + "}")
+                file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_ads}\n")
+
+            with paropen(f"{output_path_start}E_adsorption_formatted.txt", 'a') as file:
+                file.write("\\num{" +f"{E_ads:.4f}" + "}")
                 if position!='bridge':
                     file.write(" & ")
-                #file.write(f"{surface_name}, CO, {position}, {E_ads_CO}\n")
-                #file.write(f"{surface_name}, O,  {position}, {E_ads_O}\n")
-        with paropen(f"{output_path_start}E_adsorption.txt", 'a') as file:
+
+        with paropen(f"{output_path_start}E_adsorption_formatted.txt", 'a') as file:
             file.write(f"\n\n")
+
+
+
+# Activation energy
+with paropen(f"{output_path_start}E_activation.txt", 'w') as file:
+    file.write(f"Surface metal, Adsorption position, Activation energy CO and O (eV)\n")
+
+with paropen(f"{output_path_start}E_activation_formatted.txt", 'w') as file:
+    file.write("Surface metal & fcc (\si{\electronvolt}) & hcp (\si{\electronvolt}) & top (\si{\electronvolt}) & bridge (\si{\electronvolt}) \\\\\n")
+    file.write("\midrule \n")
+
+for i, surface_name in enumerate(surface_names):
+    surface = read(f"{output_path_start}{surface_name}_fcc111_initialized.xyz")
+    E_slab = surface.get_potential_energy()
+    E_act_pos = []
+
+    for position in positions:
+
+        CO = read(f"{output_path_start}{surface_name}_CO_{position}_relaxed.xyz")
+        E_slabWithAdsorbate_CO = CO.get_potential_energy()
+        E_ads_CO = adsorption_energy_CO(E_slabWithAdsorbate_CO, E_slab, E_adsorbate_CO)
+        
+        O  = read(f"{output_path_start}{surface_name}_O_{position}_relaxed.xyz")
+        E_slabWithAdsorbate_O  = O.get_potential_energy()
+        E_ads_O  = adsorption_energy_O(E_slabWithAdsorbate_O, E_slab, E_adsorbate_O2)
+
+        E_act = activation_energy(E_ads_O, E_ads_CO)
+        E_act_pos.append(E_act)
+
+        with paropen(f"{output_path_start}E_activation.txt", 'a') as file:
+            file.write(f"{surface_name}, {position}, {E_act}\n")
+        
+    with paropen(f"{output_path_start}E_activation_formatted.txt", 'a') as file:
+        file.write(f"{surface_name} & {E_act_pos[0]:.4f} & {E_act_pos[1]:.4f} & {E_act_pos[2]:.4f} & {E_act_pos[3]:.4f}\\\\ \n")
