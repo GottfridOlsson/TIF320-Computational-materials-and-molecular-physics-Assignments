@@ -22,7 +22,7 @@ a_from_T1 = [4.177, 3.970, 3.840] # angstrom
 
 adsorbate_names = ["CO", "O"]
 E_adsorbate_CO  = -14.194 #eV, from Task 4
-E_adsorbate_O   = -8.728 #eV, from Task 4
+E_adsorbate_O2  = -8.728  #eV, from Task 4
 
 positions = ['ontop', 'bridge', 'fcc', 'hcp']
 output_path_start = "Assignment 4/output_T6/"
@@ -57,7 +57,7 @@ for i, surface_name in enumerate(surface_names):
         E_slabWithAdsorbate_CO = CO.get_potential_energy()
 
         # Adsorption energy
-        E_ads_O  = adsorption_energy_CO(E_slabWithAdsorbate_O, E_slab, E_adsorbate_O)
+        E_ads_O  = adsorption_energy_CO(E_slabWithAdsorbate_O, E_slab, E_adsorbate_O2)
         E_ads_CO = adsorption_energy_CO(E_slabWithAdsorbate_CO, E_slab, E_adsorbate_CO)
 
         # Activation energy
