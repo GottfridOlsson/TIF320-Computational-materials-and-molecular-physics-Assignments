@@ -1,6 +1,7 @@
 from gpaw import GPAW, PW
 from ase.io import read, write
 from ase.build import fcc111
+from ase.parallel import paropen
 
 
 # Functions for calculations
@@ -26,10 +27,10 @@ E_adsorbate_O   = -8.728 #eV, from Task 4
 positions = ['ontop', 'bridge', 'fcc', 'hcp']
 output_path_start = "Assignment 4/output_T6/"
 
-with open(f"{output_path_start}E_activation_CO_O.txt", 'w') as file:
+with paropen(f"{output_path_start}E_activation_CO_O.txt", 'w') as file:
     file.write(f"Surface metal, Adsorption position, Activation energy CO and O (eV)\n")
 
-with open(f"{output_path_start}E_adsorption.txt", 'w') as file:
+with paropen(f"{output_path_start}E_adsorption.txt", 'w') as file:
     file.write(f"Surface metal, Adsorbate, Adsorption position, Adsorption energy (eV)\n")
 
 
@@ -62,10 +63,10 @@ for i, surface_name in enumerate(surface_names):
         # Activation energy
         E_act = activation_energy(E_ads_O, E_ads_CO)
 
-        with open(f"{output_path_start}E_activation_CO_O.txt", 'a') as file:
+        with paropen(f"{output_path_start}E_activation_CO_O.txt", 'a') as file:
             file.write(f"{surface_name}, {position}, {E_act}\n")
 
-        with open(f"{output_path_start}E_adsorption.txt", 'a') as file:
+        with paropen(f"{output_path_start}E_adsorption.txt", 'a') as file:
             file.write(f"{surface_name}, CO, {position}, {E_ads_CO}\n")
             file.write(f"{surface_name}, O,  {position}, {E_ads_O}\n")
             
