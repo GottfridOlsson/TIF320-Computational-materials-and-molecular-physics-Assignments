@@ -3,7 +3,7 @@
 #SBATCH -J A4_T6                           # Name of the job
 #SBATCH -N 1                               # Use 1 node
 #SBATCH -n 16                              # Use 16 cores on that node
-#SBATCH -t 05:00:00                        # Maximum time
+#SBATCH -t 01:00:00                        # Maximum time
 #SBATCH -o "Assignment 4/logs/T6_std.out"  # stdout goes to this file
 #SBATCH -e "Assignment 4/logs/T6_err.out"  # stderr goes to this file
 
@@ -13,4 +13,4 @@ module load SciPy-bundle/2022.05-foss-2022a
 module load ASE/3.22.1-foss-2022a
 module load GPAW/22.8.0-foss-2022a
 
-mpiexec gpaw python 'Assignment 4/task6.py'
+mpiexec gpaw python 'Assignment 4/task6_E_activation.py'

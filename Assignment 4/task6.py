@@ -59,6 +59,7 @@ for i, surface_name in enumerate(surface_names):
             write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed.png", surface)
             write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_angled-view.png", surface,  rotation='10z,-80x, 5y')
             
+            # Paropen only writes to the file for when world.rank==0, i.e. for the process that gets highest rank (only writes once to file, and not once per core used in calculation)
             with paropen(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
 
