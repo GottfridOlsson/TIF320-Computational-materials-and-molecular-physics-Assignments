@@ -12,7 +12,7 @@ m_asu   = 1 * eV * ps**2 * Ang**-2                  # asu mass unit
 # SI units
 s       = 1e12 * ps                                 # second
 m       = 1e10 * Ang                                # meter
-J       = 6.2415091e18 * eV                        # Joule
+J       = 6.2415091e18 * eV                         # Joule
 kg      = J * m**-2 * s**2                          # kilogram
 N       = J * m**-1                                 # Newton
 Pa      = N * m**-2                                 # Pascal

@@ -40,7 +40,7 @@ for i, element in enumerate(elements):
             #OR MORE SIMPLY: "bulk = bulk(element, 'fcc', a=a)" with "from ase.build import bulk"
 
             # Set calculator
-            calc = GPAW (xc   = 'PBE',               # exchange-correlation
+            calc = GPAW (xc  = 'PBE',               # exchange-correlation
                         mode = PW(cutoff_energy),    # cutoff
                         kpts = (k, k, k),            # k-points
                         txt  = f'{file_name}.txt')    # output file
