@@ -1,2 +1,32 @@
 Surface metal, adsorbant, position, E_pot for adsorbed adorbant on surface (eV)
 Au, CO, ontop, -93.16195449639798, (test calculation 2023-02-22)
+
+Au, CO, ontop, -93.16195449608534
+Au, CO, bridge, -92.93709715778245
+Au, CO, fcc, -92.86227663202168
+Au, CO, hcp, -92.87043785855732
+
+Au, O, ontop, -81.76394340615386
+Au, O, bridge, -82.88318645360631
+Au, O, fcc, -82.88359689204475
+Au, O, hcp, -82.74794119093704
+
+Pt, CO, ontop, -177.44103182881864
+Pt, CO, bridge, -176.79241910175253
+Pt, CO, fcc, -176.65841704535652
+Pt, CO, hcp, -176.6557300727581
+
+Pt, O, ontop, -166.0264765677025
+Pt, O, bridge, -167.21803844908175
+Pt, O, fcc, -167.21816927698842
+Pt, O, hcp, -166.83037469588731
+
+Rh, CO, ontop, -198.57761321201698
+Rh, CO, bridge, -197.93148862009858
+Rh, CO, fcc, -197.77853047327284
+Rh, CO, hcp, -197.80252931640175
+
+Rh, O, ontop, -187.61670659985703
+Rh, O, bridge, -188.91305570378168
+Rh, O, fcc, -188.9132093765236
+Rh, O, hcp, -188.78338659210687

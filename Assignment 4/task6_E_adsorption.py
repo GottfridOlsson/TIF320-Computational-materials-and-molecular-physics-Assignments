@@ -18,6 +18,7 @@ for surface_name in surface_names:
         
         # TODO: OBS!
         # E_ads = E_surfaceWithAdsorbant - E_surface - E_adsorbantGasForm
+        # TODO: fix below
         E_ads_O  = O.get_potential_energy()
         E_ads_CO = CO.get_potential_energy()
         E_activation = activation_energy(E_ads_O, E_ads_CO)
