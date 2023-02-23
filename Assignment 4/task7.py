@@ -24,7 +24,8 @@ beta = 1 / (asu.kB * T)
 
 # Reaction rates
 r = np.zeros((3, len(T)))
-f = np.zeros((3, len(T)))
+theta_CO = np.zeros((3, len(T)))
+theta_O  = np.zeros((3, len(T)))
 for i, metal in enumerate(metals):
 
     # Compute rate constants
@@ -32,17 +33,15 @@ for i, metal in enumerate(metals):
     K_CO = np.exp(- S_CO / asu.kB) * np.exp( - beta * 1 * E_ads_CO[i])
 
     # Compute fractional coverage
-    theta_O =  (p_O2 * K_O2 - np.sqrt(p_O2 * K_O2) * (1 + p_CO * K_CO)) / \
+    theta_O[i,:] = (p_O2 * K_O2 - np.sqrt(p_O2 * K_O2) * (1 + p_CO * K_CO)) / \
             (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
 
-    theta_CO = (p_CO * K_CO * (np.sqrt(p_O2 * K_O2) - (1 + p_CO * K_CO))) / \
+    theta_CO[i,:] = (p_CO * K_CO * (np.sqrt(p_O2 * K_O2) - (1 + p_CO * K_CO))) / \
             (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
-
-    f[i,:] = theta_O * theta_CO
 
     # Compute reaction rate
     nu = 1e12 * asu.s**-1
-    r_per_site = theta_O * theta_CO * nu * np.exp(- beta * E_a[i])
+    r_per_site = theta_O[i,:] * theta_CO[i,:] * nu * np.exp(- beta * E_a[i])
 
     # Scale to moles per unit area
     sites_per_area = 1 / A_per_site[i]
@@ -52,16 +51,16 @@ for i, metal in enumerate(metals):
 # Plot
 fig = plt.figure()
 ax1 = fig.add_subplot(2,1,1)
-ax1.semilogy(T, np.exp(- beta * E_a[i]), "k-", label="$e^{E_a/k_bT}$")
 for i, metal in enumerate(metals):
-    ax1.semilogy(T, f[i,:], ["r", "g", "b"][i] + "-", label=f"$f(\\theta)$, {metal}")
+    ax1.semilogy(T, theta_O[i,:], ["r", "g", "b"][i] + "-", label="$\\theta_{O}$, " + metal)
+    ax1.semilogy(T, theta_CO[i,:], ["r", "g", "b"][i] + "--", label="$\\theta_{CO}$, " + metal)
 ax1.set_ylabel("Fractional coverage")
 ax1.legend()
 ax1.grid()
 
 ax2 = fig.add_subplot(2,1,2)
 for i, metal in enumerate(metals):
-    ax2.semilogy(T, r[i,:] / (asu.m**-2 * asu.s**-1), ["r", "g", "b"][i] + "-", label=metal)
+    ax2.semilogy(T, r[i,:] / (asu.mol * asu.m**-2 * asu.s**-1), ["r", "g", "b"][i] + "-", label=metal)
 ax2.set_xlabel("Temperature (K)")
 ax2.set_ylabel("Reaction rate (mol/m$^2$s)")
 ax2.grid()
@@ -75,5 +74,11 @@ print_arrays_to_CSV(
     "Temperature", T / asu.K,
     "Reaction rate Au [mol / (m2 s)]", r[0,:] / (asu.mol / (asu.m**2 * asu.s)),
     "Reaction rate Pt [mol / (m2 s)]", r[1,:] / (asu.mol / (asu.m**2 * asu.s)),
-    "Reaction rate Rh [mol / (m2 s)]", r[2,:] / (asu.mol / (asu.m**2 * asu.s))
+    "Reaction rate Rh [mol / (m2 s)]", r[2,:] / (asu.mol / (asu.m**2 * asu.s)),
+    "Fractional coverage, CO on Au", theta_CO[0,:],
+    "Fractional coverage, CO on Pt", theta_CO[1,:],
+    "Fractional coverage, CO on Rh", theta_CO[2,:],
+    "Fractional coverage, O on Au", theta_O[0,:],
+    "Fractional coverage, O on Pt", theta_O[1,:],
+    "Fractional coverage, O on Rh", theta_O[2,:],
 )
