@@ -2,6 +2,7 @@
 # https://wiki.fysik.dtu.dk/ase/ase/vibrations/modes.html
 # https://wiki.fysik.dtu.dk/ase/ase/thermochemistry/thermochemistry.html#ase.thermochemistry.CrystalThermo.get_entropy
 
+import numpy as np
 from ase.thermochemistry import IdealGasThermo
 from ase.vibrations import Vibrations
 from ase.io import read
@@ -85,15 +86,16 @@ symmetry_numbers = [1, 2]
 spins = [0, 1] # singlet and triplet for CO and O2 respectively
 
 # Temperature and pressure
-temperature = 300 # Kelvin
-pressure = 1e5 # 1 bar = 10e5 Pa
+temperatures = np.linspace(100, 2000, 1901) # Kelvin
+pressure_T5 = 1e5 # 1 bar = 10e5 Pa
+pressure_T7 = 101325 #Pa, 1 atmosphere of pressure = 101325 Pa
 
-entropies = []
+
 entropies_experimental_units= []
 
 
 for i in range(len(molecule_names)):
-    
+    entropies = []
     molecule_name = molecule_names[i]
     symmetry_number = symmetry_numbers[i]
     spin = spins[i]
@@ -111,7 +113,7 @@ for i in range(len(molecule_names)):
     # Calculate quantities
     potential_energy = atoms.get_potential_energy() # eV
     vibrational_energies = vib.get_energies() # eV
-   
+
     ideal_gas = IdealGasThermo(vib_energies=vibrational_energies, 
                                 geometry='linear',
                                 potentialenergy=potential_energy,
@@ -119,16 +121,20 @@ for i in range(len(molecule_names)):
                                 symmetrynumber=symmetry_number,
                                 spin=spin)
 
-    entropy = ideal_gas.get_entropy(temperature=temperature,pressure=pressure) # eV/K
-    entropies.append(entropy)
+    for temperature in temperatures:
+        entropy = ideal_gas.get_entropy(temperature=temperature,pressure=pressure_T7) # eV/K
+        entropies.append(entropy)
 
-    # Convert to J mol^-1 K^-1
-    eV_2_J = 1.602176565e-19
-    per_mole = 6.0221415e23 # Avogadros constant
-    entropies_experimental_units.append(entropy*eV_2_J*per_mole) # J mol^-1 K^-1
+        # Convert to J mol^-1 K^-1
+        #eV_2_J = 1.602176565e-19
+        #per_mole = 6.0221415e23 # Avogadros constant
+        #entropies_experimental_units.append(entropy*eV_2_J*per_mole) # J mol^-1 K^-1
 
-    print_arrays_to_CSV(f"output_T5/TIF320_A4_T5_entropy_T={temperature}K_P={pressure:.2e}Pa_CO_O2.csv", 
-                        "Molecule", molecule_names, 
-                        "Entropy in ideal gas approximation (eV/K)", entropies, 
-                        "Entropy in ideal gas approximation (J mol^-1 K^-1)", entropies_experimental_units,
-                        print_message=True)
+    print_arrays_to_CSV(f"output_T5/TIF320_A4_T5_entropy_vs_temperature_at_P={pressure_T7}Pa_{molecule_name}.csv", 
+                        "Temperature (K)", temperatures, 
+                        "Entropy in ideal gas approximation (eV/K)", entropies)
+        #print_arrays_to_CSV(f"output_T5/TIF320_A4_T5_entropy_T={temperature}K_P={pressure:.2e}Pa_CO_O2.csv", 
+        #                    "Molecule", molecule_names, 
+        #                    "Entropy in ideal gas approximation (eV/K)", entropies, 
+        #                    "Entropy in ideal gas approximation (J mol^-1 K^-1)", entropies_experimental_units,
+        #                    print_message=True)
