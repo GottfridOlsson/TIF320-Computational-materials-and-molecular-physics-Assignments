@@ -1,125 +1,84 @@
 import atomic_simulation_units as asu
 import numpy as np
 import matplotlib.pyplot as plt
+from util import print_arrays_to_CSV
 
-# PROPERTIES OF MOLECULES
+# Calculated values
+S_O2       = 198.263 * asu.J * asu.K**-1 * asu.mol**-1 # Entropy of O2 (gas)
+S_CO       = 205.968 * asu.J * asu.K**-1 * asu.mol**-1 # Entropy of CO (gas)
+metals     = ["Au", "Pt", "Rh"]
+E_ads_CO   = np.array([-0.124, -1.434, -1.586]) * asu.eV # Adsorption energy for CO on metals
+E_ads_O    = np.array([ 0.325, -1.041, -1.751]) * asu.eV # Adsorption energy for O on metals
+E_a        = -0.3 * (E_ads_O + E_ads_CO) + 0.22 * asu.eV # Activation energy for CO2 formation
+A_per_site = np.array([67.994, 61.422, 57.465]) * asu.Ang**2 / 9 # Area per reaction site
 
-# Masses
-m_O = 15.999 * asu.u    # mass of oxygen
-m_C = 12.011 * asu.u    # mass of carbon
-m_O2 = m_O + m_O
-m_CO = m_C + m_O
-
-# Bond lengths
-r_O2 = 1.208 * asu.Ang
-r_CO = 1.128 * asu.Ang
-
-# Moments of inertia
-I_O2 = r_O2**2 * m_O / 2
-I_CO = r_CO**2 * (m_O * m_C) / (m_O + m_C)
-
-# Symmetry numbers
-# "2 if the molecule has an inversion center and 1 otherwise"
-sigma_O2 = 2
-sigma_CO = 1
-
-# Vibrational energy (fill in from task 5)
-eps_O2 = 0.2555 * asu.eV
-eps_CO = 0.2670 * asu.eV
-
-# Energies of molecules of surface (fill in from task 4 and 6)
-E_gas_O2 = 0 * asu.eV
-E_gas_CO = 0 * asu.eV
-E_adsorbed_O  = - 1 * asu.eV
-E_adsorbed_CO = - 1 * asu.eV
-
-# Activation energy of reaction (from PM)
-E_a = - 0.3 * (E_adsorbed_O + E_adsorbed_CO) + 0.22 * asu.eV
-
-# PROPERTIES OF SIMULATION
-
-# Temperature range
-T = np.linspace(100, 2000, 1000) * asu.K
-beta = 1 / (asu.kB * T)
+print(E_a / asu.eV)
 
 # Partial pressures
 p_O2 = 1 * asu.atm
 p_CO = 1 * asu.atm
 
-# ENTROPIES for each degree of freedom (per particle)
+# Temperature range
+T = np.linspace(100, 2000, 1000) * asu.K
+beta = 1 / (asu.kB * T)
 
-# Oxygen
-S_O2_trans = asu.kB * (
-    np.log(
-        (1 / (beta * p_O2)) * 
-        (2 * np.pi * m_O2 / (beta * asu.h**2))**(3/2)
-    ) 
-    + 5/2
-)
+# Reaction rates
+r = np.zeros((3, len(T)))
+theta_CO = np.zeros((3, len(T)))
+theta_O  = np.zeros((3, len(T)))
+for i, metal in enumerate(metals):
 
-S_O2_rot = asu.kB * (
-    np.log(8 * np.pi**2 * I_O2 / (beta * sigma_O2 * asu.h**2)) 
-    + 1
-)
+    # Compute rate constants
+    K_O2 = np.exp(- S_O2 / asu.kB) * np.exp( - beta * 2 * E_ads_O[i])
+    K_CO = np.exp(- S_CO / asu.kB) * np.exp( - beta * 1 * E_ads_CO[i])
 
-S_O2_vib = asu.kB * (
-    np.log(1 / (1 - np.exp(- beta * eps_O2))) +
-    (beta * eps_O2) / (np.exp(beta * eps_O2) - 1)
-)
+    # Compute fractional coverage
+    theta_O[i,:] = (p_O2 * K_O2 - np.sqrt(p_O2 * K_O2) * (1 + p_CO * K_CO)) / \
+            (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
 
-S_O2 = S_O2_trans + S_O2_rot + S_O2_vib
+    theta_CO[i,:] = (p_CO * K_CO * (np.sqrt(p_O2 * K_O2) - (1 + p_CO * K_CO))) / \
+            (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
 
-# Carbon monoxide
-S_CO_trans = asu.kB * (
-    np.log(
-        (1 / (beta * p_CO)) * 
-        (2 * np.pi * m_CO / (beta * asu.h**2))**(3/2)
-    ) 
-    + 5/2
-)
+    # Compute reaction rate
+    nu = 1e12 * asu.s**-1
+    r_per_site = theta_O[i,:] * theta_CO[i,:] * nu * np.exp(- beta * E_a[i])
 
-S_CO_rot = asu.kB * (
-    np.log(8 * np.pi**2 * I_CO / (beta * sigma_CO * asu.h**2)) 
-    + 1
-)
+    # Scale to moles per unit area
+    sites_per_area = 1 / A_per_site[i]
+    print(f"{metal}: sites per area {sites_per_area / (asu.m**-2 * asu.mol)} mol / Å^2")
+    r[i,:]= r_per_site * sites_per_area
 
-S_CO_vib = asu.kB * (
-    np.log(1 / (1 - np.exp(- beta * eps_CO))) +
-    (beta * eps_CO) / (np.exp(beta * eps_CO) - 1)
-)
-
-S_CO = S_CO_trans + S_CO_rot + S_CO_vib
-
-
-# Compute rate constants
-K_O2 = np.exp(- S_O2 / asu.kB) * np.exp(beta * (E_gas_O2 - 2 * E_adsorbed_O))
-K_CO = np.exp(- S_CO / asu.kB) * np.exp(beta * (E_gas_CO - E_adsorbed_CO))
-
-# Compute fractional coverage
-theta_O =  (p_O2 * K_O2 - np.sqrt(p_O2 * K_O2) * (1 + p_CO * K_CO)) / \
-           (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
-
-theta_CO = (p_CO * K_CO * (np.sqrt(p_O2 * K_O2) - (1 + p_CO * K_CO))) / \
-           (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
-
-# Compute reaction rate
-nu = 1e12 * asu.s**-1
-r = theta_O * theta_CO * nu * np.exp(- beta * E_a)
-
+# Plot
 fig = plt.figure()
+ax1 = fig.add_subplot(2,1,1)
+for i, metal in enumerate(metals):
+    ax1.semilogy(T, theta_O[i,:], ["r", "g", "b"][i] + "-", label="$\\theta_{O}$, " + metal)
+    ax1.semilogy(T, theta_CO[i,:], ["r", "g", "b"][i] + "--", label="$\\theta_{CO}$, " + metal)
+ax1.set_ylabel("Fractional coverage")
+ax1.legend()
+ax1.grid()
 
-ax = fig.add_subplot(2,1,1)
-ax.semilogy(T, theta_O, label="O")
-ax.semilogy(T, theta_CO, label="CO")
-ax.set_ylabel("Fractional coverage")
-ax.legend()
-ax.grid()
-
-ax = fig.add_subplot(2,1,2)
-ax.plot(T, r / asu.s**-1)
-ax.set_xlabel("Temperature (K)")
-ax.set_ylabel("Reaction rate (s^-1)")
-ax.grid()
-
+ax2 = fig.add_subplot(2,1,2)
+for i, metal in enumerate(metals):
+    ax2.semilogy(T, r[i,:] / (asu.mol * asu.m**-2 * asu.s**-1), ["r", "g", "b"][i] + "-", label=metal)
+ax2.set_xlabel("Temperature (K)")
+ax2.set_ylabel("Reaction rate (mol/m$^2$s)")
+ax2.grid()
+ax2.legend()
 
 plt.show()
+
+# Export to csv
+print_arrays_to_CSV(
+    "Assignment 4/output_T7/r_vs_T.csv",
+    "Temperature", T / asu.K,
+    "Reaction rate Au [mol / (m2 s)]", r[0,:] / (asu.mol / (asu.m**2 * asu.s)),
+    "Reaction rate Pt [mol / (m2 s)]", r[1,:] / (asu.mol / (asu.m**2 * asu.s)),
+    "Reaction rate Rh [mol / (m2 s)]", r[2,:] / (asu.mol / (asu.m**2 * asu.s)),
+    "Fractional coverage, CO on Au", theta_CO[0,:],
+    "Fractional coverage, CO on Pt", theta_CO[1,:],
+    "Fractional coverage, CO on Rh", theta_CO[2,:],
+    "Fractional coverage, O on Au", theta_O[0,:],
+    "Fractional coverage, O on Pt", theta_O[1,:],
+    "Fractional coverage, O on Rh", theta_O[2,:],
+)
