@@ -3,26 +3,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from util import print_arrays_to_CSV
 
+
 # Calculated values
-S_O2       = 198.263 * asu.J * asu.K**-1 * asu.mol**-1 # Entropy of O2 (gas)
-S_CO       = 205.968 * asu.J * asu.K**-1 * asu.mol**-1 # Entropy of CO (gas)
 metals     = ["Au", "Pt", "Rh"]
 E_ads_CO   = np.array([-0.124, -1.434, -1.586]) * asu.eV # Adsorption energy for CO on metals
 E_ads_O    = np.array([ 0.325, -1.041, -1.751]) * asu.eV # Adsorption energy for O on metals
 E_a        = -0.3 * (E_ads_O + E_ads_CO) + 0.22 * asu.eV # Activation energy for CO2 formation
 A_per_site = np.array([67.994, 61.422, 57.465]) * asu.Ang**2 / 9 # Area per reaction site
 
-print(E_a / asu.eV)
+# Read entropy and temperature
+data_CO = np.genfromtxt("Assignment 4/output_T5/TIF320_A4_T5_entropy_vs_temperature_at_P=101325Pa_CO.csv", skip_header=1, delimiter=",")
+data_O2 = np.genfromtxt("Assignment 4/output_T5/TIF320_A4_T5_entropy_vs_temperature_at_P=101325Pa_O2.csv", skip_header=1, delimiter=",")
+T = data_CO[:,0] * asu.K
+beta = 1 / (asu.kB * T)
+assert(np.all(T == data_O2[:,0])); "Different temperatures in S vs T files!"
+S_CO = data_CO[:,1] * asu.eV / asu.K
+S_O2 = data_O2[:,1] * asu.eV / asu.K
 
 # Partial pressures
 p_O2 = 1 * asu.atm
 p_CO = 1 * asu.atm
 
-# Temperature range
-T = np.linspace(100, 2000, 1000) * asu.K
-beta = 1 / (asu.kB * T)
-
-# Reaction rates
+# Compute reaction rate for each metal
 r = np.zeros((3, len(T)))
 theta_CO = np.zeros((3, len(T)))
 theta_O  = np.zeros((3, len(T)))
@@ -70,7 +72,7 @@ plt.show()
 
 # Export to csv
 print_arrays_to_CSV(
-    "Assignment 4/output_T7/r_vs_T.csv",
+    "Assignment 4/output_T7/rate_and_coverage_vs_temperature.csv",
     "Temperature", T / asu.K,
     "Reaction rate Au [mol / (m2 s)]", r[0,:] / (asu.mol / (asu.m**2 * asu.s)),
     "Reaction rate Pt [mol / (m2 s)]", r[1,:] / (asu.mol / (asu.m**2 * asu.s)),
