@@ -132,7 +132,8 @@ for i in range(len(molecule_names)):
 
     print_arrays_to_CSV(f"output_T5/TIF320_A4_T5_entropy_vs_temperature_at_P={pressure_T7}Pa_{molecule_name}.csv", 
                         "Temperature (K)", temperatures, 
-                        "Entropy in ideal gas approximation (eV/K)", entropies)
+                        "Entropy in ideal gas approximation (eV/K)", entropies, 
+                        print_message=True)
         #print_arrays_to_CSV(f"output_T5/TIF320_A4_T5_entropy_T={temperature}K_P={pressure:.2e}Pa_CO_O2.csv", 
         #                    "Molecule", molecule_names, 
         #                    "Entropy in ideal gas approximation (eV/K)", entropies, 

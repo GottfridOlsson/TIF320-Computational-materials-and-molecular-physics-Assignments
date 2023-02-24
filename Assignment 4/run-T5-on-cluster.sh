@@ -13,4 +13,4 @@ module load SciPy-bundle/2022.05-foss-2022a
 module load ASE/3.22.1-foss-2022a
 module load GPAW/22.8.0-foss-2022a
 
-mpiexec gpaw python 'task5.py'
+mpiexec gpaw python 'Assignment 4/task5.py'
