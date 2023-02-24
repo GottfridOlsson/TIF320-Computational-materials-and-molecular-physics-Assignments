@@ -20,10 +20,6 @@ assert(np.all(T == data_O2[:,0])); "Different temperatures in S vs T files!"
 S_CO = data_CO[:,1] * asu.eV / asu.K
 S_O2 = data_O2[:,1] * asu.eV / asu.K
 
-# Partial pressures
-p_O2 = 1 * asu.atm
-p_CO = 1 * asu.atm
-
 # Compute reaction rate for each metal
 r = np.zeros((3, len(T)))
 theta_CO = np.zeros((3, len(T)))
@@ -35,11 +31,11 @@ for i, metal in enumerate(metals):
     K_CO = np.exp(- S_CO / asu.kB) * np.exp( - beta * 1 * E_ads_CO[i])
 
     # Compute fractional coverage
-    theta_O[i,:] = (p_O2 * K_O2 - np.sqrt(p_O2 * K_O2) * (1 + p_CO * K_CO)) / \
-            (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
+    theta_O[i,:] = (K_O2 - np.sqrt(K_O2) * (1 + K_CO)) / \
+            (K_O2 - (1 + K_CO)**2)
 
-    theta_CO[i,:] = (p_CO * K_CO * (np.sqrt(p_O2 * K_O2) - (1 + p_CO * K_CO))) / \
-            (p_O2 * K_O2 - (1 + p_CO * K_CO)**2)
+    theta_CO[i,:] = (K_CO * (np.sqrt(K_O2) - (1 + K_CO))) / \
+            (K_O2 - (1 + K_CO)**2)
 
     # Compute reaction rate
     nu = 1e12 * asu.s**-1
@@ -64,7 +60,7 @@ ax2 = fig.add_subplot(2,1,2)
 for i, metal in enumerate(metals):
     ax2.semilogy(T, r[i,:] / (asu.mol * asu.m**-2 * asu.s**-1), ["r", "g", "b"][i] + "-", label=metal)
 ax2.set_xlabel("Temperature (K)")
-ax2.set_ylabel("Reaction rate (mol/m$^2$s)")
+ax2.set_ylabel("Reaction rate (mol m$^-2$s^-1)")
 ax2.grid()
 ax2.legend()
 
