@@ -1,6 +1,16 @@
 # Inspired by:
 # [1]: https://wiki.fysik.dtu.dk/ase/tutorials/db/db.html
 
+
+# READ ME BEFORE RUNNING CODE
+# READ ME BEFORE RUNNING CODE
+# READ ME BEFORE RUNNING CODE
+# READ ME BEFORE RUNNING CODE
+# READ ME BEFORE RUNNING CODE
+# READ ME BEFORE RUNNING CODE
+# READ ME BEFORE RUNNING CODE
+# see below
+
 from gpaw import GPAW, PW
 from ase import Atoms
 from ase.io import read, write
@@ -50,7 +60,15 @@ for i, surface_name in enumerate(surface_names):
             dyn = GPMin(surface, 
                         trajectory=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.traj", 
                         logfile=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.log")
-            dyn.run(fmax=0.1, steps=25)
+            
+            # Update after feedback: converge O on Au better for position 'hollow'
+            # OR: just pick fmax = 0.01 and rerun all the samples to get better values?
+            # READ ME BEFORE RUNNING CODE
+            if adsorbate_name == 'O' and surface_name == 'Au':
+                fmax = 0.01
+            else:
+                fmax = 0.1
+            dyn.run(fmax=fmax, steps=25)
             
             E_pot = surface.get_potential_energy() 
             
