@@ -33,6 +33,9 @@ for i, surface_name in enumerate(surface_names):
     a = a_T1[i]
 
     for adsorbate_name in adsorbate_names:
+        if surface_name=='Au' and adsorbate_name=='CO':
+            continue
+        
         
         # Build adsorbate
         if adsorbate_name == "CO": adsorbate = molecule(adsorbate_name)
@@ -40,7 +43,7 @@ for i, surface_name in enumerate(surface_names):
 
         for position in positions:
             
-            #print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}")
+            print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}")
             # Build surfaces and add adsorbate
             surface = fcc111(surface_name, a=a, size=[3,3,3], vacuum=6.0)
             add_adsorbate(surface, adsorbate, height=z_distance_adsorbant, position=position, mol_index=-1)
@@ -49,6 +52,7 @@ for i, surface_name in enumerate(surface_names):
             fixed = list(range(len(surface) - 1))
             surface.constraints = [FixAtoms(indices=fixed)]
 
+            
             # Set calculator 
             calculator = GPAW(xc='PBE',
                               mode=PW(450),
@@ -61,14 +65,9 @@ for i, surface_name in enumerate(surface_names):
                         trajectory=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.traj", 
                         logfile=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.log")
             
-            # Update after feedback: converge O on Au better for position 'hollow'
-            # OR: just pick fmax = 0.01 and rerun all the samples to get better values?
-            # READ ME BEFORE RUNNING CODE
-            if adsorbate_name == 'O' and surface_name == 'Au':
-                fmax = 0.01
-            else:
-                fmax = 0.1
-            dyn.run(fmax=fmax, steps=25)
+            # UPDATE after feedback: converge O on Au better for position 'hollow'
+            # let fmax=0.01 for all cases
+            dyn.run(fmax=0.01, steps=30)
             
             E_pot = surface.get_potential_energy() 
             
@@ -80,4 +79,5 @@ for i, surface_name in enumerate(surface_names):
             # Paropen only writes to the file for when world.rank==0, i.e. for the process that gets highest rank (only writes once to file, and not once per core used in calculation)
             with paropen(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
+            
 
