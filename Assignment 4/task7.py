@@ -31,11 +31,9 @@ for i, metal in enumerate(metals):
     K_CO = np.exp(- S_CO / asu.kB) * np.exp( - beta * 1 * E_ads_CO[i])
 
     # Compute fractional coverage
-    theta_O[i,:] = (K_O2 - np.sqrt(K_O2) * (1 + K_CO)) / \
-            (K_O2 - (1 + K_CO)**2)
+    theta_O[i,:] = np.sqrt(K_O2) / (1 + K_CO + np.sqrt(K_O2))
 
-    theta_CO[i,:] = (K_CO * (np.sqrt(K_O2) - (1 + K_CO))) / \
-            (K_O2 - (1 + K_CO)**2)
+    theta_CO[i,:] = K_CO / (1 + K_CO + np.sqrt(K_O2))
 
     # Compute reaction rate
     nu = 1e12 * asu.s**-1
