@@ -1,48 +1,240 @@
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Au, E_slab=-78.84443160046156
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Pt, E_slab=-161.8134850625909
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
-Rh, E_slab=-182.7977149721069
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, ontop
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, bridge
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, fcc
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Au, 4.177 Å, O, hcp
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, ontop
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, bridge
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, fcc
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, CO, hcp
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, ontop
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, bridge
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, fcc
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Pt, 3.97 Å, O, hcp
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, ontop
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, bridge
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
+Rh, 3.84 Å, CO, fcc
