@@ -31,8 +31,7 @@ for i, metal in enumerate(metals):
     K_CO = np.exp(- S_CO / asu.kB) * np.exp( - beta * 1 * E_ads_CO[i])
 
     # Compute fractional coverage
-    theta_O[i,:] = np.sqrt(K_O2) / (1 + K_CO + np.sqrt(K_O2))
-
+    theta_O[i,:]  = np.sqrt(K_O2) / (1 + K_CO + np.sqrt(K_O2))
     theta_CO[i,:] = K_CO / (1 + K_CO + np.sqrt(K_O2))
 
     # Compute reaction rate
@@ -41,7 +40,7 @@ for i, metal in enumerate(metals):
 
     # Scale to moles per unit area
     sites_per_area = 1 / A_per_site[i]
-    print(f"{metal}: sites per area {sites_per_area / (asu.m**-2 * asu.mol)} mol / Å^2")
+    print(f"{metal}: sites per area {sites_per_area / (asu.m**-2 * asu.mol)} mol / m^2")
     r[i,:]= r_per_site * sites_per_area
 
 # Plot

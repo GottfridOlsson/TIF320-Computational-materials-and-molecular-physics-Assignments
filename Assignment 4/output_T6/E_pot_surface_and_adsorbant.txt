@@ -1,4 +1,4 @@
-Surface metal, adsorbant, position, E_pot for adsorbed adorbant on surface (eV)
+Surface metal, adsorbant, position, E_pot for adsorbed adorbant on surface (eV) with fmax=0.1
 Au, CO, ontop, -93.16195449608534
 Au, CO, bridge, -92.93709715778245
 Au, CO, fcc, -92.86227663202168
@@ -24,6 +24,7 @@ Rh, O, bridge, -188.91305570378168
 Rh, O, fcc, -188.9132093765236
 Rh, O, hcp, -188.78338659210687
 
+with fmax=0.01
 Au, CO, ontop, -93.16197097400301
 Au, CO, bridge, -92.9371579788872
 Au, CO, fcc, -92.8624739870401
@@ -41,3 +42,6 @@ Pt, O, fcc, -167.21786437361342
 Pt, O, hcp, -166.8307553458662
 Rh, CO, ontop, -198.5776188539229
 Rh, CO, bridge, -197.9345420798461
+
+atoms not fixed:
+Au, O, ontop, -81.80183195059347

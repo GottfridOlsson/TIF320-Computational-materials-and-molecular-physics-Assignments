@@ -33,9 +33,8 @@ for i, surface_name in enumerate(surface_names):
     a = a_T1[i]
 
     for adsorbate_name in adsorbate_names:
-        if surface_name=='Au' and adsorbate_name=='CO':
+        if surface_name!='Au' or adsorbate_name!='O':
             continue
-        
         
         # Build adsorbate
         if adsorbate_name == "CO": adsorbate = molecule(adsorbate_name)
@@ -45,39 +44,39 @@ for i, surface_name in enumerate(surface_names):
             
             print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}")
             # Build surfaces and add adsorbate
+            
             surface = fcc111(surface_name, a=a, size=[3,3,3], vacuum=6.0)
             add_adsorbate(surface, adsorbate, height=z_distance_adsorbant, position=position, mol_index=-1)
 
             # Constrain all atoms except the adsorbate: (from source [1])
-            fixed = list(range(len(surface) - 1))
-            surface.constraints = [FixAtoms(indices=fixed)]
+            #fixed = list(range(len(surface) - 1))
+            #surface.constraints = [FixAtoms(indices=fixed)]
 
             
             # Set calculator 
             calculator = GPAW(xc='PBE',
                               mode=PW(450),
                               kpts=(4, 4, 1), #kpts taken from Task 3, this is a guess
-                              txt=f"{output_path_start}GPAW_{surface_name}_{adsorbate_name}_{position}.txt")
+                              txt=f"{output_path_start}GPAW_{surface_name}_{adsorbate_name}_{position}_notFixedAtoms.txt")
             surface.set_calculator(calculator)
 
             # Relax until the forces acting on each atom are all below 0.1 eV/Å
             dyn = GPMin(surface, 
-                        trajectory=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.traj", 
-                        logfile=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}.log")
+                        trajectory=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}_notFixedAtoms.traj", 
+                        logfile=f"{output_path_start}GPMin_{surface_name}_{adsorbate_name}_{position}_notFixedAtoms.log")
             
-            # UPDATE after feedback: converge O on Au better for position 'hollow'
+            # UPDATE after feedback: converge O on Au better for fcc
             # let fmax=0.01 for all cases
             dyn.run(fmax=0.01, steps=30)
             
             E_pot = surface.get_potential_energy() 
             
             # Output
-            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed.xyz", surface)
-            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed.png", surface)
-            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_angled-view.png", surface,  rotation='10z,-80x, 5y')
+            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_notFixedAtoms.xyz", surface)
+            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_notFixedAtoms.png", surface)
+            write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_notFixedAtoms_angled-view_.png", surface,  rotation='10z,-80x, 5y')
             
             # Paropen only writes to the file for when world.rank==0, i.e. for the process that gets highest rank (only writes once to file, and not once per core used in calculation)
             with paropen(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
             
-
