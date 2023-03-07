@@ -4,8 +4,8 @@
 #SBATCH -N 1                               # Use 1 node
 #SBATCH -n 4                               # Use 16 cores on that node
 #SBATCH -t 01:00:00                        # Maximum time
-#SBATCH -o "logs/T4_std.out"  # stdout goes to this file
-#SBATCH -e "logs/T4_err.out"  # stderr goes to this file
+#SBATCH -o "Assignment 4/logs/T4_std.out"  # stdout goes to this file
+#SBATCH -e "Assignment 4/logs/T4_err.out"  # stderr goes to this file
 
 # Load modules
 module purge
