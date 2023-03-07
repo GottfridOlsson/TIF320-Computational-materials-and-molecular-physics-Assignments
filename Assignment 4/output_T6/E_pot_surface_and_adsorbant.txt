@@ -44,7 +44,6 @@ Rh, CO, ontop, -198.5776188539229
 Rh, CO, bridge, -197.9345420798461
 
 atoms not fixed:
-Au, O, ontop, -81.80183195059347
 Au, O, ontop, -81.80182109073907
 Au, O, bridge, -83.20241735767968
 Au, O, fcc, -83.20242634320698
