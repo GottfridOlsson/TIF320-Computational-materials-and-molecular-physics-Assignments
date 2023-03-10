@@ -6,10 +6,12 @@ from util import print_arrays_to_CSV
 
 # Calculated values
 metals     = ["Au", "Pt", "Rh"]
-E_ads_CO   = np.array([-0.124, -1.434, -1.586]) * asu.eV # Adsorption energy for CO on metals
-E_ads_O    = np.array([ 0.325, -1.041, -1.751]) * asu.eV # Adsorption energy for O on metals
+E_ads_CO   = np.array([-0.19647, -1.7571238, -1.8196930]) * asu.eV # Adsorption energy for CO on metals
+E_ads_O    = np.array([ 0.01457, -1.2555164, -1.7553715]) * asu.eV # Adsorption energy for O on metals
 E_a        = -0.3 * (E_ads_O + E_ads_CO) + 0.22 * asu.eV # Activation energy for CO2 formation
 A_per_site = np.array([67.994, 61.422, 57.465]) * asu.Ang**2 / 9 # Area per reaction site
+
+print(E_a / asu.eV)
 
 # Read entropy and temperature
 data_CO = np.genfromtxt("Assignment 4/output_T5/TIF320_A4_T5_entropy_vs_temperature_at_P=101325Pa_CO.csv", skip_header=1, delimiter=",")
