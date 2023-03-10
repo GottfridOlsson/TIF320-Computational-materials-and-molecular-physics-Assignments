@@ -38,8 +38,8 @@ for i, surface_name in enumerate(surface_names):
             #if surface_name=='Rh' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
 
             #if surface_name=='Au' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
-            if surface_name=='Pt' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
-            #if surface_name=='Rh' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
+            #if surface_name=='Pt' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
+            if surface_name=='Rh' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
             
             if not do_calculation:
                 continue
