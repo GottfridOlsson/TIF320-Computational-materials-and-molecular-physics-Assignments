@@ -1,4 +1,2 @@
 /apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/io/extxyz.py:302: UserWarning: Skipping unhashable information adsorbate_info
   warnings.warn('Skipping unhashable information '
-/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/io/extxyz.py:302: UserWarning: Skipping unhashable information adsorbate_info
-  warnings.warn('Skipping unhashable information '

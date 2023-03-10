@@ -98,7 +98,7 @@ for molecule_name in molecule_names:
     dyn = GPMin(atoms, 
                 trajectory=f"{output_path_start}GPMin_{molecule_name}.traj", 
                 logfile=f"{output_path_start}GPMin_{molecule_name}.log")
-    dyn.run(fmax=0.01, steps=25) #0.001, 100
+    dyn.run(fmax=0.01, steps=50) #0.001, 100
 
     potential_energy.append(atoms.get_potential_energy())
     write(f"{output_path_start}{molecule_name}_relaxed_molecule_structure.xyz", atoms)
