@@ -43,8 +43,13 @@ Pt, O, hcp, -166.8307553458662
 Rh, CO, ontop, -198.5776188539229
 Rh, CO, bridge, -197.9345420798461
 
-atoms not fixed:
+atoms not fixed and fmax=0.01:
 Au, O, ontop, -81.80182109073907
 Au, O, bridge, -83.20241735767968
 Au, O, fcc, -83.20242634320698
 Au, O, hcp, -82.97105437123905
+
+Au, O, ontop, -81.8018356973966
+Au, O, bridge, -83.20246220578714
+Au, O, fcc, -83.20242634325531
+Au, O, hcp, -82.97105437047266

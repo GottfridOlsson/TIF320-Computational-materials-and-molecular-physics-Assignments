@@ -72,7 +72,7 @@ for i, surface_name in enumerate(surface_names):
                 E_ads_O  = adsorption_energy_O(E_slabWithAdsorbate_O, E_slab, E_adsorbate_O2)
                 E_ads = E_ads_O
 
-            with paropen(f"{output_path_start}E_adsorption.txt_relaxedSurface", 'a') as file:
+            with paropen(f"{output_path_start}E_adsorption_relaxedSurface.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_ads}\n")
 
             with paropen(f"{output_path_start}E_adsorption_formatted_relaxedSurface.txt", 'a') as file:
@@ -112,7 +112,7 @@ for i, surface_name in enumerate(surface_names):
         E_act = activation_energy(E_ads_O, E_ads_CO)
         E_act_pos.append(E_act)
 
-        with paropen(f"{output_path_start}E_activation.txt_relaxedSurface", 'a') as file:
+        with paropen(f"{output_path_start}E_activation_relaxedSurface.txt", 'a') as file:
             file.write(f"{surface_name}, {position}, {E_act}\n")
         
     with paropen(f"{output_path_start}E_activation_formatted_relaxedSurface.txt", 'a') as file:

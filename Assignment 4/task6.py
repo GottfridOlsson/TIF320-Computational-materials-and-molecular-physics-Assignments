@@ -2,15 +2,6 @@
 # [1]: https://wiki.fysik.dtu.dk/ase/tutorials/db/db.html
 
 
-# READ ME BEFORE RUNNING CODE
-# READ ME BEFORE RUNNING CODE
-# READ ME BEFORE RUNNING CODE
-# READ ME BEFORE RUNNING CODE
-# READ ME BEFORE RUNNING CODE
-# READ ME BEFORE RUNNING CODE
-# READ ME BEFORE RUNNING CODE
-# see below
-
 from gpaw import GPAW, PW
 from ase import Atoms
 from ase.io import read, write
@@ -33,15 +24,26 @@ for i, surface_name in enumerate(surface_names):
     a = a_T1[i]
 
     for adsorbate_name in adsorbate_names:
-        if surface_name!='Au' or adsorbate_name!='O':
-            continue
-        
+
         # Build adsorbate
         if adsorbate_name == "CO": adsorbate = molecule(adsorbate_name)
         if adsorbate_name == "O":  adsorbate = Atoms(adsorbate_name)
 
         for position in positions:
+
+            do_calculation = 0
+
+            if surface_name=='Au' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
+            if surface_name=='Pt' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
+            if surface_name=='Rh' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
+
+            #if surface_name=='Au' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
+            if surface_name=='Pt' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
+            if surface_name=='Rh' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
             
+            if not do_calculation:
+                continue
+          
             print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}")
             # Build surfaces and add adsorbate
             
@@ -79,4 +81,3 @@ for i, surface_name in enumerate(surface_names):
             # Paropen only writes to the file for when world.rank==0, i.e. for the process that gets highest rank (only writes once to file, and not once per core used in calculation)
             with paropen(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
-            
