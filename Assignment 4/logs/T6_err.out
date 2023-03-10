@@ -1,0 +1,3 @@
+/apps/Arch/software/ASE/3.22.1-foss-2022a/lib/python3.10/site-packages/ase/io/extxyz.py:302: UserWarning: Skipping unhashable information adsorbate_info
+  warnings.warn('Skipping unhashable information '
+slurmstepd: error: *** JOB 4460560 ON vera53-2 CANCELLED AT 2023-03-10T11:58:41 ***

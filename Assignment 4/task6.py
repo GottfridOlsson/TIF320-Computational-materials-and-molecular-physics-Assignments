@@ -33,13 +33,13 @@ for i, surface_name in enumerate(surface_names):
 
             do_calculation = 0
 
-            if surface_name=='Au' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
-            if surface_name=='Pt' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
-            if surface_name=='Rh' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
+            #if surface_name=='Au' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
+            #if surface_name=='Pt' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
+            #if surface_name=='Rh' and adsorbate_name=='CO' and position == 'ontop': do_calculation = 1
 
             #if surface_name=='Au' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
             if surface_name=='Pt' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
-            if surface_name=='Rh' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
+            #if surface_name=='Rh' and adsorbate_name=='O' and position == 'fcc': do_calculation = 1
             
             if not do_calculation:
                 continue
@@ -78,6 +78,7 @@ for i, surface_name in enumerate(surface_names):
             write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_notFixedAtoms.png", surface)
             write(f"{output_path_start}{surface_name}_{adsorbate_name}_{position}_relaxed_notFixedAtoms_angled-view_.png", surface,  rotation='10z,-80x, 5y')
             
+            print(f"{surface_name}, {a} Å, {adsorbate_name}, {position}, E_pot={E_pot}")
             # Paropen only writes to the file for when world.rank==0, i.e. for the process that gets highest rank (only writes once to file, and not once per core used in calculation)
             with paropen(f"{output_path_start}E_pot_surface_and_adsorbant.txt", 'a') as file:
                 file.write(f"{surface_name}, {adsorbate_name}, {position}, {E_pot}\n")
